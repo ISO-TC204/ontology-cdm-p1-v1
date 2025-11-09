@@ -1,94 +1,164 @@
-site_name: METR - Ontology
-site_description: A registry for documenting the ontology of METR terms
-repo_url: https://github.com/k-vaughn/ontology-metr
+site_name: 'City Data Model - Part 1: Foundation level concepts'
+site_description: This ontology forms the basis of ISO/IEC 5087-1, which specifies
+  the foundational level concepts for cities.
+repo_url: https://github.com/k-vaughn/ontology-cdm-p1
 nav:
-  - Home: index.md
-  - Traffic Regulation Pattern:
-    - Overview: tro.md
-    - DaySelector: classes/DaySelector.md
-    - InstanceOfDayWithinMonth: classes/InstanceOfDayWithinMonth.md
-    - JurisdictionalEntity: classes/JurisdictionalEntity.md
-    - LegalBasis: classes/LegalBasis.md
-    - MetrThing: classes/MetrThing.md
-    - NamedArea: classes/NamedArea.md
-    - OverallPeriod: classes/OverallPeriod.md
-    - Period: classes/Period.md
-    - PublicHoliday: classes/PublicHoliday.md
-    - RuleMaker: classes/RuleMaker.md
-    - SpecialDay: classes/SpecialDay.md
-    - TimePeriodOfDay: classes/TimePeriodOfDay.md
-    - TrafficRegulation: classes/TrafficRegulation.md
-    - TrafficRegulationOrder: classes/TrafficRegulationOrder.md
-    - Validity: classes/Validity.md
-site_url: https://github.com/k-vaughn/ontology-metr
-copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"> <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
+- Home: index.md
+- Activity Ontology:
+  - Activity (Activity): classes/Activity__Activity.md
+  - Activity Ontology Thing (Activity): classes/Activity__ActivityOntologyThing.md
+  - Activity Status (Activity): classes/Activity__ActivityStatus.md
+  - Conjunctive State (Activity): classes/Activity__ConjunctiveState.md
+  - Disjunctive State (Activity): classes/Activity__DisjunctiveState.md
+  - Manifestation State (Activity): classes/Activity__ManifestationState.md
+  - Non Terminal State (Activity): classes/Activity__NonTerminalState.md
+  - State (Activity): classes/Activity__State.md
+  - State Status (Activity): classes/Activity__StateStatus.md
+  - Terminal State (Activity): classes/Activity__TerminalState.md
+- Agent Pattern:
+  - Agent (Agent): classes/Agent__Agent.md
+  - Agent Ontology Thing (Agent): classes/Agent__AgentOntologyThing.md
+- Agreement Pattern:
+  - Agent (Agreement): classes/Agreement__Agent.md
+  - Agreement (Agreement): classes/Agreement__Agreement.md
+  - Agreement Ontology Thing (Agreement): classes/Agreement__AgreementOntologyThing.md
+  - Atomic Agreement: classes/Agreement__Atomic Agreement.md
+  - Complex Agreement: classes/Agreement__Complex Agreement.md
+  - Conjunctive Agreement (Agreement): classes/Agreement__ConjunctiveAgreement.md
+  - Disjunctive Agreement (Agreement): classes/Agreement__DisjunctiveAgreement.md
+- City Units of Measure:
+  - acceleration: classes/CityUnits__acceleration.md
+  - acceleration unit: classes/CityUnits__acceleration unit.md
+  - amount of money: classes/CityUnits__amount of money.md
+  - area: classes/CityUnits__area.md
+  - area unit: classes/CityUnits__area unit.md
+  - Capacity (CityUnits): classes/CityUnits__Capacity.md
+  - Capacity Rate (CityUnits): classes/CityUnits__CapacityRate.md
+  - Capacity Size (CityUnits): classes/CityUnits__CapacitySize.md
+  - Cardinality Measure (CityUnits): classes/CityUnits__CardinalityMeasure.md
+  - Cardinality Unit Per Time (CityUnits): classes/CityUnits__CardinalityUnitPerTime.md
+  - City Units Thing (CityUnits): classes/CityUnits__CityUnitsThing.md
+  - duration: classes/CityUnits__duration.md
+  - function: classes/CityUnits__function.md
+  - Geo_Position_unit (CityUnits): classes/CityUnits__Geo_Position_unit.md
+  - length: classes/CityUnits__length.md
+  - length unit: classes/CityUnits__length unit.md
+  - mass: classes/CityUnits__mass.md
+  - mass unit: classes/CityUnits__mass unit.md
+  - Monetary Value (CityUnits): classes/CityUnits__MonetaryValue.md
+  - ratio: classes/CityUnits__ratio.md
+  - speed: classes/CityUnits__speed.md
+  - speed unit: classes/CityUnits__speed unit.md
+  - time unit: classes/CityUnits__time unit.md
+  - Value Of Money (CityUnits): classes/CityUnits__ValueOfMoney.md
+  - volume: classes/CityUnits__volume.md
+  - volume unit: classes/CityUnits__volume unit.md
+- iCity Change Ontology:
+  - Change Ontology Thing (Change): classes/Change__ChangeOntologyThing.md
+  - First Manifestation (Change): classes/Change__FirstManifestation.md
+  - Manifestation (Change): classes/Change__Manifestation.md
+- iCity Resource Ontology:
+  - Consume State (Resource): classes/Resource__ConsumeState.md
+  - Divisible Resource (Resource): classes/Resource__DivisibleResource.md
+  - Non Divisible Resource (Resource): classes/Resource__NonDivisibleResource.md
+  - Planned Allocation (Resource): classes/Resource__PlannedAllocation.md
+  - Produce State (Resource): classes/Resource__ProduceState.md
+  - Release State (Resource): classes/Resource__ReleaseState.md
+  - Resource (Resource): classes/Resource__Resource.md
+  - Resource Ontology Thing (Resource): classes/Resource__ResourceOntologyThing.md
+  - Terminal Resource State (Resource): classes/Resource__TerminalResourceState.md
+  - Use State (Resource): classes/Resource__UseState.md
+- ISO 5087-1 Provenance Pattern:
+  - Activity (Prov): classes/Prov__Activity.md
+  - Agent (Prov): classes/Prov__Agent.md
+  - Prov Ontology Thing (Prov): classes/Prov__ProvOntologyThing.md
+- Organization Structure Pattern:
+  - Organization (OrganizationStructure): classes/OrganizationStructure__Organization.md
+  - Organization Structure Ontology Thing (OrganizationStructure): classes/OrganizationStructure__OrganizationStructureOntologyThing.md
+- Recurring Event Ontology:
+  - Daily Recurring Event (RecurringEvent): classes/RecurringEvent__DailyRecurringEvent.md
+  - Exception Day (RecurringEvent): classes/RecurringEvent__ExceptionDay.md
+  - Monthly Recurring Event (RecurringEvent): classes/RecurringEvent__MonthlyRecurringEvent.md
+  - Recurring Event (RecurringEvent): classes/RecurringEvent__RecurringEvent.md
+  - Recurring Event Thing (RecurringEvent): classes/RecurringEvent__RecurringEventThing.md
+  - Weekly Recurring Event (RecurringEvent): classes/RecurringEvent__WeeklyRecurringEvent.md
+  - Yearly Recurring Event (RecurringEvent): classes/RecurringEvent__YearlyRecurringEvent.md
+- Spatial Location Ontology:
+  - Location (SpatialLoc): classes/SpatialLoc__Location.md
+  - Spatial Loc Ontology Thing (SpatialLoc): classes/SpatialLoc__SpatialLocOntologyThing.md
+- Time Pattern:
+  - Time Ontology Thing (Time): classes/Time__TimeOntologyThing.md
+site_url: https://k-vaughn.github.io/ontology-cdm-p1
+copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
+  rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+  src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+  style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+  alt=""></a></p>
 theme:
   name: material
   features:
-    - content.code.copy
-    - content.status
-    - content.tooltips
-    - icons
-    - navigation.path
-    - navigation.top
+  - content.code.copy
+  - content.status
+  - content.tooltips
+  - icons
+  - navigation.path
+  - navigation.top
   icon:
     repo: fontawesome/brands/github
     admonition:
       question: fontawesome/solid/comments
-  palette: 
-    - scheme: default
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
-    - scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  palette:
+  - scheme: default
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
 extra_css:
-  - stylesheets/extra.css
+- stylesheets/extra.css
 extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
+- https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+- javascripts/tablesort.js
 plugins:
-  - search
-  - git-revision-date-localized:
-      type: date
+- search
+- git-revision-date-localized:
+    type: date
 markdown_extensions:
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - md_in_html
-  - meta
-  - footnotes
-  - pymdownx.blocks.caption
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-      use_pygments: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets:
-      base_path: docs
-      check_paths: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - toc:
-      permalink: true
+- abbr
+- admonition
+- attr_list
+- def_list
+- md_in_html
+- meta
+- footnotes
+- pymdownx.blocks.caption
+- pymdownx.details
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+    use_pygments: true
+- pymdownx.inlinehilite
+- pymdownx.snippets:
+    base_path: docs
+    check_paths: true
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: ''
+- pymdownx.tabbed:
+    alternate_style: true
+- toc:
+    permalink: true
 extra:
   search:
     highlight: true
   hide:
-    - title
+  - title
   version:
     provider: mike
     alias: true

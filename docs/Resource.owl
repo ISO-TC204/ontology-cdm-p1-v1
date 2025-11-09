@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/"
-     xml:base="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/"
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#"
      xmlns:WV="http://www.wurvoc.org/vocabularies/WV/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ns="http://creativecommons.org/ns#"
-     xmlns:gis="http://www.opengis.net/ont/geosparql#"
      xmlns:ns5="http://www.w3.org/2003/06/sw-vocab-status/ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:Time="http://ontology.eil.utoronto.ca/5087/1/Time/"
      xmlns:adms="http://www.w3.org/ns/adms#"
      xmlns:bibo="http://purl.org/ontology/bibo/"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -20,12 +18,15 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:otime="http://www.w3.org/2006/time#"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:Change="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change/"
-     xmlns:Activity="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/"
-     xmlns:Resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/"
-     xmlns:CityUnits="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/CityUnits/"
+     xmlns:i72="http://ontology.eil.utoronto.ca/ISO21972/iso21972#"
+     xmlns:change="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#"
+     xmlns:activity="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#"
+     xmlns:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#"
+     xmlns:spatialLoc="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc##"
+     xmlns:cityUnits="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/CityUnits/"
      xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
-    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#">
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972.owl"/>
         <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Activity.owl"/>
         <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/GenericProperties.owl"/>
         <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/CityUnits.owl"/>
@@ -33,10 +34,10 @@
         <dc:creator>Megan Katsumi</dc:creator>
         <dc:description>This ontology provides a generic representation of resources that contain core properties generic across all transportation uses. We take the view presented in the TOVE model (Fadel, Fox, and Gruninger, 1994) that &quot;...being a resource is not an innate property of an object but a property that is derived from the role the object plays with respect to an activity&quot;. The definition of  a resource is dependent on its participation in an activity occurrence, so the Resource ontology is in fact an extension of the Activity ontology. In this sense, Resources are a class of manifestations, so that rather than have a specialized Resource-perdurant (PD) class, a Resource is a manifestation of some other perdurant class in the ontology. For example, an instance of a Vehicle that is a manifestation of some VehiclePD may also be an instance of a resource, whereas some other instance of a Vehicle that is some later manifestation of the same VehiclePD may not be a Resource, or it may be a different Resource. 
 		</dc:description>
-        <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">November 6, 2017</dc:issued>
+        <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-06</dc:issued>
         <dc:title>iCity Resource Ontology</dc:title>
         <vann:preferredNamespacePrefix>icity-resource</vann:preferredNamespacePrefix>
-        <rdfs:comment xml:lang="2016 megan katsumi, icity research group">Developed as part of the overall iCity ontology effort, the iCity-Resource ontology is designed to capture concepts related to resources.
+        <rdfs:comment xml:lang="en">Developed as part of the overall iCity ontology effort, the iCity-Resource ontology is designed to capture concepts related to resources.
 		Changes from previous version: 
 		-Updated Activity ontology (via updates to SpatialLoc)
 		Copyright </rdfs:comment>
@@ -179,138 +180,138 @@
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty">
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty">
         <dc:description>Added for organizational purposes, to identify all properties defined in the Resource ontology.</dc:description>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/capacityInUse -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#capacityInUse -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/capacityInUse">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#capacityInUse">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/consumedBy -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#consumedBy -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/consumedBy">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/preconditionOf"/>
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#consumedBy">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#preconditionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/forResource -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#forResource -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/forResource">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#forResource">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/forState -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#forState -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/forState">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#forState">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAllocation -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAllocation -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAllocation">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAllocation">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAsset -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAsset -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAsset">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAsset">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAvailableCapacity -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAvailableCapacity -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAvailableCapacity">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAvailableCapacity">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasCapacity -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasCapacity -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasCapacity">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasCapacity">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasOwner -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasOwner -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasOwner">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ownedBy"/>
-        <rdfs:domain rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasOwner">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
+        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ownedBy"/>
+        <rdfs:domain rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource"/>
         <rdfs:comment>A Resource may have some owner. The owner of a resource is subject to change over time.</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasQuantity -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasQuantity -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasQuantity">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasQuantity">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasResource -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasResource -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasResource">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/resourceOf"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasResource">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
+        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#resourceOf"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ownedBy -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ownedBy -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ownedBy">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ownedBy">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/participatesIn -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#participatesIn -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/participatesIn">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#participatesIn">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/resourceOf -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#resourceOf -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/resourceOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#resourceOf">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/usedBy -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#usedBy -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/usedBy">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/preconditionOf"/>
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyProperty"/>
+    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#usedBy">
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#preconditionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyProperty"/>
     </owl:ObjectProperty>
     
 
@@ -332,36 +333,36 @@
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ConsumeState -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ConsumeState -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ConsumeState">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/TerminalResourceState"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ConsumeState">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#TerminalResourceState"/>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/DivisibleResource -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#DivisibleResource -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/DivisibleResource">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource"/>
-        <owl:disjointWith rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/NonDivisibleResource"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#DivisibleResource">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource"/>
+        <owl:disjointWith rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#NonDivisibleResource"/>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/NonDivisibleResource -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#NonDivisibleResource -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/NonDivisibleResource">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#NonDivisibleResource">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource"/>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/PlannedAllocation -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#PlannedAllocation -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/PlannedAllocation">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change/Manifestation"/>
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyThing"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#PlannedAllocation">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#Manifestation"/>
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTime"/>
@@ -371,21 +372,21 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/forResource"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#forResource"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource"/>
+                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/forState"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#forState"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/State"/>
+                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#State"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasQuantity"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasQuantity"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Quantity"/>
             </owl:Restriction>
@@ -401,69 +402,69 @@ Note that Allocation is a Manifestation as the allocation may change over time.<
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ProduceState -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ProduceState -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ProduceState">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/TerminalResourceState"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ProduceState">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#TerminalResourceState"/>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ReleaseState -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ReleaseState -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ReleaseState">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/TerminalResourceState"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ReleaseState">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#TerminalResourceState"/>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyThing"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontology.eil.utoronto.ca/5087/1/SpatialLoc/hasLocation"/>
-                <owl:allValuesFrom rdf:resource="http://ontology.eil.utoronto.ca/5087/1/SpatialLoc/Location"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc#hasLocation"/>
+                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc#Location"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAllocation"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/PlannedAllocation"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAllocation"/>
+                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#PlannedAllocation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/participatesIn"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#participatesIn"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/Activity"/>
+                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#Activity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/capacityInUse"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#capacityInUse"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAvailableCapacity"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAvailableCapacity"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasCapacity"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasCapacity"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointUnionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/DivisibleResource"/>
-            <rdf:Description rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/NonDivisibleResource"/>
+            <rdf:Description rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#DivisibleResource"/>
+            <rdf:Description rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#NonDivisibleResource"/>
         </owl:disjointUnionOf>
         <dc:description>A Resource is a generic representation of some Thing that can be &quot;used&quot; in an Activity.
 A Resource may have some Location, amount or availability, according to the definition of the Manifestation or TimeVaryingEntity.
@@ -476,45 +477,45 @@ A Resource may have some associated location. This property captures an approxim
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyThing -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyThing -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyThing">
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyThing">
         <dc:description>Added for organizational purposes, to identify all classes defined in the Resource ontology.</dc:description>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/TerminalResourceState -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#TerminalResourceState -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/TerminalResourceState">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/TerminalState"/>
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/ResourceOntologyThing"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#TerminalResourceState">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#TerminalState"/>
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#ResourceOntologyThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasAllocation"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/PlannedAllocation"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasAllocation"/>
+                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#PlannedAllocation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasQuantity"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasQuantity"/>
                 <owl:allValuesFrom rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/hasResource"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/Resource"/>
+                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#hasResource"/>
+                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#Resource"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/UseState -->
+    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#UseState -->
 
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/UseState">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/TerminalResourceState"/>
+    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#UseState">
+        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#TerminalResourceState"/>
     </owl:Class>
     <rdf:Description>
         <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
