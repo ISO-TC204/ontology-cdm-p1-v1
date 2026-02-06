@@ -10,6 +10,7 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:i72="https://w3id.org/isoiec21972/v1/"
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:org="http://www.w3.org/ns/org#"
      xmlns:time="http://www.w3.org/2006/time#">
@@ -21,15 +22,14 @@
     	<skos:definition>This ontology specifies the foundation-level concepts of the city data model.</skos:definition>
     	<vann:preferredNamespaceUri>https://w3id.org/isoiec5087/-1/v1/</vann:preferredNamespaceUri>
     	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
-
     		
     	<!-- Provenance -->
         <dcterms:creator>Megan Katsumi</dcterms:creator>
         <dcterms:creator>Mark Fox</dcterms:creator>
     	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
-        <dcterms:issued rdf:datatype="xsd:date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
-        <owl:priorVersion rdf:datatype="xsd:date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
-		<dcterms:created rdf:datatype="xsd:date">2026-01-13</dcterms:created> <!-- Date of creation of this ontology file -->
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
+        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-01-13</dcterms:modified> <!-- Date of this ontology file -->
         <owl:versionInfo>1.3.0</owl:versionInfo>
         <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087/-1/v1/r3.0"/>
         <rdfs:comment>The prior version of this ontology was divided into a distinct file 
@@ -47,7 +47,7 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/prov"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/org"/>
         <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
-
+        <owl:imports rdf:resource="https://w3id.org/isoiec21972/v1"/>
     </owl:Ontology>
     
 
@@ -73,956 +73,57 @@
     </owl:ObjectProperty>
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/achievedAt -->
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/achievedAt">
-        <skos:definition>Identifies the time Interval or Instant during which the State was satisfied.</skos:definition>
+    <!-- https://w3id.org/isoiec5087/-1/v1/CityUnitObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/CityUnitObjectProperty">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="time:TemporalEntity"/>
-        <!-- Issue: Axioms not in ISO/IEC 5087-1 -->
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/effectOf"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/endOf"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDecomp"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/conjunctiveAchievedAt"/>
-            <rdf:Description rdf:about="http://www.w3.org/2006/time#intervalDuring"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/preconditionOf"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/beginOf"/>
-        </owl:propertyChainAxiom>
+        <skos:definition>Added for organizational purposes, to identify all city unit object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/beginOf -->
+    <!-- https://w3id.org/isoiec5087/-1/v1/LocationObjectProperty -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/beginOf">
-        <skos:definition>Identifies the time Instant at which the Activity occurs.</skos:definition>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/LocationObjectProperty">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="time:Instant"/>
-        <!-- Issue: Axioms not in ISO/IEC 5087-1 -->
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/occursAt"/>
-            <rdf:Description rdf:about="http://www.w3.org/2006/time#hasBeginning"/>
-        </owl:propertyChainAxiom>
+        <skos:definition>Added for organizational purposes, to identify all location object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
-    
 
-    <!-- Issue: ISO 5087-1 defines as causedByActivity -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/causedBy -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/causedBy">
-        <skos:definition>Identifies an Activity that in some (indirect) way caused the State to be realized. The causedBy property is the inverse of the causes property and is a generalization (super-property) of the effectOf property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/causes"/>
-    </owl:ObjectProperty>
-    
+    <!-- https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty -->
 
-
-    <!-- Issue: ISO 5087-1 defines as causesState -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/causes -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/causes">
-        <skos:definition>identifies a State that in some (indirect) way was caused by the occurrence of the Activity. An Activity is caused by a State if the State is an effect of the Activity or if the State is an effect of some subactivity of the Activity. The causes property is a generalization (super-property) of the hasEffect property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: Note defined in ISO/IEC 5087-1 and seems redundant (i.e., a subproperty to assign a new name without any additional sematics) -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/conjunctiveAchievedAt -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/conjunctiveAchievedAt">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/achievedAt"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/ConjunctiveState"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- Issue: Note defined in ISO/IEC 5087-1 and seems redundant (i.e., a subproperty to assign a new name without any additional sematics) -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/disjunctiveAchievedAt -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/disjunctiveAchievedAt">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/achievedAt"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/DisjunctiveState"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/effectOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/effectOf">
-        <skos:definition>Identifies an Activity that the State was realized by.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasEffect"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: ISO 5087-1 defines as enabledByState -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/enabledBy -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/enabledBy">
-        <skos:definition>Identifies a State that in some (indirect) way enabled the Activity to occur. An Activity is enabled by a State if the State is a precondition for the Activity or if the State is a precondition of some subactivity of the Activity. The enabledByState property is a generalization (super-property) of the hasPrecondition property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/enables"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- Issue: ISO 5087-1 defines as enablesActivity -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/enables -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/enables">
-        <skos:definition>Identifies an Activity that in some (indirect) way was enabled by the State. The enables property is the inverse of the enabledBy property and is a generalization (super-property) of the preconditionOf property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/endOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/endOf">
-        <skos:definition>Identifies the time Instant at which the Activity ends.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="time:Instant"/>
-        <!-- Issue: Axioms not in ISO/IEC 5087-1 -->
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/occursAt"/>
-            <rdf:Description rdf:about="http://www.w3.org/2006/time#hasEnd"/>
-        </owl:propertyChainAxiom>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasDecomp -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasDecomp">
-        <skos:definition>Identifies two or more States into which the State may be immediately decomposed, i.e. its direct children.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasSubstate"/>
-        <!-- Issue: Logical inconsistency; ISO 5087-1 defines the parent (hasSubState) with a domain of only NonTerminalState and a range of State. Do we then need to say that there there are exactly 0 States of hasDecomp for TerminalState? Do we need to show the following domain and range given that it is already inherited. The only customization of this class seems to be in the definition and the requirement for min2 (which by definition would also apply to hasSubState) -->
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasEffect -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasEffect">
-        <skos:definition>Identifies a State that is realized once the Activity has occurred.</skos:definition>
-        <!-- Issue: changed the subProperty to be of causes rather than causedBy to align with standard and other rules -->
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/causes"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasPrecondition -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasPrecondition">
-        <skos:definition>Identifies a State that must be realized in order for the Activity to occur.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/enabledBy"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/preconditionOf"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: hasStatus is used in two different contexts. To maximize reuse, I created subProperties which allow the parent to still work, but allows for precise definitions when applied. -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasStatus -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasStatus">
-        <skos:definition>Identifies the status of the parent Thing at some point or interval in time.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-    </owl:ObjectProperty>
-    
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasActivityStatus -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasActivityStatus">
-        <skos:definition>Identifies the status of the Activity at some point or interval in time. For example, the Activity may be “scheduled", “executing” or “completed”.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasStatus"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityStatus"/>
-    </owl:ObjectProperty>
-    
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasStatus -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasStateStatus">
-        <skos:definition>identifies the status of the State at some point or interval in time. For example, the State may be “unsatisfied", “satisfied” or “completed”.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasStatus"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/StateStatus"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasSubactivity -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasSubactivity">
-        <skos:definition>Identifies a more granular Activity into which the Activity may be decomposed.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasSubstate -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasSubstate">
-        <skos:definition>Identifies a State into which the complex state decomposes, at any level (i.e. its child state, grandchild state, etc.). The hasSubState property is transitive and a super-property of the hasDecomp property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/NonTerminalState"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdf:type rdf:resource="owl:TransitiveProperty"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: Not defined in ISO/IEC 5087-1; it only defines occursBefore -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/occursAfter -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/occursAfter">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursBefore"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: changed from time:TemporalEntity to time:Interval to align with ISO/IEC 5087-1 -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/occursAt -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/occursAt">
-        <skos:definition>Identifies a time Interval over which the Activity occurs.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="time:Interval"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/occursBefore -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/occursBefore">
-        <skos:definition>Identifies an Activity that the Activity occurred before.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdf:type rdf:resource="owl:TransitiveProperty"/>
-        <rdfs:comment>An activity occursBefore another if its endOf instant is before the beginOf instant of the other activity; the occursBefore relation is transitive. We cannot define this semantics in OWL, though it could be captured in future work by an extension with rules.</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- Issue: Not defined in ISO/IEC 5087-1; it only defines occursDirectlyBefore -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/occursDirectlyAfter -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/occursDirectlyAfter">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursAfter"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursDirectlyBefore"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/occursDirectlyBefore -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/occursDirectlyBefore">
-        <skos:definition>Identifies an Activity that occurred immediately prior to the Activity. The
-occursDirectlyBefore property is a sub-property of the occursBefore property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursBefore"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdfs:comment>An activity occursDirectlyBefore another if it occursAt an interval that meets the interval of the other activity. We cannot define this semantics in OWL, though it could be captured by an extension with rules.</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: Changed the subPropertyOf to align with ISO/IEC 5087-1 -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/preconditionOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/preconditionOf">
-        <skos:definition>Identifies an Activity that requires the State to be realized in order to occur.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/enablesActivity"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/satisfiedBy -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/satisfiedBy">
-        <skos:definition>Specifies the Manifestation that is to be satisfied (i.e., realized).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/ManifestationState"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- Issue: scheduledFor is used in two different contexts. To maximize reuse, I created subProperties which allow the parent to still work, but allows for precise definitions when applied. -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/scheduledFor -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/scheduledFor">
-        <skos:definition>Identifies a time Interval during which a Thing occurs.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityOntologyProperty"/>
-        <rdfs:range rdf:resource="time:Interval"/>
-    </owl:ObjectProperty>
-    
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/activityScheduledFor">
-        <skos:definition>Identifies the time Interval that an Activity was scheduled to be performed/occur at.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/scheduledFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-    </owl:ObjectProperty>
-    
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/StateScheduledFor">
-        <skos:definition>Identifies a time Interval during which the State is scheduled to be realized.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/scheduledFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- Issue: Not defined in ISO/IEC 5087-1 -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/terminalAchievedAt -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/terminalAchievedAt">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/achievedAt"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/TerminalState"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/Activity -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Activity">
-        <skos:definition>An Activity describes something that occurs in the domain.
-An Activity may be further defined by (decomposed into) Subactivities.
-An Activity may have precondition and/or effect State.
-An Activity may be enabled by or cause some State. An enabling of causing state is a generalization of a precondition/effect; an Activity is enabled by or causes some State if it has a subactivity with a precondition or effect (respectively) of that State. 
-In other words, the state may not be required directly before, or cause directly after the activity, but by some more specialized sub-activity.
-An Activity occurs at some point in time and space.
-An Activity takes place during some interval, and so has some duration.
-An Activity may have some Manifestations that participate in it.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityThing"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasSubactivity"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasStatus"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityStatus"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasPrecondition"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/enabledBy"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasEffect"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/causes"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/scheduledFor"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="time:Interval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursAt"/>
-                <owl:someValuesFrom rdf:resource="time:Interval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/beginOf"/>
-                <owl:someValuesFrom rdf:resource="time:Instant"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/endOf"/>
-                <owl:someValuesFrom rdf:resource="time:Instant"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/associatedLocation"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Location"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursBefore"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/occursDirectlyBefore"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/ActivityOntologyThing -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ActivityThing">
-        <skos:definition>Added for organizational purposes, to identify all classes defined in the Activity pattern.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
-    </owl:Class>
-    
-
-    <!-- Issue: It seems like this should be a Code rather than a Thing. -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/ActivityStatus -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ActivityStatus">
-        <skos:definition>The status of the Activity.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityThing"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/ConjunctiveState -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ConjunctiveState">
-        <skos:definition>A type of NonTerminalState that is defined by the conjunction of its child States.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/NonTerminalState"/>
-        <owl:disjointWith rdf:resource="https://w3id.org/isoiec5087/-1/v1/DisjunctiveState"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/DisjunctiveState -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/DisjunctiveState">
-        <skos:definition>A type of NonTerminalState that is defined by the disjunction of its child States. A State cannot be both conjunctive and disjunctive. </skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/NonTerminalState"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/ManifestationState -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ManifestationState">
-        <skos:definition>A specialization of TerminalState, the ManifestationState specifies a Manifestation class that an individual must satisfy in order for the ManifestationState to be true.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/TerminalState"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/satisfiedBy"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-    <!-- By definition, it seems as if hasSubstate should also be min 2 (i.e., the 2 hasDecomp would apply ) -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/NonTerminalState -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/NonTerminalState">
-        <skos:definition>A NonTerminalState has child States (a.k.a., sub-states) that are either conjuctive or disjunctive. Each child may be a TerminalState or NonTerminalState; eventually a TerminalState is reached. A State cannot be both non-terminal and terminal.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <owl:disjointWith rdf:resource="https://w3id.org/isoiec5087/-1/v1/TerminalState"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDecomp"/>
-                <owl:minQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasSubstate"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>hasDecomp is not a transitive relation, it only refers to the direct children of a non-terminal state type. A more general relation that is transitive is the substate relation.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/State -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/State">
-        <skos:definition>A State describes some situation in the world which may or may not be satisfied (true) at a given point in time. A State refers to a class of manifestations. It may be a precondition or effect of some Activity, or more generally it may be enabled or be caused by some Activity. If a state is complex, it may refer to some combination of classes of manifestations.
-        Example: A shopping activity, Activity-Shop, can require both the VehicleW30LGas state, but also some state wherein the mall is open, OpenMall. Each state is defined separately. The combined state is then defined as the conjunction of the two states. Thus, we could say that the preconditions for Activity-Shop are: precondition(VehicleW30LGas,Activity-Shop) AND  precondition(OpenMall,Activity-Shop). Alternatively, if the preconditions were required disjunctively, we could state: precondition(VehicleW30LGas,Activity-Shop) OR precondition(OpenMall,Activity-Shop).
-        In large and complex domains, there can be cases in which the above approach is undesirable. In particular, due to the complexity of the description that results as the state being described becomes more detailed. In many cases it will be more natural and convenient to be able to refer to a single, aggregate state. We therefore extend the representation of States to capture aggregation, as approached in the concept of state trees introduced by TOVE as a construct for the activity cluster.
-        A State may be either non-terminal or terminal. A terminal state has no child states, and therefore refers directly to a class of manifestations, whereas a non-terminal state has child states, which may define some classes of manifestations, or further define some other complex states.
-            NonTerminalState(x) v TerminalState(x) = State(x)
-        A state  cannot be both non-terminal and terminal.
-            TerminalState disjointWith NonTerminalState</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityThing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/preconditionOf"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/enables"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/effectOf"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/causedBy"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/scheduledFor"/>
-                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="time:Interval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/achievedAt"/>
-                <owl:allValuesFrom rdf:resource="time:TemporalEntity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasStatus"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/StateStatus"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/StateStatus -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/StateStatus">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityThing"/>
-    </owl:Class>
-    
-
-    <!-- Issue: hasDecomp only applies to NonTerminalStates per its definition -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/TerminalState -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/TerminalState">
-        <skos:definition>A terminal state type has no substates (cannot be decomposed). It corresponds to a particular class of manifestations. A terminal state is achieved at some time if and only if there exists a manifestation within its defined classification, that exists at that time.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDecomp"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">0</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- Issue: Not defined in ISO/IEC 5087-1 -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/performedBy -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/performedBy">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/performs"/>
+        <skos:definition>Added for organizational purposes, to identify all mereology object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
-    
 
-    <!-- Issue: This was defined as reflexive in the file but not in ISO/IEC 5087-1; the reflexive declaration seems inappropriate. -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/performs -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/performs">
-        <skos:definition>Identifies activities that the Agent performs.</skos:definition>
+    <!-- https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-        <rdf:type rdf:resource="owl:ReflexiveProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all recurring event object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+    <!-- https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty -->
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/Agent -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Agent">
-        <skos:definition>An Agent affects, is affected by, or performs some Activity(s). An Agent may be a Person or Organization, but not Software or a Mechanical Device (at this time). An Agent can be a member of an organization and hold zero or more posts in an organization.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgentThing"/>
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/performs"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/resourceOf"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/TerminalResourceState"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasName"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="xsd:string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasClaim"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDuty"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasNoClaim"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasPrivilege"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/AgentThing -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/AgentThing"/>
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/agentInvolvedIn -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/agentInvolvedIn">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/involvesAgent"/>
+        <skos:definition>Added for organizational purposes, to identify all resource object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/commitsToActivity -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/commitsToActivity">
-        <skos:definition>A commitment to some activity</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-    </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/establishedOn -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/establishedOn">
-        <skos:definition>Specifies the Instant of time at which the Agreement was created.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-        <rdfs:range rdf:resource="time:Instant"/>
-    </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasClaim -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasClaim">
-        <skos:definition>Indicates that an Agent is the beneficiary of an Activity fulfilled by another Agent in the Agreement (i.e., the Agent with the duty to fulfil the Activity), e.g. payment of wages, provision of services.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/agentInvolvedIn"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-    </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasDuty -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasDuty">
-        <skos:definition>Indicates that an Agent is required to fulfil the described Activity.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/agentInvolvedIn"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-    </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasNoClaim -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasNoClaim">
-        <skos:definition>Indicates that an Agent has no claim on (i.e. has no right to the described Activity).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/agentInvolvedIn"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-    </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasPrivilege -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasPrivilege">
-        <skos:definition>Indicates that an Agent may but is not required to fulfil the described Activity.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/agentInvolvedIn"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasSubAgreement -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasSubAgreement">
-        <skos:definition>Identifies two or more Agreements that comprise the Agreement.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/involvesAgent -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/involvesAgent">
-        <skos:definition>Identifies the Agents that are party to the Agreement.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/validFor -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/validFor">
-        <skos:definition>Specifies the time Interval during which the Thing is valid or in force.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:range rdf:resource="time:Interval"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/validIn -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/validIn">
-        <skos:definition>Identifies the location where the Thing is valid.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Location"/>
-    </owl:ObjectProperty>
-    
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/Agreement -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Agreement">
-        <skos:definition>An agreement exists between two or more agents. It is established at some point in time and it may be considered valid only in some Location and/or for some interval in time. An agreement may be defined at varying levels of detail, this is supported with the introduction of the ComplexAgreement and AtomicAgreement class. Finally, agreements involve some specification of rights or commitments of the involved parties. This is represented as a relationship between the involved Agent and a particular activity. </skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgreementThing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/establishedOn"/>
-                <owl:allValuesFrom rdf:resource="time:Instant"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/validFor"/>
-                <owl:allValuesFrom rdf:resource="time:Interval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/validIn"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Location"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/involvesAgent"/>
-                <owl:minQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/AgreementOntologyThing -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/AgreementThing"/>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/AtomicAgreement -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/AtomicAgreement">
-        <skos:definition>An atomic agreement is a simple agreement that cannot be further decomposed into sub-agreements. It is a subclass of Agreement and specifies the “essence” of an agreement.  In particular it identifies how agents participating in the agreement are involved: whether they have a claim, duty, no-claim or privilege with respect to some activity that is committed to in the agreement.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-        <!-- Issue: ISO/IEC 5087-1 does not have commitsToActivity some Activity; instead it has forActivity min 1 Activity -->
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/commitsToActivity"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasClaim"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDuty"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasNoClaim"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasPrivilege"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasSubAgreement"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">0</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="https://w3id.org/isoiec5087/-1/v1/ComplexAgreement"/>
-        <rdfs:label xml:lang="en">Atomic Agreement</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/ComplexAgreement -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ComplexAgreement">
-        <rdfs:label xml:lang="en">Complex Agreement</rdfs:label>
-        <skos:definition>A complex agreement is an agreement that is composed of two or more atomic agreements. It is a subclass of Agreement and specifies the “essence” of a complex agreement.  In particular it identifies how atomic agreements are composed to form a complex agreement.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasSubAgreement"/>
-                <owl:minQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/ConjunctiveAgreement -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ConjunctiveAgreement">
-        <skos:definition>A conjunctive agreement is a complex agreement where all sub-agreements must be satisfied for the overall agreement to hold.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ComplexAgreement"/>
-        <owl:disjointWith rdf:resource="https://w3id.org/isoiec5087/-1/v1/DisjunctiveAgreement"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/DisjunctiveAgreement -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/DisjunctiveAgreement">
-        <skos:definition>A disjunctive agreement is a complex agreement where at least one sub-agreement must be satisfied for the overall agreement to hold.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ComplexAgreement"/>
-    </owl:Class>
 
         <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -1031,92 +132,9 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/existsAt -->
-    <!-- Issue: ISO/IEC 5087-1 does not restrict existsAt to be a FunctionalProperty. I would argue that at least in some contexts, the generic property existsAt could have multiple values (e.g., I might want to indicate multiple non-continuous time intervals) -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/existsAt">
-        <skos:definition>Identifies the TemporalEntity that reflects the time Instant or Interval during which a Thing is valid.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdf:type rdf:resource="owl:FunctionalProperty"/>
-        <rdfs:range rdf:resource="time:TemporalEntity"/>
-    </owl:ObjectProperty>
-    
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasFirstManifestation -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasFirstManifestation">
-        <skos:definition>Identifies the First Manifestation that is related to a particular Manifestation (i.e., for some snapshot of an object, it identifies the first such snapshot of the object).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-        <rdf:type rdf:resource="owl:FunctionalProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasLatestManifestation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasLatestManifestation">
-        <skos:definition>Identifies the most recent Manifestation that is related to a particular FirstManifestation (i.e., for some snapshot of an object, it identifies the most recent snapshot of the object).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdf:type rdf:resource="owl:FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/FirstManifestation"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasManifestation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasManifestation">
-        <skos:definition>identifies a Manifestation that captures the instantiation of variant attributes of an object at some time (i.e., a temporal snapshot of some individual). The individual is related to all manifestations in a series via the hasManifestation property.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasNextManifestation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasNextManifestation">
-        <skos:definition>Identifies the immediate successor Manifestation (i.e. the subsequent snapshot of the object).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdf:type rdf:resource="owl:FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasPreviousManifestation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasPreviousManifestation">
-        <skos:definition>Identifies the immediate prior Manifestation (i.e. the prior snapshot of the object).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasNextManifestation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/precedesManifestation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/precedesManifestation">
-        <skos:definition>Identifies all subsequent Manifestations that follow a FirstManifestation.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/FirstManifestation"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-                    <owl:Class>
-                        <owl:complementOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FirstManifestation"/>
-                    </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:range>
-    </owl:ObjectProperty>
-    
 
 
     <!-- 
@@ -1128,81 +146,16 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
      -->
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/ChangeOntologyThing -->
+    <!-- https://w3id.org/isoiec5087/-1/v1/CityUnitsThing -->
 
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ChangeThing">
-        <rdfs:comment>Added for organizational purposes to group the classes defined in the Change portion of the CDM.</rdfs:comment>
+    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/CityUnitsThing">
+        <rdfs:comment>Added for organizational purposes to group the classes defined in the City Units portion of the CDM.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/FirstManifestation -->
 
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/FirstManifestation">
-        <skos:definition>The first recorded manifestation of an individual. No prior manifestations (in time) exist for the individual. It is a subclassOf Manifestation.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/precedesManifestation"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-                            <owl:Class>
-                                <owl:complementOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FirstManifestation"/>
-                            </owl:Class>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasLatestManifestation"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/Manifestation -->
-
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Manifestation">
-        <skos:definition>Manifestations may be interpreted as “snapshots” of an object at some point in time. This enables the representation of changing attributes of an object, without losing information about its past values/relationships. The properties of the class must then be identified as properties that are (and aren't) subject to change, in order to distinguish between the static and dynamic aspects of a particular entity.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ChangeThing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/existsAt"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="time:TemporalEntity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasFirstManifestation"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasNextManifestation"/>
-                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasPreviousManifestation"/>
-                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Manifestation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-
-        
 
  
     <!-- 
@@ -1215,29 +168,37 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     
 
-    <!-- Issue: While aggregateOf is declared in ISO/IEC 5087-1, no definition is provided there or in the OWL files and it is never used in the document. -->
+    <!-- Issue: While aggregateOf is declared in ISO/IEC 5087-1, no definition is provided there or in the OWL files and it is never used in the document. It is also a generic term used in many other contexts (e.g., 5087-2). Thus, it is defined here generically without a range. -->
     <!-- https://w3id.org/isoiec5087/-1/v1/aggregateOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/aggregateOf">
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+        <skos:definition>One object within a collection.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="CityUnitObjectProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- Issue: While aggregateOf is declared in ISO/IEC 5087-1, no definition is provided there or in the OWL files and it is never used in the document. -->
+    <!-- Issue: While aggregateOver is declared in ISO/IEC 5087-1, no definition is provided there or in the OWL files and it is never used in the document. The same concept seems to be called aggregationOf in ISO/IEC 5087-2, which is likely a more widely used term. Thus, aggregateOver is defined as a synonym to aggregationOf with a generic definition without a range. -->
+    <!-- https://w3id.org/isoiec5087/-1/v1/aggregationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/aggregationOf">
+        <skos:definition>A collection of objects.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="LocationObjectProperty"/>
+    </owl:ObjectProperty>
+    
     <!-- https://w3id.org/isoiec5087/-1/v1/aggregateOver -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/aggregateOver">
+        <owl:equivalentProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/aggregationOf"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
     </owl:ObjectProperty>
     
     <!-- Issue: ISO/IEC 5087-1 defines hasAggregateFunction with a range of "i72:function" but function is not defined in that document. This ontology defines a stub for Function with no real meaning. -->
     <!-- https://w3id.org/isoiec5087/-1/v1/hasAggregateFunction -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasAggregateFunction">
-        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="CityUnitObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Function"/>
     </owl:ObjectProperty>
@@ -1257,8 +218,8 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasRelativeYear">
         <skos:definition>The base year used to define monetary values for a currency.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDatatypeProperty"/>
-        <rdfs:range rdf:resource="xsd:gYear"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/CityUnitsDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
     </owl:DatatypeProperty>
     
 
@@ -1360,7 +321,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec21972/v1/defined_by"/>
-                <owl:minCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:minCardinality>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1383,10 +344,11 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <!-- Issue: i72:cardinality_of is defined with a domain of Cardinality and a range of Population; it is applued -->
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec21972/v1/cardinality_of"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Capacity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1413,7 +375,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec21972/v1/cardinality_of"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Capacity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1462,7 +424,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <skos:definition>Duration is the amount of time that elapses between two instants or events.</skos:definition>
         <rdfs:label>duration</rdfs:label>
         <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
-        <rdfs:subClassOf rdf:resource="time:TemporalDuration"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec21972/v1/value"/>
@@ -1579,8 +541,8 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasRelativeYear"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="xsd:gYear"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1683,11 +645,11 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     </owl:Class>
     
 
-    <!-- Issue: The classes Distinct_count and Population_size are not defined in ISO/IEC 5087-1 or i72; although Student_Population_size and Teacher_Population_size are defined. -->
+    <!-- Issue: The classes Distinct_count is not defined in ISO/IEC 5087-1 or i72. -->
     <!-- https://w3id.org/isoiec21972/v1/Distinct_count -->
 
     <rdf:Description rdf:about="https://w3id.org/isoiec21972/v1/Distinct_count">
-        <owl:equivalentClass rdf:resource="https://w3id.org/isoiec21972/v1/Population_size"/>
+        <owl:equivalentClass rdf:resource="https://w3id.org/isoiec21972/v1/Population"/>
     </rdf:Description>
     
 
@@ -1761,7 +723,38 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty">
-        <skos:definition>Foundational data property for all data properties in the CDM.</skos:definition>
+        <skos:definition>Added for organizational purposes, to identify data properties defined in the Foundation-level CDM ontology.</skos:definition>
+    </owl:DatatypeProperty>
+
+    <!-- https://w3id.org/isoiec5087/-1/v1/CityUnitsDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/CityUnitsDataProperty">
+        <skos:definition>Added for organizational purposes, to identify data properties defined in the City Units Pattern of the CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- https://w3id.org/isoiec5087/-1/v1/GeneralDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/GeneralDataProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined in the General Properties Pattern of the CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- https://w3id.org/isoiec5087/-1/v1/SpatialLocDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/SpatialLocDataProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined in the Spatial Location Properties Pattern of the CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- https://w3id.org/isoiec5087/-1/v1/RecurringEventDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/RecurringEventDataProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined in the Recurring Event Properties Pattern of the CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
     </owl:DatatypeProperty>
 
 
@@ -1770,7 +763,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasDescription">
         <skos:definition>Descriptive information about an object.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/GeneralDataProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -1779,7 +772,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasIdentifier">
         <skos:definition>Unique identifier for an object.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/GeneralDataProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -1788,7 +781,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasName">
         <skos:definition>Name of an object.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/GeneralDataProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -1821,13 +814,13 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasProperPart"/>
     </owl:ObjectProperty>
     
-
+  
 
     <!-- https://w3id.org/isoiec5087/-1/v1/hasProperPart -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasProperPart">
         <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty"/>
         <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/properPartOf"/>
     </owl:ObjectProperty>
     
@@ -1846,7 +839,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/properPartOf">
         <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -1861,15 +854,14 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     
 
-
     <!-- https://w3id.org/isoiec5087/-1/v1/Organization -->
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Organization">
         <skos:definition>A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it. An organization may itself be able to act as an agent.
-        In addition to the standard org:Organization pattern, this ontology defines an Organization to be a subclass of an Agent.</skos:definition>
+        In addition to the standard http://www.w3.org/ns/org#Organization pattern, this ontology defines an Organization to be a subclass of an Agent.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/OrganizationThing"/>
-        <rdfs:subClassOf rdf:resource="org:Organization"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
     </owl:Class>
     
 
@@ -1878,15 +870,16 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/OrganizationThing">
         <skos:definition>A class representing an organization in the context of the CDM ontology.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmClass"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
+    <!-- Issue: There is nothing unique about the ISO/IEC 5087-1 Provenance Pattern and nothing under this class; recommend deleting. -->
     <!-- https://w3id.org/isoiec5087/-1/v1/ProvenanceThing -->
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ProvenanceThing">
         <skos:definition>A class used to group classes within the provenance pattern.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmClass"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
@@ -1914,7 +907,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/beginsRecurringState">
         <skos:definition>Defines a State that is required to be true in order to initiate the RecurringEvent.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
     </owl:ObjectProperty>
@@ -1925,9 +918,9 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/beginsRecurringTime">
         <skos:definition>Specifies the start time of the RecurringEvent’s activity with a time:TemporalEntity from the Time pattern.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
-        <rdfs:range rdf:resource="time:TemporalEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
     </owl:ObjectProperty>
     
 
@@ -1935,7 +928,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/endDayOfWeek -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/endDayOfWeek">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -1943,7 +936,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/endMonth -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/endMonth">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -1953,7 +946,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/endsRecurringState">
         <skos:definition>Defines a State that is required to be true in order terminate the RecurringEvent.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
     </owl:ObjectProperty>
@@ -1964,9 +957,9 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/endsRecurringTime">
         <skos:definition>Specifies the end time of the RecurringEvent’s activity with a time:TemporalEntity from the Time pattern</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
-        <rdfs:range rdf:resource="time:TemporalEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
     </owl:ObjectProperty>
     
 
@@ -1975,10 +968,10 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasDayOfWeek">
         <skos:definition>Specifies the day of the week on which a Weekly RecurringEvent occurs with the time:DayOfWeek class from the Time pattern.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/WeeklyRecurringEvent"/>
         <!-- Issue: The class DayOfWeek is not defined in ISO/IEC 5087-1. -->
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/DayOfWeek"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
     </owl:ObjectProperty>
     
 
@@ -1986,7 +979,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/hasMonth -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasMonth">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -1995,7 +988,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasOccurrence">
         <skos:definition>Identifies the Activities that take place at the time and location.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
     </owl:ObjectProperty>
@@ -2006,7 +999,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasSubRecurringEvent">
         <skos:definition>identifies the sub-recurring events that comprise the RecurringEvent. As with an Activity, a RecurringEvent may be decomposed/decomposed into simpler/more complex RecurringEvents to support varying levels of granularity.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
     </owl:ObjectProperty>
@@ -2017,32 +1010,23 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/onDateTimeDescription">
         <skos:definition>Specifies the date-time description (as defined in the Time pattern) on which a recurring event recurs. For example, the day of the month on which a MonthlyRecurringEvent recurs, or the day and month on which a YearlyRecurringEvent recurs.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
-        <rdfs:range rdf:resource="time:DateTimeDescription"/>    
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>    
     </owl:ObjectProperty>
     
-
-
-    <!-- https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty">
-        <rdfs:comment>Property added for organizational purposes only; to group all object properties defined in the recurring event ontology.</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
 
     <!-- https://w3id.org/isoiec5087/-1/v1/recursAddition -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/recursAddition">
         <skos:definition>Defines a condition when the RecurringEvent should be added to. This can specify a time, day of the week, or specific dates.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="time:DayOfWeek"/>
-                    <rdf:Description rdf:about="time:TemporalEntity"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#DayOfWeek"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -2054,13 +1038,13 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/recursExcept">
         <skos:definition>Defines the exceptions for the RecurringEvent, i.e. conditions when it does not occur. This can specify a time, day of the week, or specific dates.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="time:DayOfWeek"/>
-                    <rdf:Description rdf:about="time:TemporalEntity"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#DayOfWeek"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -2072,7 +1056,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/associatedLocation">
         <skos:definition>Captures the association of a non-spatial object with a Location. For example, an activity is not a spatial object but may be associated with some location in which it (mostly) takes place.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/LocationObjectProperty"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Location"/>
     </owl:ObjectProperty>
     
@@ -2090,20 +1074,20 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/endTime -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/endTime">
-        <skos:definition>Specifies the end time of the RecurringEvent's activity using xsd:time format.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+        <skos:definition>Specifies the end time of the domain object's activity.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventDataProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
-        <rdfs:range rdf:resource="xsd:time"/>    
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>    
     </owl:DatatypeProperty>
     
 
     <!-- https://w3id.org/isoiec5087/-1/v1/startTime -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/startTime">
-        <skos:definition>Specifies the start time of the RecurringEvent's activity using xsd:time format.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmDataProperty"/>
+        <skos:definition>Specifies the start time of the RecurringEvent's activity using http://www.w3.org/2001/XMLSchema#time format.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventDataProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEvent"/>
-        <rdfs:range rdf:resource="xsd:time"/>    
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>    
     </owl:DatatypeProperty>
     
 
@@ -2125,8 +1109,8 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/startTime"/>
-                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="xsd:time"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2141,13 +1125,13 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/onDateTimeDescription"/>
-                <owl:someValuesFrom rdf:resource="time:GeneralDateTimeDescription"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasName"/>
-                <owl:someValuesFrom rdf:resource="xsd:string"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2163,14 +1147,14 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/onDateTimeDescription"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="time:GeneralDateTimeDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
-    <!-- Issue: ISO/IEC 5087-1 includes a dayOfWeek property rather than a hasDayOfWeek property; according to the standard, the latter is limited to WeeklyRecurringEvent. -->
+    <!-- Issue: ISO/IEC 5087-1 includes a dayOfWeek property rather than a hasDayOfWeek property; according to the standard, the latter is limited to WeeklyRecurringEvent. It should likely be time:dayOfWeek.-->
     <!-- https://w3id.org/isoiec5087/-1/v1/RecurringEvent -->
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/RecurringEvent">
@@ -2185,7 +1169,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/beginsRecurringTime"/>
-                <owl:allValuesFrom rdf:resource="time:TemporalEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2197,13 +1181,13 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/endsRecurringTime"/>
-                <owl:allValuesFrom rdf:resource="time:TemporalEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDayOfWeek"/>
-                <owl:allValuesFrom rdf:resource="time:DayOfWeek"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2221,7 +1205,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/onDateTimeDescription"/>
-                <owl:allValuesFrom rdf:resource="time:GeneralDateTimeDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2259,13 +1243,13 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/endTime"/>
-                <owl:allValuesFrom rdf:resource="xsd:time"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/startTime"/>
-                <owl:allValuesFrom rdf:resource="xsd:time"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2276,6 +1260,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/RecurringEventThing">
         <rdfs:comment>Class added for organizational purposes only; to group all classes defined in the recurring-event ontology.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
@@ -2288,8 +1273,8 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasDayOfWeek"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="time:DayOfWeek"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2305,8 +1290,8 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/onDateTimeDescription"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="time:GeneralDateTimeDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2317,8 +1302,8 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Location">
         <skos:definition>A specialization (subclass) of geo:Geometry that refers to a geospatial representation of the space occupied by some object.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmClass"/>
-        <rdfs:subClassOf rdf:resource="geo:Geometry"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
     </owl:Class>
     
 
@@ -2341,10 +1326,10 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/capacityInUse">
         <skos:definition>Identifies the portion of capacity in use, by some Activity(s).</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
-        <rdf:type rdf:resource="owl:FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>
-        <rdfs:range rdf:resource="i72:Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -2353,7 +1338,6 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/consumedBy">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/preconditionOf"/>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
     </owl:ObjectProperty>
     
 
@@ -2362,7 +1346,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/forResource">
         <skos:definition>Specifies the Resource that is allocated.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/PlannedAllocation"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>    
     </owl:ObjectProperty>
@@ -2373,7 +1357,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/forState">
         <skos:definition>Specifies the State to which the Resource is allocated.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/PlannedAllocation"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>  
         <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasAllocation"/>  
@@ -2385,7 +1369,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasAllocation">
         <skos:definition>Specifies a Planned Allocation for the Resource. This indicates a State and time Interval to which the Resource has been allocated.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -2393,7 +1377,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/hasAsset -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasAsset">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -2402,9 +1386,9 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasAvailableCapacity">
         <skos:definition>identifies the Quantity that specifies how much of the Resource is available for use.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>
-        <rdfs:range rdf:resource="i72:Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -2413,10 +1397,10 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasCapacity">
         <skos:definition>Identifies the Quantity that specifies how much of the Resource exists, e.g. its volume, if it is liquid; how much it can hold, if it is an container.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
-        <rdf:type rdf:resource="owl:FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>
-        <rdfs:range rdf:resource="i72:Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -2425,7 +1409,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasOwner">
         <skos:definition>A Resource may have some owner. The owner of a resource is subject to change over time.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ownedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>
     </owl:ObjectProperty>
@@ -2435,9 +1419,9 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasQuantity">
         <skos:definition>Specifies the Quantity of the Resource that participates in the State, if applicable.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/PlannedAllocation"/>
-        <rdfs:range rdf:resource="i72:Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -2446,7 +1430,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasResource">
         <skos:definition>Specifies a Resource that participates in the State. This identifies the condition of the object that plays a resource role (i.e. is used, consumed, etc.) when the state’s status is active.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/resourceOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/TerminalResourceState"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>    
@@ -2457,7 +1441,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/ownedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/ownedBy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -2466,7 +1450,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/participatesIn">
         <skos:definition>Identifies the Activity that the Resource is being used, consumed, produced, or released by.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>    
     </owl:ObjectProperty>
@@ -2477,7 +1461,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/resourceOf">
         <skos:definition>identifies what State the agent may be a resource of. This is specified using the Resource pattern, where the Agent would be considered to be a resource from the perspective of an Activity that uses it in some way. For example, a construction activity may use some persons(s) and those persons would be considered a Resource for that Activity.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -2486,7 +1470,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/usedBy">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/preconditionOf"/>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -2536,29 +1520,29 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
         <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourceThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="time:hasTime"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="time:TemporalEntity"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/forResource"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Resource"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/forState"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/State"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasQuantity"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2609,28 +1593,28 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/participatesIn"/>
                 <!-- Issue: Resource.participatesIn is defined as only Activity in ISO/IEC 5087-1 rather than min 1 -->
-                <owl:minQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/capacityInUse"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasAvailableCapacity"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasCapacity"/>
-                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2646,6 +1630,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/ResourceThing">
         <skos:definition>Added for organizational purposes, to identify all classes defined in the Resource ontology.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
@@ -2701,7 +1686,7 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
 
     <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasLocation">
         <skos:definition>Specifies the Location of an object.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/LocationObjectProperty"/>
         <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Location"/>
     </owl:ObjectProperty>
     
@@ -2737,7 +1722,16 @@ An Activity may have some Manifestations that participate in it.</skos:definitio
     <!-- https://w3id.org/isoiec5087/-1/v1/hasSerialization -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasSerialization">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/SpatialLocOntologyDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/SpatialLocDataProperty"/>
     </owl:DatatypeProperty>
     
 </rdf:RDF>
+
+
+    <!-- https://w3id.org/citydata/test/isInvariant -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/citydata/test/isInvariant">
+        <rdfs:comment xml:lang="en">Identifies whether a property is to be interpreted as invariant (i.e., its value is not subject to change over time).</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:AnnotationProperty>
+    
