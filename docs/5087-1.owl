@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://w3id.org/isoiec5087/-1/v1/"
-     xml:base="https://w3id.org/isoiec5087/-1/v1/"
+<rdf:RDF xmlns="https://w3id.org/isoiec5087-1/v1/"
+     xml:base="https://w3id.org/isoiec5087-1/v1/"
      xmlns:cc="http://creativecommons.org/ns#"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -14,13 +14,13 @@
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:org="http://www.w3.org/ns/org#"
      xmlns:time="http://www.w3.org/2006/time#">
-    <owl:Ontology rdf:about="https://w3id.org/isoiec5087/-1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/isoiec5087-1/v1/">
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts</dcterms:title>
         <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80718.html"/>
         <dcterms:bibliographicCitation>ISO/IEC 5087-1:2023</dcterms:bibliographicCitation>
     	<skos:definition>This ontology specifies the foundation-level concepts of the city data model.</skos:definition>
-    	<vann:preferredNamespaceUri>https://w3id.org/isoiec5087/-1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespaceUri>https://w3id.org/isoiec5087-1/v1/</vann:preferredNamespaceUri>
     	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
     		
     	<!-- Provenance -->
@@ -31,7 +31,7 @@
         <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-01-13</dcterms:modified> <!-- Date of this ontology file -->
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087/-1/v1/r3.0"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087-1/v1/r3.0"/>
         <rdfs:comment>The prior version of this ontology was divided into a distinct file 
             for each pattern contained within Part 1; this version combines all of the 
             patterns into a single file for ease of reference. Some of the prior component 
@@ -45,21 +45,19 @@
         
         <!-- Imports -->
         <owl:imports rdf:resource="http://www.w3.org/ns/prov"/>
-        <owl:imports rdf:resource="http://www.w3.org/ns/org"/>
-        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
         <owl:imports rdf:resource="https://w3id.org/isoiec21972/v1"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/Core"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/ActivityPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgentPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgreementPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/ChangePattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/CityUnitsPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/GenericPropertiesPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/MereologyPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/OrganizationStructurePattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/RecurringEventPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/ResourcePattern"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec5087/-1/v1/SpatialLocPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/Core"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/ActivityPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/AgentPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/AgreementPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/ChangePattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/CityUnitsPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/GenericPropertiesPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/MereologyPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/OrganizationStructurePattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/RecurringEventPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/ResourcePattern"/>
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/SpatialLocPattern"/>
     </owl:Ontology>
     
 

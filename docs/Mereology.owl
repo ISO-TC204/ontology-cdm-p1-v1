@@ -26,7 +26,7 @@
         <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-06</dcterms:modified> <!-- Date of this ontology file -->
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087/-1/v1/r3.0"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087-1/v1/r3.0"/>
         <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
         
         <!-- License -->
@@ -46,10 +46,10 @@
      -->
 
     
-    <!-- https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty -->
+    <!-- https://w3id.org/isoiec5087-1/v1/MereologyObjectProperty -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/MereologyObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/FoundationalCdmObjectProperty"/>
         <skos:definition>Added for organizational purposes, to identify all mereology object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
 
@@ -58,56 +58,56 @@
 
     <!-- Issue: It seems as if properPartOf, hasProperPart, componentOf, and hasComponent, and partOf should be transitive properties. -->
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/componentOf -->
+    <!-- https://w3id.org/isoiec5087-1/v1/componentOf -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/componentOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/properPartOf"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasComponent"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/componentOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/properPartOf"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087-1/v1/hasComponent"/>
         <skos:definition>Specifies a part-whole relationship between objects where the component is a part that is defined based on actual boundaries. The parts are often also defined according to distinct functions. For example, a headlight is a componentOf a car. </skos:definition>
     </owl:ObjectProperty>
     
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasComponent -->
+    <!-- https://w3id.org/isoiec5087-1/v1/hasComponent -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasComponent">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/hasComponent">
         <skos:definition>Specifies a part-whole relationship between objects where the component is a part that is defined based on actual boundaries. The parts are often also defined according to distinct functions. For example, a car hasComponent headlight.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasProperPart"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/hasProperPart"/>
     </owl:ObjectProperty>
     
   
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/hasProperPart -->
+    <!-- https://w3id.org/isoiec5087-1/v1/hasProperPart -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/hasProperPart">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/hasProperPart">
         <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/properPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/MereologyObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087-1/v1/properPartOf"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/immediateComponentOf -->
+    <!-- https://w3id.org/isoiec5087-1/v1/immediateComponentOf -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/immediateComponentOf">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/immediateComponentOf">
         <skos:definition>Specifies a componentOf relationship where the if x immediateComponentOf y, then there does not exist a z where x immediateComponentOf z immediateComponentOf y.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/componentOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/componentOf"/>
     </owl:ObjectProperty>
     
 
     <!-- Issue: Addition in v1.3.0 to align with ISO/IEC 5087-1 -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/partOf -->
+    <!-- https://w3id.org/isoiec5087-1/v1/partOf -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/partOf">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/partOf">
         <skos:definition>Specifies a part-whole relationship between objects</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/MereologyObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/MereologyObjectProperty"/>
     </owl:ObjectProperty>
     
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/properPartOf -->
+    <!-- https://w3id.org/isoiec5087-1/v1/properPartOf -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/properPartOf">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/properPartOf">
         <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/partOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/partOf"/>
     </owl:ObjectProperty>
     
 

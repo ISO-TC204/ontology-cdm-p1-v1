@@ -26,7 +26,7 @@
         <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-06</dcterms:modified> <!-- Date of this ontology file -->
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087/-1/v1/r3.0"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087-1/v1/r3.0"/>
         <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
         
         <!-- License -->
@@ -48,10 +48,10 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/AgentObjectProperty -->
+    <!-- https://w3id.org/isoiec5087-1/v1/AgentObjectProperty -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/AgentObjectProperty">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/AgentObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/FoundationalCdmObjectProperty"/>
         <skos:definition>Added for organizational purposes, to identify all agent object properties defined in the City Data Model.</skos:definition>
     </owl:ObjectProperty>
 
@@ -65,22 +65,22 @@
     
 
     <!-- Issue: Removed ReflexiveProperty declaration as it was not defined in ISO/IEC 5087-1 and seemed inappropriate. -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/performs -->
+    <!-- https://w3id.org/isoiec5087-1/v1/performs -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/performs">
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/performs">
         <skos:definition>Identifies activities that the Agent performs.</skos:definition>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgentObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087/-1/v1/Agent"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/AgentObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/isoiec5087-1/v1/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/isoiec5087-1/v1/Activity"/>
     </owl:ObjectProperty>
     
 
     <!-- Issue: Addition in v1.2.0 -->
-    <!-- https://w3id.org/isoiec5087/-1/v1/performedBy -->
+    <!-- https://w3id.org/isoiec5087-1/v1/performedBy -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087/-1/v1/performedBy">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgentObjectProperty"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/performs"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-1/v1/performedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-1/v1/AgentObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/isoiec5087-1/v1/performs"/>
     </owl:ObjectProperty>
     
 
@@ -92,36 +92,36 @@
     ///////////////////////////////////////////////////////////////////////////////////////
     -->
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/AgentThing -->
+    <!-- https://w3id.org/isoiec5087-1/v1/AgentThing -->
 
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/AgentThing">
+    <owl:Class rdf:about="https://w3id.org/isoiec5087-1/v1/AgentThing">
         <skos:definition>Added for organizational purposes, to identify all classes defined in the Agent pattern.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/FoundationalCdmThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087-1/v1/FoundationalCdmThing"/>
     </owl:Class>
 
 
-    <!-- https://w3id.org/isoiec5087/-1/v1/Agent -->
+    <!-- https://w3id.org/isoiec5087-1/v1/Agent -->
 
-    <owl:Class rdf:about="https://w3id.org/isoiec5087/-1/v1/Agent">
+    <owl:Class rdf:about="https://w3id.org/isoiec5087-1/v1/Agent">
         <skos:definition>An Agent affects, is affected by, or performs some Activity(s). An Agent may be a Person or Organization, but not Software or a Mechanical Device (at this time). An Agent can be a member of an organization and hold zero or more posts in an organization.</skos:definition>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087/-1/v1/AgentThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087-1/v1/AgentThing"/>
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/performs"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/Activity"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-1/v1/performs"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087-1/v1/Activity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/resourceOf"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087/-1/v1/TerminalResourceState"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-1/v1/resourceOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec5087-1/v1/TerminalResourceState"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087/-1/v1/hasName"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-1/v1/hasName"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
