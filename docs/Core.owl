@@ -29,7 +29,9 @@
         <!-- License -->
         <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
         
-        <!-- Imports - None -->
+        <!-- Imports -->
+        <owl:imports rdf:resource="http://www.w3.org/2006/time#"/> <!-- Used everywhere -->
+
     </owl:Ontology>
 
     <!-- 

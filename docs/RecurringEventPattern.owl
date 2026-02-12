@@ -11,7 +11,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:time="http://www.w3.org/2006/time#">
-    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/RecurringEventPattern">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/RecurringEventPattern/">
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Recurring Event Pattern</dcterms:title>
     	<skos:definition>This ontology specifies the foundation-level concepts related to the recurring event pattern of the city data model.</skos:definition>
@@ -24,19 +24,18 @@
     	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
         <!-- Prior release -->
         <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/RecurringEvent"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/RecurringEvent/"/>
         <!-- This release -->
 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/RecurringEventPattern/r3.0"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/RecurringEventPattern/r3.0/"/>
         
         <!-- License -->
         <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
         
         <!-- Imports -->
-        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/ActivityPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/GenericPropertiesPattern"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/ActivityPattern/"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/GenericPropertiesPattern/"/>
     </owl:Ontology>
 
     
