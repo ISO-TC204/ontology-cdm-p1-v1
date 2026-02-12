@@ -1,35 +1,43 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#"
-     xml:base="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:ns="http://creativecommons.org/ns#"
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:adms="http://www.w3.org/ns/adms#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:agent="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:change="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#"
-     xmlns:activity="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#"
-     xmlns:agreement="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#"
-     xmlns:spatialLoc="http://ontology.eil.utoronto.ca/5087/1/SpatialLoc/"
-     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
-    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#">
-        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Activity.owl"/>
-        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Agent.owl"/>
-        <dc:description xml:lang="en">An agreement exists between 2 or more agents. It is established at some point in time and it may be considered valid only in some Location and/or for some interval in time. An agreement may be defined at varying levels of detail, this is supported with the introduction of the ComplexAgreement and AtomicAgreement class. A complex agreement may be decomposed into sub-agreements, whereas an atomic agreement cannot. Similar to the approach taken for the representation of activities, a complex agreement may be decomposed into disjunctive or conjunctive sub-agreements. This allows for the representation of both types of agreement composition. At their most simple level, the AtomicAgreement describes a commitment to some activity; this is captured with the commitsToActivity property.  Finally, agreements involve some specification of rights or commitments of the involved parties. This is represented as a relationship between the involved Agent and a particular activity. The precise nature of the relationship indicates the type of agreement. The possible relationships are defined according to the elements of the primary rules of the Hohfeldian analytical system, (and their opposites): claim and privilege.</dc:description>
-        <dc:issued>January 6, 2021</dc:issued>
-        <dc:title xml:lang="en">Agreement Pattern</dc:title>
-        <vann:preferredNamespacePrefix>agreement</vann:preferredNamespacePrefix>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
-        <adms:relatedDocumentation xml:lang="en">Under development. Refer to latest version of ISO 5087-1.</adms:relatedDocumentation>
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/AgreementPattern">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Agreement Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the agreement pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
+        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-06</dcterms:modified> <!-- Date of this ontology file -->
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/r3.0"/>
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/AgentPattern"/>
     </owl:Ontology>
-    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -39,117 +47,114 @@
      -->
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty -->
+    <!-- https://w3id.org/citydata/part1/v1/AgreementObjectProperty -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
-    
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/AgreementObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all agreement object properties defined in the City Data Model.</skos:definition>
+    </owl:ObjectProperty>
 
+    <!-- https://w3id.org/citydata/part1/v1/agentInvolvedIn -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#agentInvolvedIn -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#agentInvolvedIn">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#involvesAgent"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/agentInvolvedIn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/involvesAgent"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/commitsToActivity -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#commitsToActivity -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#commitsToActivity">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/commitsToActivity">
+        <skos:definition>A commitment to some activity</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ActivityObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/establishedOn -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#establishedOn -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#establishedOn">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/establishedOn">
+        <skos:definition>Specifies the Instant of time at which the Agreement was created.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/hasClaim -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasClaim -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasClaim">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#agentInvolvedIn"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasClaim">
+        <skos:definition>Indicates that an Agent is the beneficiary of an Activity fulfilled by another Agent in the Agreement (i.e., the Agent with the duty to fulfil the Activity), e.g. payment of wages, provision of services.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/agentInvolvedIn"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/hasDuty -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasDuty -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasDuty">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#agentInvolvedIn"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasDuty">
+        <skos:definition>Indicates that an Agent is required to fulfil the described Activity.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/agentInvolvedIn"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/hasNoClaim -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasNoClaim -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasNoClaim">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#agentInvolvedIn"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasNoClaim">
+        <skos:definition>Indicates that an Agent has no claim on (i.e. has no right to the described Activity).</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/agentInvolvedIn"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/hasPrivilege -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasPrivilege -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasPrivilege">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#agentInvolvedIn"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasPrivilege">
+        <skos:definition>Indicates that an Agent may but is not required to fulfil the described Activity.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/agentInvolvedIn"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/hasSubAgreement -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasSubAgreement -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasSubAgreement">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasSubAgreement">
+        <skos:definition>Identifies two or more Agreements that comprise the Agreement.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/involvesAgent -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#involvesAgent -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#involvesAgent">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/involvesAgent">
+        <skos:definition>Identifies the Agents that are party to the Agreement.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/validFor -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#validFor -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#validFor">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/validFor">
+        <skos:definition>Specifies the time Interval during which the Thing is valid or in force.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/validIn -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#validIn -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#validIn">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/validIn">
+        <skos:definition>Identifies the location where the Thing is valid.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
     </owl:ObjectProperty>
     
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyDataProperty -->
-
-    <owl:DatatypeProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyDataProperty"/>
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -159,190 +164,175 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
+    <!-- https://w3id.org/citydata/part1/v1/AgreementThing -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agent -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agent">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyThing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasClaim"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasDuty"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasNoClaim"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasPrivilege"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AtomicAgreement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/AgreementThing">
+        <skos:definition>Added for organizational purposes, to identify all classes defined in the Agreement pattern.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/Agent -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agreement -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agreement">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyThing"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Agent">
+        <rdfs:comment>The base concept of Agent is defined in https://w3id.org/citydata/part1/v1/Agent.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#establishedOn"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasClaim"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDuty"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasNoClaim"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasPrivilege"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/AtomicAgreement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+    <!-- https://w3id.org/citydata/part1/v1/Agreement -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Agreement">
+        <skos:definition>An agreement exists between two or more agents. It is established at some point in time and it may be considered valid only in some Location and/or for some interval in time. An agreement may be defined at varying levels of detail, this is supported with the introduction of the ComplexAgreement and AtomicAgreement class. Finally, agreements involve some specification of rights or commitments of the involved parties. This is represented as a relationship between the involved Agent and a particular activity. </skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/AgreementThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/establishedOn"/>
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#Instant"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#validFor"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/validFor"/>
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#Interval"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#validIn"/>
-                <owl:allValuesFrom rdf:resource="http://ontology.eil.utoronto.ca/5087/1/SpatialLoc/Location"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/validIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#involvesAgent"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/involvesAgent"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class Agreement has the following properties:
-•	involvesAgent: identifies the agents that are party to the agreement.
-•	validIn: identifies the location where the agreement is valid.
-•	establishedOn: specifies the instant of time that agreement was created.
-•	validFor: specifies the time interval during which the agreement is in force.</rdfs:comment>
     </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/AtomicAgreement -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyThing -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AgreementOntologyThing"/>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AtomicAgreement -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#AtomicAgreement">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agreement"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/AtomicAgreement">
+        <skos:definition>An atomic agreement is a simple agreement that cannot be further decomposed into sub-agreements. It is a subclass of Agreement and specifies the “essence” of an agreement.  In particular it identifies how agents participating in the agreement are involved: whether they have a claim, duty, no-claim or privilege with respect to some activity that is committed to in the agreement.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
+        <!-- Issue: ISO/IEC 5087-1 does not have commitsToActivity some Activity; instead it has forActivity min 1 Activity -->
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#commitsToActivity"/>
-                <owl:someValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#Activity"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/commitsToActivity"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty>
                     <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasClaim"/>
+                        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasClaim"/>
                     </rdf:Description>
                 </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty>
                     <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasDuty"/>
+                        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasDuty"/>
                     </rdf:Description>
                 </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty>
                     <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasNoClaim"/>
+                        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasNoClaim"/>
                     </rdf:Description>
                 </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty>
                     <rdf:Description>
-                        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasPrivilege"/>
+                        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasPrivilege"/>
                     </rdf:Description>
                 </owl:onProperty>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasSubAgreement"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasSubAgreement"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agreement"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ComplexAgreement"/>
-        <rdfs:comment xml:lang="en">AtomicAgreement is a subclass of Agreement and specifies the “essence” of an agreement.  In particular it identifies how agents participating in the agreement are involved:
-•	forActivity: identifies the activity that the atomic agreement is for.
-•	inverse hasClaim: links the agreement to any agent that has a claim.
-•	inverse hasNoClaim: links the agreement to any agent that does not have a claim.
-•	inverse hasDuty: links the agreement to any agent that has a duty to perform the activity.
-•	inverse hasPrivilege: links the agreement to any agent that has the privilege to perform the activity.</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://w3id.org/citydata/part1/v1/ComplexAgreement"/>
         <rdfs:label xml:lang="en">Atomic Agreement</rdfs:label>
     </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/ComplexAgreement -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ComplexAgreement -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ComplexAgreement">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agreement"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ComplexAgreement">
+        <rdfs:label xml:lang="en">Complex Agreement</rdfs:label>
+        <skos:definition>A complex agreement is an agreement that is composed of two or more atomic agreements. It is a subclass of Agreement and specifies the “essence” of a complex agreement.  In particular it identifies how atomic agreements are composed to form a complex agreement.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#hasSubAgreement"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasSubAgreement"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#Agreement"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Agreement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">ComplexAgreement is a subclass of Agreement and has one additional property:
-•	hasSubAgreement: identifies two or more agreements that comprise the agreement.</rdfs:comment>
-        <rdfs:label xml:lang="en">Complex Agreement</rdfs:label>
     </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/ConjunctiveAgreement -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ConjunctiveAgreement -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ConjunctiveAgreement">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ComplexAgreement"/>
-        <owl:disjointWith rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#DisjunctiveAgreement"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ConjunctiveAgreement">
+        <skos:definition>A conjunctive agreement is a complex agreement where all sub-agreements must be satisfied for the overall agreement to hold.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/ComplexAgreement"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/citydata/part1/v1/DisjunctiveAgreement"/>
     </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/DisjunctiveAgreement -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#DisjunctiveAgreement -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#DisjunctiveAgreement">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#ComplexAgreement"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/DisjunctiveAgreement">
+        <skos:definition>A disjunctive agreement is a complex agreement where at least one sub-agreement must be satisfied for the overall agreement to hold.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/ComplexAgreement"/>
     </owl:Class>
+
+
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

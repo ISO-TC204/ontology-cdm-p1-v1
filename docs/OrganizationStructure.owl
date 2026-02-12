@@ -1,261 +1,45 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#"
-     xml:base="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:ns="http://creativecommons.org/ns#"
-     xmlns:org="http://www.w3.org/ns/org#"
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:Time="http://ontology.eil.utoronto.ca/5087/Time/"
-     xmlns:adms="http://www.w3.org/ns/adms#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:agent="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#"
-     xmlns:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:orgstruc="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#"
-     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
-    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#">
-        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Agent.owl"/>
-        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Resource.owl"/>
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:org="http://www.w3.org/ns/org#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/OrganizationStructurePattern">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Organization Structure Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the organization structure pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
+        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-06</dcterms:modified> <!-- Date of this ontology file -->
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/r3.0"/>
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/AgentPattern"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
-        <dc:description xml:lang="en">An Organization “represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it. An organization may itself be able to act as an agent.” In this document we include only concepts and properties that focus on the structure of the organization.</dc:description>
-        <dc:issued>January 6, 2021</dc:issued>
-        <dc:title>Organization Structure Pattern</dc:title>
-        <vann:preferredNamespacePrefix>org_s</vann:preferredNamespacePrefix>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
-        <adms:relatedDocumentation>Under development. Refer to latest draft of ISO 5087-1.</adms:relatedDocumentation>
     </owl:Ontology>
-    
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    
-
-
-    <!-- http://www.w3.org/ns/org#basedAt -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#basedAt">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#changedBy -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#changedBy">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#classification -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#classification">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#hasMember -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasMember">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#hasMembership -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasMembership">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#hasPost -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasPost">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#hasSite -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasSite">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#hasSubOrganization -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasSubOrganization">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#heldBy -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#heldBy">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#holds -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#holds">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#linkedTo -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#linkedTo">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#member -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#member">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#memberDuring -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#memberDuring">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#memberOf -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#memberOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#organization -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#organization">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#postIn -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#postIn">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#remuneration -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#remuneration">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#reportsTo -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#reportsTo">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#resultingOrganization -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#resultingOrganization">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#role -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#role">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#siteAddress -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#siteAddress">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#siteOf -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#siteOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.w3.org/ns/org#transitiveSubOrganizationOf -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#transitiveSubOrganizationOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyObjectProperty"/>
-    </rdf:Description>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
 
     
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyDataProperty -->
-
-    <owl:DatatypeProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyDataProperty"/>
-    
-
-
-    <!-- http://www.w3.org/ns/org#location -->
-
-    <rdf:Description rdf:about="http://www.w3.org/ns/org#location">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyDataProperty"/>
-    </rdf:Description>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -265,32 +49,23 @@
      -->
 
     
+    <!-- https://w3id.org/citydata/part1/v1/OrganizationThing -->
 
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#Organization -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#Organization">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#Agent"/>
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyThing"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
-        <rdfs:comment>●	Organization: “represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it. An organization may itself be able to act as an agent.” Properties included are:
-○	hasName: a string name of the Organization
-○	org:hasMember: identifies the agents that are members of the Organization.
-○	org:hasSubOrganization: identifies the sub-Organizations within the Organization.
-○	org:hasUnit: indicates an OrganizationUnit which is part of the Organization.
-○	org:hasPost: identifies the Posts that exist in the Organization.
-○	hasAsset: identifies the assets possessed by the Organization</rdfs:comment>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/OrganizationThing">
+        <skos:definition>A class representing an organization in the context of the CDM ontology.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmThing"/>
     </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/Organization -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyThing -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#OrganizationStructureOntologyThing"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Organization">
+        <skos:definition>A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it. An organization may itself be able to act as an agent.
+        In addition to the standard org:Organization pattern, this ontology defines an cdm1:Organization to be a subclass of an cdm1:Agent.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/OrganizationThing"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+    </owl:Class>
     
+
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

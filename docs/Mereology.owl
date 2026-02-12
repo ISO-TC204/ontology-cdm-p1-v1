@@ -1,28 +1,42 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#"
-     xml:base="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:ns="http://creativecommons.org/ns#"
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:adms="http://www.w3.org/ns/adms#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:partwhole="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#">
-    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#">
-        <ns:license>http://creativecommons.org/licenses/by/3.0/</ns:license>
-        <dc:creator>Megan Katsumi</dc:creator>
-        <dc:description>Ontology to capture concepts related to parthood.
-The Mereology Ontology extends beyond classical mereology to cover parthood, but also component-hood and containment.</dc:description>
-        <dc:title>Mereology Ontology</dc:title>
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/MereologyPattern">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Mereology Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the mereology pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
+        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-06</dcterms:modified> <!-- Date of this ontology file -->
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/r3.0"/>
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/Core"/>
     </owl:Ontology>
-    
 
+    
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -32,66 +46,96 @@ The Mereology Ontology extends beyond classical mereology to cover parthood, but
      -->
 
     
+    <!-- https://w3id.org/citydata/part1/v1/MereologyObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/MereologyObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all mereology object properties defined in the City Data Model.</skos:definition>
+    </owl:ObjectProperty>
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#MereologyOntologyProperty -->
+    <!-- Issue: Moved from CityUnits to put into a more logical location. -->
+    <!-- https://w3id.org/citydata/part1/v1/aggregateOf -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#MereologyOntologyProperty">
-        <dc:description>Created for organizational purposes, to identify properties defined in the Mereology ontology.</dc:description>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregateOf">
+        <skos:definition>One object within a collection.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="CityUnitObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Moved from CityUnits to put into a more logical location. -->
+    <!-- Issue: While aggregateOver is declared in ISO/IEC 5087-1, no definition is provided there or in the OWL files and it is never used in the document. The same concept seems to be called aggregationOf in ISO/IEC 5087-2, which is likely a more widely used term. Thus, aggregateOver is defined as a synonym to aggregationOf with a generic definition without a range. -->
+    <!-- https://w3id.org/citydata/part1/v1/aggregationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregationOf">
+        <skos:definition>A collection of objects.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="LocationObjectProperty"/>
+    </owl:ObjectProperty>
+    
+    <!-- https://w3id.org/citydata/part1/v1/aggregateOver -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregateOver">
+        <owl:equivalentProperty rdf:resource="https://w3id.org/citydata/part1/v1/aggregationOf"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:subPropertyOf rdf:resource="FoundationalCdmObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: ISO/IEC 5087-1 also defines "partOf" with a definition of "", but without any further definition (i.e., it has an empty row in the properties table and is not used as a parent class for any of the other properties.) It seems as if the intent was to define it and use it as a parent class for properPartOf -->
+
+    <!-- Issue: It seems as if properPartOf, hasProperPart, componentOf, and hasComponent, and partOf should be transitive properties. -->
+
+    <!-- https://w3id.org/citydata/part1/v1/componentOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/componentOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasComponent"/>
+        <skos:definition>Specifies a part-whole relationship between objects where the component is a part that is defined based on actual boundaries. The parts are often also defined according to distinct functions. For example, a headlight is a componentOf a car. </skos:definition>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasComponent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasComponent">
+        <skos:definition>Specifies a part-whole relationship between objects where the component is a part that is defined based on actual boundaries. The parts are often also defined according to distinct functions. For example, a car hasComponent headlight.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasProperPart"/>
+    </owl:ObjectProperty>
+    
+  
+
+    <!-- https://w3id.org/citydata/part1/v1/hasProperPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasProperPart">
+        <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/MereologyObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#componentOf -->
+    <!-- https://w3id.org/citydata/part1/v1/immediateComponentOf -->
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#componentOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#properPartOf"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasComponent"/>
-        <dc:description>Something may be a Component of some other thing
-More specifically, something may be a immediate component of something; in other words, if x is an immediate component of y, then there does not exist any other object that is a component of y and has x as a component.
-Component-of is transitive. Immediate component-of is not transitive.
-Immediate component-of is a subproperty of component-of.</dc:description>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/immediateComponentOf">
+        <skos:definition>Specifies a componentOf relationship where the if x immediateComponentOf y, then there does not exist a z where x immediateComponentOf z immediateComponentOf y.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/componentOf"/>
     </owl:ObjectProperty>
     
 
+    <!-- Issue: Addition in v1.3.0 to align with ISO/IEC 5087-1 -->
+    <!-- https://w3id.org/citydata/part1/v1/partOf -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasComponent -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasComponent">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasProperPart"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/partOf">
+        <skos:definition>Specifies a part-whole relationship between objects</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/MereologyObjectProperty"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/citydata/part1/v1/properPartOf -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasProperPart -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasProperPart">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#MereologyOntologyProperty"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#properPartOf"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/properPartOf">
+        <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/partOf"/>
     </owl:ObjectProperty>
     
 
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#immediateComponentOf -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#immediateComponentOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#componentOf"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#properPartOf -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#properPartOf">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#MereologyOntologyProperty"/>
-        <dc:description>Something may be a Proper Part of some other thing.
-An object cannot be a proper part of itself. Thus, any object must have more than one proper part.
-Proper Parthood is transitive.
-Proper parthood is dense and so there exist no immediate proper parts; in other words, given some object, whatever proper part, x, we choose, there exists some slightly larger proper part of the object that also has x as a proper part.</dc:description>
-    </owl:ObjectProperty>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-
