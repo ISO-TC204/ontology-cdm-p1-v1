@@ -1,9 +1,14 @@
 [
   {
-    "version": "v1.0.1",
-    "title": "v1.0.1",
+    "version": "2026-02-12_19-35-16",
+    "title": "2026-02-12_19-35-16",
     "aliases": [
       "latest"
     ]
+  },
+  {
+    "version": "v1.0.1",
+    "title": "v1.0.1",
+    "aliases": []
   }
 ]

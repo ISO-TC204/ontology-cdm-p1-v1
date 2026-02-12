@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:geo="http://www.opengis.net/ont/geosparql#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/SpatialLocPattern">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Spatial Location Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the spatial location pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+         <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLocation"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/SpatialLocPattern/r3.0"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/MereologyPattern"/>
+    </owl:Ontology>
+
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- Added in v1.2.0 but probably not appropriate. Deleted. -->
+    <!-- http://franz.com/ns/allegrograph/5.0/geo/nd#_lat_la_-9.+1_+9.+1_+1.-4_+1.-1_lon_lo_-1.8+2_+1.8+2_+1.-4 -->
+
+    <!-- <rdfs:Datatype rdf:about="http://franz.com/ns/allegrograph/5.0/geo/nd#_lat_la_-9.+1_+9.+1_+1.-4_+1.-1_lon_lo_-1.8+2_+1.8+2_+1.-4">
+        <skos:prefLabel>nD Lat Lon</skos:prefLabel>
+    </rdfs:Datatype>  -->
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- https://w3id.org/citydata/part1/v1/LocationObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/LocationObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all location object properties defined in the City Data Model.</skos:definition>
+    </owl:ObjectProperty>
+
+
+    <!-- https://w3id.org/citydata/part1/v1/associatedLocation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/associatedLocation">
+        <skos:definition>Captures the association of a non-spatial object with a Location. For example, an activity is not a spatial object but may be associated with some location in which it (mostly) takes place.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/LocationObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasLocation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasLocation">
+        <skos:definition>Specifies the Location of an object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/LocationObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: No definition provided for nonTangentialProperPart -->
+    <!-- https://w3id.org/citydata/part1/v1/nonTangentialProperPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/nonTangentialProperPart">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#rcc8ntpp"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: No definition provided for tangentialProperPart -->
+    <!-- https://w3id.org/citydata/part1/v1/tangentialProperPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/tangentialProperPart">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#rcc8tpp"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+    </owl:ObjectProperty>
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part1/v1/SpatialLocOntologyDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part1/v1/LocationDataProperty">
+        <rdfs:comment>Created for organizational purposes, to identify location data properties.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- Added in v1.2.0, but not in standard and probably not the right element. Deleted. -->
+    <!-- https://w3id.org/citydata/part1/v1/as_nDLatLon -->
+
+<!--    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part1/v1/as_nDLatLon">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://franz.com/ns/allegrograph/5.0/geo/nd#_lat_la_-9.+1_+9.+1_+1.-4_+1.-1_lon_lo_-1.8+2_+1.8+2_+1.-4"/>
+    </owl:DatatypeProperty>   -->
+    
+
+
+    <!-- Issue: hasSerialization added in v1.2.0 -->
+    <!-- https://w3id.org/citydata/part1/v1/hasSerialization -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part1/v1/hasSerialization">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/LocationDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part1/v1/LocationThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/SpatialLocThing">
+        <skos:definition>Added for organizational purposes, to identify all classes defined in the Location pattern of the CDM ontology.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmThing"/>
+    </owl:Class>
+    
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Location">
+        <skos:definition>A location.</skos:definition>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/SpatialLocThing"/>
+    </owl:Class>
+    
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
