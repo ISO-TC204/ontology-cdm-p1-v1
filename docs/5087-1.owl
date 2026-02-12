@@ -10,11 +10,14 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:i72="https://w3id.org/isoiec21972/v1/"
+     xmlns:i72="https://w3id.org/citydata/21972/v1/"
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:org="http://www.w3.org/ns/org#"
      xmlns:time="http://www.w3.org/2006/time#">
     <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/">
+        <rdfs:comment>It is expected that the w3id.org domain will be updated to reference a JTC4 designated domain once the new JTC holds its first meeting. The updated ontology IRIs only include a major version number while the minor version number and patch number (jointly called the release number) are added in the version IRI. This provides stability of the concept IRIs as long as there are no changes that break backwards compatibility.</rdfs:comment>
+
+
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts</dcterms:title>
         <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80718.html"/>
@@ -27,37 +30,51 @@
         <dcterms:creator>Megan Katsumi</dcterms:creator>
         <dcterms:creator>Mark Fox</dcterms:creator>
     	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
-        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
-		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-01-13</dcterms:modified> <!-- Date of this ontology file -->
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/CityUnits"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/RecurringEvent"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/r3.0"/>
-        <rdfs:comment>The prior version of this ontology was divided into a distinct file 
-            for each pattern contained within Part 1; this version combines all of the 
-            patterns into a single file for ease of reference. Some of the prior component 
-            ontology files were labelled as v1.2. This update does not make any semantic
-            changes from the approved ontology, but does correct several references 
-            resulting in a change greater than a patch but less than a major change. As 
-            such, it is published as v1.3.0.</rdfs:comment>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/5087-1/r3.0"/>
         
         <!-- License -->
         <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
         
         <!-- Imports -->
         <owl:imports rdf:resource="http://www.w3.org/ns/prov"/>
-        <owl:imports rdf:resource="https://w3id.org/isoiec21972/v1"/>
         <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/Core"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/ActivityPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/AgentPattern"/>
         <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/AgreementPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/ChangePattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/CityUnitsPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/GenericPropertiesPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/MereologyPattern"/>
+        <!-- which includes the following cascade of imports:
+            AgentPattern
+                GenericPropertiesPattern
+                ResourcePattern
+                    ActivityPattern
+                        ChangePattern
+                        SpatialLocPattern
+                            MereologyPattern
+                    CityUnitsPattern
+                        ISO21972
+        -->
         <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/OrganizationStructurePattern"/>
+        <!-- which includes the following cascade of imports:
+            AgentPattern (as above)
+        -->
         <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/RecurringEventPattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/ResourcePattern"/>
-        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/SpatialLocPattern"/>
+        <!-- which includes the following cascade of imports:
+                GenericPropertiesPattern
+                ActivityPattern (as above)
+        -->
     </owl:Ontology>
     
 
