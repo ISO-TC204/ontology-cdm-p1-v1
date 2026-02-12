@@ -21,13 +21,11 @@
         <dcterms:creator>Megan Katsumi</dcterms:creator>
         <dcterms:creator>Mark Fox</dcterms:creator>
     	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023</dcterms:issued> <!-- Date of the source document, comment out if draft -->
-        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-11-05</owl:priorVersion> <!-- Date of prior ontology file, if any -->
-		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-06</dcterms:modified> <!-- Date of this ontology file -->
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/r3.0"/>
-        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
-        
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/Core/r3.0"/>
+   
         <!-- License -->
         <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
         

@@ -1,94 +1,79 @@
 site_name: 'City Data Model - Part 1: Foundation level concepts'
 site_description: This ontology forms the basis of ISO/IEC 5087-1, which specifies
   the foundational level concepts for cities.
-repo_url: https://github.com/k-vaughn/ontology-cdm-p1
+repo_url: https://github.com/ISO-TC204/ontology-cdm-p1-v1
 nav:
 - Home: index.md
-- Activity Ontology:
-  - Activity (Activity): classes/Activity__Activity.md
-  - Activity Ontology Thing (Activity): classes/Activity__ActivityOntologyThing.md
-  - Activity Status (Activity): classes/Activity__ActivityStatus.md
-  - Conjunctive State (Activity): classes/Activity__ConjunctiveState.md
-  - Disjunctive State (Activity): classes/Activity__DisjunctiveState.md
-  - Manifestation State (Activity): classes/Activity__ManifestationState.md
-  - Non Terminal State (Activity): classes/Activity__NonTerminalState.md
-  - State (Activity): classes/Activity__State.md
-  - State Status (Activity): classes/Activity__StateStatus.md
-  - Terminal State (Activity): classes/Activity__TerminalState.md
-- Agent Pattern:
-  - Agent (Agent): classes/Agent__Agent.md
-  - Agent Ontology Thing (Agent): classes/Agent__AgentOntologyThing.md
-- Agreement Pattern:
-  - Agent (Agreement): classes/Agreement__Agent.md
-  - Agreement (Agreement): classes/Agreement__Agreement.md
-  - Agreement Ontology Thing (Agreement): classes/Agreement__AgreementOntologyThing.md
-  - Atomic Agreement: classes/Agreement__Atomic Agreement.md
-  - Complex Agreement: classes/Agreement__Complex Agreement.md
-  - Conjunctive Agreement (Agreement): classes/Agreement__ConjunctiveAgreement.md
-  - Disjunctive Agreement (Agreement): classes/Agreement__DisjunctiveAgreement.md
-- City Units of Measure:
-  - acceleration: classes/CityUnits__acceleration.md
-  - acceleration unit: classes/CityUnits__acceleration unit.md
-  - amount of money: classes/CityUnits__amount of money.md
-  - area: classes/CityUnits__area.md
-  - area unit: classes/CityUnits__area unit.md
-  - Capacity (CityUnits): classes/CityUnits__Capacity.md
-  - Capacity Rate (CityUnits): classes/CityUnits__CapacityRate.md
-  - Capacity Size (CityUnits): classes/CityUnits__CapacitySize.md
-  - Cardinality Measure (CityUnits): classes/CityUnits__CardinalityMeasure.md
-  - Cardinality Unit Per Time (CityUnits): classes/CityUnits__CardinalityUnitPerTime.md
-  - City Units Thing (CityUnits): classes/CityUnits__CityUnitsThing.md
-  - duration: classes/CityUnits__duration.md
-  - function: classes/CityUnits__function.md
-  - Geo_Position_unit (CityUnits): classes/CityUnits__Geo_Position_unit.md
-  - length: classes/CityUnits__length.md
-  - length unit: classes/CityUnits__length unit.md
-  - mass: classes/CityUnits__mass.md
-  - mass unit: classes/CityUnits__mass unit.md
-  - Monetary Value (CityUnits): classes/CityUnits__MonetaryValue.md
-  - ratio: classes/CityUnits__ratio.md
-  - speed: classes/CityUnits__speed.md
-  - speed unit: classes/CityUnits__speed unit.md
-  - time unit: classes/CityUnits__time unit.md
-  - Value Of Money (CityUnits): classes/CityUnits__ValueOfMoney.md
-  - volume: classes/CityUnits__volume.md
-  - volume unit: classes/CityUnits__volume unit.md
-- iCity Change Ontology:
-  - Change Ontology Thing (Change): classes/Change__ChangeOntologyThing.md
-  - First Manifestation (Change): classes/Change__FirstManifestation.md
-  - Manifestation (Change): classes/Change__Manifestation.md
-- iCity Resource Ontology:
-  - Consume State (Resource): classes/Resource__ConsumeState.md
-  - Divisible Resource (Resource): classes/Resource__DivisibleResource.md
-  - Non Divisible Resource (Resource): classes/Resource__NonDivisibleResource.md
-  - Planned Allocation (Resource): classes/Resource__PlannedAllocation.md
-  - Produce State (Resource): classes/Resource__ProduceState.md
-  - Release State (Resource): classes/Resource__ReleaseState.md
-  - Resource (Resource): classes/Resource__Resource.md
-  - Resource Ontology Thing (Resource): classes/Resource__ResourceOntologyThing.md
-  - Terminal Resource State (Resource): classes/Resource__TerminalResourceState.md
-  - Use State (Resource): classes/Resource__UseState.md
-- ISO 5087-1 Provenance Pattern:
-  - Activity (Prov): classes/Prov__Activity.md
-  - Agent (Prov): classes/Prov__Agent.md
-  - Prov Ontology Thing (Prov): classes/Prov__ProvOntologyThing.md
-- Organization Structure Pattern:
-  - Organization (OrganizationStructure): classes/OrganizationStructure__Organization.md
-  - Organization Structure Ontology Thing (OrganizationStructure): classes/OrganizationStructure__OrganizationStructureOntologyThing.md
-- Recurring Event Ontology:
-  - Daily Recurring Event (RecurringEvent): classes/RecurringEvent__DailyRecurringEvent.md
-  - Exception Day (RecurringEvent): classes/RecurringEvent__ExceptionDay.md
-  - Monthly Recurring Event (RecurringEvent): classes/RecurringEvent__MonthlyRecurringEvent.md
-  - Recurring Event (RecurringEvent): classes/RecurringEvent__RecurringEvent.md
-  - Recurring Event Thing (RecurringEvent): classes/RecurringEvent__RecurringEventThing.md
-  - Weekly Recurring Event (RecurringEvent): classes/RecurringEvent__WeeklyRecurringEvent.md
-  - Yearly Recurring Event (RecurringEvent): classes/RecurringEvent__YearlyRecurringEvent.md
-- Spatial Location Ontology:
-  - Location (SpatialLoc): classes/SpatialLoc__Location.md
-  - Spatial Loc Ontology Thing (SpatialLoc): classes/SpatialLoc__SpatialLocOntologyThing.md
-- Time Pattern:
-  - Time Ontology Thing (Time): classes/Time__TimeOntologyThing.md
-site_url: https://k-vaughn.github.io/ontology-cdm-p1
+- Untitled Ontology:
+  - Acceleration (5087-1): classes/5087-1__Acceleration.md
+  - Acceleration Unit (5087-1): classes/5087-1__AccelerationUnit.md
+  - Activity (5087-1): classes/5087-1__Activity.md
+  - Activity Status (5087-1): classes/5087-1__ActivityStatus.md
+  - Activity Thing (5087-1): classes/5087-1__ActivityThing.md
+  - Agent (5087-1): classes/5087-1__Agent.md
+  - Agent Thing (5087-1): classes/5087-1__AgentThing.md
+  - Agreement (5087-1): classes/5087-1__Agreement.md
+  - Agreement Thing (5087-1): classes/5087-1__AgreementThing.md
+  - Amount Of Money (5087-1): classes/5087-1__AmountOfMoney.md
+  - Area (5087-1): classes/5087-1__Area.md
+  - Area Unit (5087-1): classes/5087-1__AreaUnit.md
+  - Atomic Agreement (5087-1): classes/5087-1__AtomicAgreement.md
+  - Capacity (5087-1): classes/5087-1__Capacity.md
+  - Capacity Size (5087-1): classes/5087-1__CapacitySize.md
+  - Cardinality Measure (5087-1): classes/5087-1__CardinalityMeasure.md
+  - Cardinality Unit Per Time (5087-1): classes/5087-1__CardinalityUnitPerTime.md
+  - Cdm Thing (5087-1): classes/5087-1__CdmThing.md
+  - Change Thing (5087-1): classes/5087-1__ChangeThing.md
+  - City Units Thing (5087-1): classes/5087-1__CityUnitsThing.md
+  - Complex Agreement (5087-1): classes/5087-1__ComplexAgreement.md
+  - Conjunctive Agreement (5087-1): classes/5087-1__ConjunctiveAgreement.md
+  - Conjunctive State (5087-1): classes/5087-1__ConjunctiveState.md
+  - Consume State (5087-1): classes/5087-1__ConsumeState.md
+  - Daily Recurring Event (5087-1): classes/5087-1__DailyRecurringEvent.md
+  - Disjunctive Agreement (5087-1): classes/5087-1__DisjunctiveAgreement.md
+  - Disjunctive State (5087-1): classes/5087-1__DisjunctiveState.md
+  - Divisible Resource (5087-1): classes/5087-1__DivisibleResource.md
+  - Duration (5087-1): classes/5087-1__Duration.md
+  - Exception Day (5087-1): classes/5087-1__ExceptionDay.md
+  - First Manifestation (5087-1): classes/5087-1__FirstManifestation.md
+  - Foundational Cdm Thing (5087-1): classes/5087-1__FoundationalCdmThing.md
+  - Geo_Position_unit (5087-1): classes/5087-1__Geo_Position_unit.md
+  - Length (5087-1): classes/5087-1__Length.md
+  - Length Unit (5087-1): classes/5087-1__LengthUnit.md
+  - Location (5087-1): classes/5087-1__Location.md
+  - Manifestation (5087-1): classes/5087-1__Manifestation.md
+  - Manifestation State (5087-1): classes/5087-1__ManifestationState.md
+  - Mass (5087-1): classes/5087-1__Mass.md
+  - Mass Unit (5087-1): classes/5087-1__MassUnit.md
+  - Monetary Value (5087-1): classes/5087-1__MonetaryValue.md
+  - Monthly Recurring Event (5087-1): classes/5087-1__MonthlyRecurringEvent.md
+  - Non Divisible Resource (5087-1): classes/5087-1__NonDivisibleResource.md
+  - Non Terminal State (5087-1): classes/5087-1__NonTerminalState.md
+  - Organization (5087-1): classes/5087-1__Organization.md
+  - Organization Thing (5087-1): classes/5087-1__OrganizationThing.md
+  - Planned Allocation (5087-1): classes/5087-1__PlannedAllocation.md
+  - Produce State (5087-1): classes/5087-1__ProduceState.md
+  - Ratio (5087-1): classes/5087-1__Ratio.md
+  - Recurring Event (5087-1): classes/5087-1__RecurringEvent.md
+  - Recurring Event Thing (5087-1): classes/5087-1__RecurringEventThing.md
+  - Release State (5087-1): classes/5087-1__ReleaseState.md
+  - Resource (5087-1): classes/5087-1__Resource.md
+  - Resource Thing (5087-1): classes/5087-1__ResourceThing.md
+  - Spatial Loc Thing (5087-1): classes/5087-1__SpatialLocThing.md
+  - Speed (5087-1): classes/5087-1__Speed.md
+  - Speed Unit (5087-1): classes/5087-1__SpeedUnit.md
+  - State (5087-1): classes/5087-1__State.md
+  - State Status (5087-1): classes/5087-1__StateStatus.md
+  - Terminal Resource State (5087-1): classes/5087-1__TerminalResourceState.md
+  - Terminal State (5087-1): classes/5087-1__TerminalState.md
+  - Time Unit (5087-1): classes/5087-1__TimeUnit.md
+  - Use State (5087-1): classes/5087-1__UseState.md
+  - Value Of Money (5087-1): classes/5087-1__ValueOfMoney.md
+  - Volume (5087-1): classes/5087-1__Volume.md
+  - Volume Unit (5087-1): classes/5087-1__VolumeUnit.md
+  - Weekly Recurring Event (5087-1): classes/5087-1__WeeklyRecurringEvent.md
+  - Yearly Recurring Event (5087-1): classes/5087-1__YearlyRecurringEvent.md
+site_url: https://isotc204.org/ontology-cdm-p1-v1
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
   rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
