@@ -64,7 +64,7 @@
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
