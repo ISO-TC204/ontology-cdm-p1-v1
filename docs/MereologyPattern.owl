@@ -61,6 +61,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregateOf">
         <skos:definition>One object within a collection.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/CityUnitObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/aggregationOf"/>
     </owl:ObjectProperty>
     
 

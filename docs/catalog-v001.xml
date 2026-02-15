@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="User Entered Import Resolution" name="https://w3id.org/citydata/21972/v1" uri="file:/Users/kvaughn/GitHub/ontology-i72-v1/docs/i72.owl"/>
     <uri id="User Entered Import Resolution" name="https://w3id.org/citydata/21972/v1/" uri="https://isotc204.org/ontology-i72-v1/latest/i72.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1770925338103" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="AgentPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="AgentPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="AgreementPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="RecurringEventPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="CityUnitsPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="OrganizationStructurePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="ChangePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="MereologyPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="5087-1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="ActivityPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="SpatialLocPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="Core.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="ResourcePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771084194115" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="GenericPropertiesPattern.owl"/>
     </group>
 </catalog>
