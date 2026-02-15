@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/MereologyPattern/">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Mereology Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the mereology pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/MereologyPattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/Core/"/>
+    </owl:Ontology>
+
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part1/v1/MereologyObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/MereologyObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all mereology object properties defined in the City Data Model.</skos:definition>
+    </owl:ObjectProperty>
+
+
+    <!-- Issue: Moved from CityUnits to put into a more logical location. -->
+    <!-- https://w3id.org/citydata/part1/v1/aggregateOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregateOf">
+        <skos:definition>One object within a collection.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/CityUnitObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/aggregationOf"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Moved from CityUnits to put into a more logical location. -->
+    <!-- Issue: While aggregateOver is declared in ISO/IEC 5087-1, no definition is provided there or in the OWL files and it is never used in the document. The same concept seems to be called aggregationOf in ISO/IEC 5087-2, which is likely a more widely used term. Thus, aggregateOver is defined as a synonym to aggregationOf with a generic definition without a range. -->
+    <!-- https://w3id.org/citydata/part1/v1/aggregationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregationOf">
+        <skos:definition>A collection of objects.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/LocationObjectProperty"/>
+    </owl:ObjectProperty>
+    
+    <!-- https://w3id.org/citydata/part1/v1/aggregateOver -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/aggregateOver">
+        <owl:equivalentProperty rdf:resource="https://w3id.org/citydata/part1/v1/aggregationOf"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: ISO/IEC 5087-1 also defines "partOf" with a definition of "", but without any further definition (i.e., it has an empty row in the properties table and is not used as a parent class for any of the other properties.) It seems as if the intent was to define it and use it as a parent class for properPartOf -->
+
+    <!-- Issue: It seems as if properPartOf, hasProperPart, componentOf, and hasComponent, and partOf should be transitive properties. -->
+
+    <!-- https://w3id.org/citydata/part1/v1/componentOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/componentOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasComponent"/>
+        <skos:definition>Specifies a part-whole relationship between objects where the component is a part that is defined based on actual boundaries. The parts are often also defined according to distinct functions. For example, a headlight is a componentOf a car. </skos:definition>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasComponent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasComponent">
+        <skos:definition>Specifies a part-whole relationship between objects where the component is a part that is defined based on actual boundaries. The parts are often also defined according to distinct functions. For example, a car hasComponent headlight.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasProperPart"/>
+    </owl:ObjectProperty>
+    
+  
+
+    <!-- https://w3id.org/citydata/part1/v1/hasProperPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasProperPart">
+        <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/MereologyObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/citydata/part1/v1/immediateComponentOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/immediateComponentOf">
+        <skos:definition>Specifies a componentOf relationship where the if x immediateComponentOf y, then there does not exist a z where x immediateComponentOf z immediateComponentOf y.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/componentOf"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Addition in v1.3.0 to align with ISO/IEC 5087-1 -->
+    <!-- https://w3id.org/citydata/part1/v1/partOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/partOf">
+        <skos:definition>Specifies a part-whole relationship between objects</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/MereologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/properPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/properPartOf">
+        <skos:definition>Specifies a part-whole relationship between objects where an object cannot be part of itself</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/partOf"/>
+    </owl:ObjectProperty>
+    
+
+</rdf:RDF>

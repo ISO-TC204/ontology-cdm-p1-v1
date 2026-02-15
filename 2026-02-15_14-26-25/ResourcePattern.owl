@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:i72="https://w3id.org/isoiec21972/v1/"
+     xmlns:time="http://www.w3.org/2006/time#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/ResourcePattern/">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Resource Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the resource pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/ResourcePattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/ActivityPattern/"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/CityUnitsPattern/"/>
+    </owl:Ontology>
+
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part1/v1/ResourceObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/ResourceObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all resource object properties defined in the City Data Model.</skos:definition>
+    </owl:ObjectProperty>
+
+
+    <!-- https://w3id.org/citydata/part1/v1/capacityInUse -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/capacityInUse">
+        <skos:definition>Identifies the portion of capacity in use, by some Activity(s).</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>    
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Added in v1.2.0 -->
+    <!-- https://w3id.org/citydata/part1/v1/consumedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/consumedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/preconditionOf"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/forResource -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/forResource">
+        <skos:definition>Specifies the Resource that is allocated.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/PlannedAllocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>    
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/forState -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/forState">
+        <skos:definition>Specifies the State to which the Resource is allocated.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/PlannedAllocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/State"/>  
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasAllocation"/>  
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasAllocation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasAllocation">
+        <skos:definition>Specifies a Planned Allocation for the Resource. This indicates a State and time Interval to which the Resource has been allocated.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: In ISO/IEC 5087-1, hasAsset is listed in a table as a null entry with no other reference and this file does not provide any additional information -->
+    <!-- https://w3id.org/citydata/part1/v1/hasAsset -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasAsset">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasAvailableCapacity -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasAvailableCapacity">
+        <skos:definition>identifies the Quantity that specifies how much of the Resource is available for use.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/citydata/part1/v1/hasCapacity -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasCapacity">
+        <skos:definition>Identifies the Quantity that specifies how much of the Resource exists, e.g. its volume, if it is liquid; how much it can hold, if it is an container.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Added in v1.2.0. -->
+    <!-- https://w3id.org/citydata/part1/v1/hasOwner -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasOwner">
+        <skos:definition>A Resource may have some owner. The owner of a resource is subject to change over time.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/ownedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasQuantity -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasQuantity">
+        <skos:definition>Specifies the Quantity of the Resource that participates in the State, if applicable.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/PlannedAllocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasResource -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasResource">
+        <skos:definition>Specifies a Resource that participates in the State. This identifies the condition of the object that plays a resource role (i.e. is used, consumed, etc.) when the state’s status is active.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/resourceOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>    
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Added in v1.2.0 -->
+    <!-- https://w3id.org/citydata/part1/v1/ownedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/ownedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/participatesIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/participatesIn">
+        <skos:definition>Identifies the Activity that the Resource is being used, consumed, produced, or released by.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>    
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/resourceOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/resourceOf">
+        <skos:definition>identifies what State the agent may be a resource of. This is specified using the Resource pattern, where the Agent would be considered to be a resource from the perspective of an Activity that uses it in some way. For example, a construction activity may use some persons(s) and those persons would be considered a Resource for that Activity.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: Added in v1.2.0 -->
+    <!-- https://w3id.org/citydata/part1/v1/usedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/usedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/preconditionOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part1/v1/ResourceThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ResourceThing">
+        <skos:definition>Added for organizational purposes, to identify all classes defined in the Resource ontology.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmThing"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/ConsumeState -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ConsumeState">
+        <skos:definition>Identifies a Resource and Quantity it consumes. The Quantity is removed from the Resource.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/DivisibleResource -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/DivisibleResource">
+        <skos:definition>A Resource that can be divided for use or consumption between multiple Activities.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/NonDivisibleResource -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/NonDivisibleResource">
+        <skos:definition>A Resource that can only be used for a single Activity at once - even if it isn't fully utilized.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+    </owl:Class>
+    
+
+    <!-- Issue: PlannedAllocation is not defined to be of type Manifestation in ISO/IEC 5087-1. -->
+    <!-- https://w3id.org/citydata/part1/v1/PlannedAllocation -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/PlannedAllocation">
+        <skos:definition xml:lang="en">Specifies the planned allocation of a resource to an activity via a state.
+        Note that Allocation is a Manifestation as the allocation may change over time.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/forResource"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/forState"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/State"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasQuantity"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/ProduceState -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ProduceState">
+        <skos:definition>Identifies a Resource and Quantity it produces.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/ReleaseState -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ReleaseState">
+        <skos:definition>Identifies a Resource and Quantity it releases (after using).</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/Resource -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Resource">
+        <skos:definition>A Resource is a generic representation of some Thing that can be &quot;used&quot; in an Activity. 
+        A Resource may have some Location, amount or availability, according to the definition of the Manifestation or TimeVaryingEntity. 
+        A Resource must be classified as some Resource Type.
+        A Resource may participate in some Activity Occurrence. In other words, it links to the Activity that the Resource is being used/consumed/produced/released at the time of the manifestation.
+        A specific Resource may be used in or consumed in some activity occurrence.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasLocation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasAllocation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/PlannedAllocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/participatesIn"/>
+                <!-- Issue: Resource.participatesIn is defined as only Activity in ISO/IEC 5087-1 rather than min 1 -->
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/capacityInUse"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasAvailableCapacity"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasCapacity"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/citydata/part1/v1/DivisibleResource"/>
+            <rdf:Description rdf:about="https://w3id.org/citydata/part1/v1/NonDivisibleResource"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/TerminalResourceState -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/TerminalResourceState">
+        <skos:definition></skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalState"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasAllocation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/PlannedAllocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasQuantity"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasResource"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/UseState -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/UseState">
+        <skos:definition>Identifies a Resource and Quantity it uses (without consuming).</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+    </owl:Class>
+
+</rdf:RDF>
