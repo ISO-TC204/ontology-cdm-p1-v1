@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/ChangePattern">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Change Pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the change pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/ChangePattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/Core/"/>
+    </owl:Ontology>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+     <!-- https://w3id.org/citydata/part1/v1/isInvariant -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/citydata/part1/v1/isInvariant">
+        <rdfs:comment xml:lang="en">Identifies whether a property is to be interpreted as invariant (i.e., its value is not subject to change over time).</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- https://w3id.org/citydata/part1/v1/ChangeObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/ChangeObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmObjectProperty"/>
+        <skos:definition>Added for organizational purposes, to identify all change object properties defined in the City Data Model.</skos:definition>
+    </owl:ObjectProperty>
+
+
+    <!-- https://w3id.org/citydata/part1/v1/existsAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/existsAt">
+        <skos:definition>Identifies the TemporalEntity that reflects the time Instant or Interval during which a Thing is valid.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasFirstManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasFirstManifestation">
+        <skos:definition>Identifies the First Manifestation that is related to a particular Manifestation (i.e., for some snapshot of an object, it identifies the first such snapshot of the object).</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasLatestManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasLatestManifestation">
+        <skos:definition>Identifies the most recent Manifestation that is related to a particular FirstManifestation (i.e., for some snapshot of an object, it identifies the most recent snapshot of the object).</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/FirstManifestation"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasManifestation">
+        <skos:definition>identifies a Manifestation that captures the instantiation of variant attributes of an object at some time (i.e., a temporal snapshot of some individual). The individual is related to all manifestations in a series via the hasManifestation property.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasNextManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasNextManifestation">
+        <skos:definition>Identifies the immediate successor Manifestation (i.e. the subsequent snapshot of the object).</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/hasPreviousManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/hasPreviousManifestation">
+        <skos:definition>Identifies the immediate prior Manifestation (i.e. the prior snapshot of the object).</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part1/v1/hasNextManifestation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/precedesManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part1/v1/precedesManifestation">
+        <skos:definition>Identifies all subsequent Manifestations that follow a FirstManifestation.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="ChangeObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/FirstManifestation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part1/v1/Manifestation"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://w3id.org/citydata/part1/v1/FirstManifestation"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- https://w3id.org/citydata/part1/v1/ChangeThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/ChangeThing">
+        <rdfs:comment>Added for organizational purposes to group the classes defined in the Change portion of the CDM.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmThing"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/FirstManifestation -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/FirstManifestation">
+        <skos:definition>The first recorded manifestation of an individual. No prior manifestations (in time) exist for the individual. It is a subclassOf Manifestation.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/precedesManifestation"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part1/v1/Manifestation"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="https://w3id.org/citydata/part1/v1/FirstManifestation"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasLatestManifestation"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/Manifestation -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Manifestation">
+        <skos:definition>Manifestations may be interpreted as “snapshots” of an object at some point in time. This enables the representation of changing attributes of an object, without losing information about its past values/relationships. The properties of the class must then be identified as properties that are (and aren't) subject to change, in order to distinguish between the static and dynamic aspects of a particular entity.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/ChangeThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/existsAt"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasFirstManifestation"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasNextManifestation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasPreviousManifestation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Manifestation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+        
+</rdf:RDF>
