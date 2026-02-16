@@ -10,7 +10,7 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:i72="https://w3id.org/isoiec21972/v1/"
+     xmlns:i72="https://w3id.org/citydata/21972/v1/"
      xmlns:time="http://www.w3.org/2006/time#">
     <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/ResourcePattern/">
     	<!-- Identity -->
@@ -119,7 +119,7 @@
         <skos:definition>identifies the Quantity that specifies how much of the Resource is available for use.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -131,7 +131,7 @@
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -152,7 +152,7 @@
         <skos:definition>Specifies the Quantity of the Resource that participates in the State, if applicable.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/ResourceObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/citydata/part1/v1/PlannedAllocation"/>
-        <rdfs:range rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>    
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>    
     </owl:ObjectProperty>
     
 
@@ -276,7 +276,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasQuantity"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -331,21 +331,21 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/capacityInUse"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasAvailableCapacity"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasCapacity"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointUnionOf rdf:parseType="Collection">
@@ -370,7 +370,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasQuantity"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/isoiec21972/v1/Quantity"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/21972/v1/Quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
