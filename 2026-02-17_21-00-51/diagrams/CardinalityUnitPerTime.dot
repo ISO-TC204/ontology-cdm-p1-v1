@@ -1,0 +1,18 @@
+// Diagram for CardinalityUnitPerTime
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		CardinalityUnitPerTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">CardinalityUnitPerTime</TD></TR></TABLE>> URL="../CardinalityUnitPerTime.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	CityUnitsThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityUnitsThing</TD></TR></TABLE>> URL="../CityUnitsThing.md" margin=0]
+	CardinalityUnitPerTime -> CityUnitsThing [arrowhead=onormal style=solid]
+	i72_Unit_division [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Unit_division</TD></TR></TABLE>> margin=0]
+	CardinalityUnitPerTime -> i72_Unit_division [arrowhead=onormal style=solid]
+}

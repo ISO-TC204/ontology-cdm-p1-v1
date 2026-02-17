@@ -1,0 +1,58 @@
+// Diagram for RecurringEvent
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		RecurringEvent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">RecurringEvent</TD></TR><HR/><TR><TD ALIGN="LEFT">«only» endTime: xsd:time</TD></TR><TR><TD ALIGN="LEFT">«only» startTime: xsd:time</TD></TR></TABLE>> URL="../RecurringEvent.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity.md" margin=0]
+		Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Location</TD></TR></TABLE>> URL="../Location.md" margin=0]
+		State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State.md" margin=0]
+		time_DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:DayOfWeek</TD></TR></TABLE>> margin=0]
+		time_GeneralDateTimeDescription [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:GeneralDateTimeDescription</TD></TR></TABLE>> margin=0]
+		time_TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalEntity</TD></TR></TABLE>> margin=0]
+	}
+	RecurringEventThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">RecurringEventThing</TD></TR></TABLE>> URL="../RecurringEventThing.md" margin=0]
+	RecurringEvent -> RecurringEventThing [arrowhead=onormal style=solid]
+	RecurringEvent -> Invis [style=invis]
+	Invis -> Activity [style=invis]
+	Activity -> Location [style=invis]
+	Location -> State [style=invis]
+	State -> time_DayOfWeek [style=invis]
+	time_DayOfWeek -> time_GeneralDateTimeDescription [style=invis]
+	time_GeneralDateTimeDescription -> time_TemporalEntity [style=invis]
+	RecurringEvent -> State [label=" beginsRecurringState 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> time_TemporalEntity [label=" beginsRecurringTime 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> State [label=" endsRecurringState 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> time_TemporalEntity [label=" endsRecurringTime 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> time_DayOfWeek [label=" hasDayOfWeek 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> Activity [label=" hasOccurrence 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">RecurringEvent</TD></TR></TABLE>> URL="../RecurringEvent.md" margin=0]
+	RecurringEvent -> RecurringEvent [label=" hasSubRecurringEvent 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> time_GeneralDateTimeDescription [label=" onDateTimeDescription 
+ «only»  " arrowhead=normal style=solid]
+	Nffd2aac40eb441b38cae0653240851d2 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	Nffd2aac40eb441b38cae0653240851d2 -> time_DayOfWeek [label=member arrowhead=normal style=dotted]
+	Nffd2aac40eb441b38cae0653240851d2 -> time_TemporalEntity [label=member arrowhead=normal style=dotted]
+	RecurringEvent -> Nffd2aac40eb441b38cae0653240851d2 [label=" recursAddition 
+ «only»  " arrowhead=normal style=solid]
+	N0aa2933ab45f435088ff389e562bbf30 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	N0aa2933ab45f435088ff389e562bbf30 -> time_DayOfWeek [label=member arrowhead=normal style=dotted]
+	N0aa2933ab45f435088ff389e562bbf30 -> time_TemporalEntity [label=member arrowhead=normal style=dotted]
+	RecurringEvent -> N0aa2933ab45f435088ff389e562bbf30 [label=" recursExcept 
+ «only»  " arrowhead=normal style=solid]
+	RecurringEvent -> Location [label=" associatedLocation 
+ «only»  " arrowhead=normal style=solid]
+}

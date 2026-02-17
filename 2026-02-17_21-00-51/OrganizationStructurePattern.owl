@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part1/v1/"
+     xml:base="https://w3id.org/citydata/part1/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:org="http://www.w3.org/ns/org#">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/OrganizationStructurePattern/">
+    	<!-- Identity -->
+    	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Organization Structure Pattern</dcterms:title>
+        <dcterms:alternative>CDM Organization Structure Pattern</dcterms:alternative>
+    	<skos:definition>This ontology specifies the foundation-level concepts related to the organization structure pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+    		
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+          <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part1/v1/OrganizationStructurePattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/AgentPattern/"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
+    </owl:Ontology>
+
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part1/v1/OrganizationThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/OrganizationThing">
+        <skos:definition>A class representing an organization in the context of the CDM ontology.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/FoundationalCdmThing"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part1/v1/Organization -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part1/v1/Organization">
+        <skos:definition>A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it. An organization may itself be able to act as an agent.
+        In addition to the standard org:Organization pattern, this ontology defines an cdm1:Organization to be a subclass of an cdm1:Agent.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/OrganizationThing"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+    </owl:Class>
+    
+
+</rdf:RDF>

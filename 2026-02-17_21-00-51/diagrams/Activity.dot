@@ -1,0 +1,56 @@
+// Diagram for Activity
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Activity</TD></TR></TABLE>> URL="../Activity.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		ActivityStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ActivityStatus</TD></TR></TABLE>> URL="../ActivityStatus.md" margin=0]
+		Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Location</TD></TR></TABLE>> URL="../Location.md" margin=0]
+		State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State.md" margin=0]
+		time_Instant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Instant</TD></TR></TABLE>> margin=0]
+		time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> margin=0]
+	}
+	ActivityThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ActivityThing</TD></TR></TABLE>> URL="../ActivityThing.md" margin=0]
+	Activity -> ActivityThing [arrowhead=onormal style=solid]
+	prov_Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">prov:Activity</TD></TR></TABLE>> margin=0]
+	Activity -> prov_Activity [arrowhead=onormal style=solid]
+	Activity -> Invis [style=invis]
+	Invis -> ActivityStatus [style=invis]
+	ActivityStatus -> Location [style=invis]
+	Location -> State [style=invis]
+	State -> time_Instant [style=invis]
+	time_Instant -> time_Interval [style=invis]
+	Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity.md" margin=0]
+	Activity -> Activity [label=" hasSubactivity 
+ «only»  " arrowhead=normal style=solid]
+	Activity -> ActivityStatus [label=" hasStatus 
+ «exactly 1»  " arrowhead=normal style=solid]
+	State -> Activity [label=" inverse preconditionOf 
+ «only»  " arrowhead=inv style=solid]
+	State -> Activity [label=" inverse enablesActivity 
+ «only»  " arrowhead=inv style=solid]
+	Activity -> State [label=" hasEffect 
+ «only»  " arrowhead=normal style=solid]
+	Activity -> State [label=" causesState 
+ «only»  " arrowhead=normal style=solid]
+	Activity -> time_Interval [label=" scheduledFor 
+ «exactly 1»  " arrowhead=normal style=solid]
+	Activity -> time_Interval [label=" occursAt 
+ «some»  " arrowhead=normal style=solid]
+	Activity -> time_Instant [label=" beginOf 
+ «some»  " arrowhead=normal style=solid]
+	Activity -> time_Instant [label=" endOf 
+ «some»  " arrowhead=normal style=solid]
+	Activity -> Location [label=" associatedLocation 
+ «only»  " arrowhead=normal style=solid]
+	Activity -> Activity [label=" occursBefore 
+ «only»  " arrowhead=normal style=solid]
+	Activity -> Activity [label=" occursDirectlyBefore 
+ «only»  " arrowhead=normal style=solid]
+}

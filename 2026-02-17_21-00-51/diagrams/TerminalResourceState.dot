@@ -1,0 +1,31 @@
+// Diagram for TerminalResourceState
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		TerminalResourceState [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">TerminalResourceState</TD></TR></TABLE>> URL="../TerminalResourceState.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		i72_Quantity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Quantity</TD></TR></TABLE>> margin=0]
+		PlannedAllocation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PlannedAllocation</TD></TR></TABLE>> URL="../PlannedAllocation.md" margin=0]
+		Resource [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Resource</TD></TR></TABLE>> URL="../Resource.md" margin=0]
+	}
+	ResourceThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ResourceThing</TD></TR></TABLE>> URL="../ResourceThing.md" margin=0]
+	TerminalResourceState -> ResourceThing [arrowhead=onormal style=solid]
+	TerminalState [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TerminalState</TD></TR></TABLE>> URL="../TerminalState.md" margin=0]
+	TerminalResourceState -> TerminalState [arrowhead=onormal style=solid]
+	TerminalResourceState -> Invis [style=invis]
+	Invis -> i72_Quantity [style=invis]
+	i72_Quantity -> PlannedAllocation [style=invis]
+	PlannedAllocation -> Resource [style=invis]
+	TerminalResourceState -> PlannedAllocation [label=" hasAllocation 
+ «only»  " arrowhead=normal style=solid]
+	TerminalResourceState -> i72_Quantity [label=" hasQuantity 
+ «only»  " arrowhead=normal style=solid]
+	Resource -> TerminalResourceState [label=" inverse resourceOf 
+ «only»  " arrowhead=inv style=solid]
+}
