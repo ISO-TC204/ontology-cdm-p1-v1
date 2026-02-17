@@ -14,6 +14,7 @@
     <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/ChangePattern">
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Change Pattern</dcterms:title>
+        <dcterms:alternative>CDM Change Pattern</dcterms:alternative>
     	<skos:definition>This ontology specifies the foundation-level concepts related to the change pattern of the city data model.</skos:definition>
     	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
     	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>

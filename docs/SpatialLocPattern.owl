@@ -14,6 +14,7 @@
     <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/SpatialLocPattern/">
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Spatial Location Pattern</dcterms:title>
+        <dcterms:alternative>CDM Spatial Location Pattern</dcterms:alternative>
     	<skos:definition>This ontology specifies the foundation-level concepts related to the spatial location pattern of the city data model.</skos:definition>
     	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
     	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>

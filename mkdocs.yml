@@ -4,75 +4,101 @@ site_description: This ontology forms the basis of ISO/IEC 5087-1, which specifi
 repo_url: https://github.com/ISO-TC204/ontology-cdm-p1-v1
 nav:
 - Home: index.md
-- Untitled Ontology:
-  - Acceleration (5087-1): classes/5087-1__Acceleration.md
-  - Acceleration Unit (5087-1): classes/5087-1__AccelerationUnit.md
-  - Activity (5087-1): classes/5087-1__Activity.md
-  - Activity Status (5087-1): classes/5087-1__ActivityStatus.md
-  - Activity Thing (5087-1): classes/5087-1__ActivityThing.md
-  - Agent (5087-1): classes/5087-1__Agent.md
-  - Agent Thing (5087-1): classes/5087-1__AgentThing.md
-  - Agreement (5087-1): classes/5087-1__Agreement.md
-  - Agreement Thing (5087-1): classes/5087-1__AgreementThing.md
-  - Amount Of Money (5087-1): classes/5087-1__AmountOfMoney.md
-  - Area (5087-1): classes/5087-1__Area.md
-  - Area Unit (5087-1): classes/5087-1__AreaUnit.md
-  - Atomic Agreement (5087-1): classes/5087-1__AtomicAgreement.md
-  - Capacity (5087-1): classes/5087-1__Capacity.md
-  - Capacity Size (5087-1): classes/5087-1__CapacitySize.md
-  - Cardinality Measure (5087-1): classes/5087-1__CardinalityMeasure.md
-  - Cardinality Unit Per Time (5087-1): classes/5087-1__CardinalityUnitPerTime.md
-  - Cdm Thing (5087-1): classes/5087-1__CdmThing.md
-  - Change Thing (5087-1): classes/5087-1__ChangeThing.md
-  - City Units Thing (5087-1): classes/5087-1__CityUnitsThing.md
-  - Complex Agreement (5087-1): classes/5087-1__ComplexAgreement.md
-  - Conjunctive Agreement (5087-1): classes/5087-1__ConjunctiveAgreement.md
-  - Conjunctive State (5087-1): classes/5087-1__ConjunctiveState.md
-  - Consume State (5087-1): classes/5087-1__ConsumeState.md
-  - Daily Recurring Event (5087-1): classes/5087-1__DailyRecurringEvent.md
-  - Disjunctive Agreement (5087-1): classes/5087-1__DisjunctiveAgreement.md
-  - Disjunctive State (5087-1): classes/5087-1__DisjunctiveState.md
-  - Divisible Resource (5087-1): classes/5087-1__DivisibleResource.md
-  - Duration (5087-1): classes/5087-1__Duration.md
-  - Exception Day (5087-1): classes/5087-1__ExceptionDay.md
-  - First Manifestation (5087-1): classes/5087-1__FirstManifestation.md
-  - Foundational Cdm Thing (5087-1): classes/5087-1__FoundationalCdmThing.md
-  - Geo_Position_unit (5087-1): classes/5087-1__Geo_Position_unit.md
-  - Length (5087-1): classes/5087-1__Length.md
-  - Length Unit (5087-1): classes/5087-1__LengthUnit.md
-  - Location (5087-1): classes/5087-1__Location.md
-  - Manifestation (5087-1): classes/5087-1__Manifestation.md
-  - Manifestation State (5087-1): classes/5087-1__ManifestationState.md
-  - Mass (5087-1): classes/5087-1__Mass.md
-  - Mass Unit (5087-1): classes/5087-1__MassUnit.md
-  - Monetary Value (5087-1): classes/5087-1__MonetaryValue.md
-  - Monthly Recurring Event (5087-1): classes/5087-1__MonthlyRecurringEvent.md
-  - Non Divisible Resource (5087-1): classes/5087-1__NonDivisibleResource.md
-  - Non Terminal State (5087-1): classes/5087-1__NonTerminalState.md
-  - Organization (5087-1): classes/5087-1__Organization.md
-  - Organization Thing (5087-1): classes/5087-1__OrganizationThing.md
-  - Planned Allocation (5087-1): classes/5087-1__PlannedAllocation.md
-  - Produce State (5087-1): classes/5087-1__ProduceState.md
-  - Ratio (5087-1): classes/5087-1__Ratio.md
-  - Recurring Event (5087-1): classes/5087-1__RecurringEvent.md
-  - Recurring Event Thing (5087-1): classes/5087-1__RecurringEventThing.md
-  - Release State (5087-1): classes/5087-1__ReleaseState.md
-  - Resource (5087-1): classes/5087-1__Resource.md
-  - Resource Thing (5087-1): classes/5087-1__ResourceThing.md
-  - Spatial Loc Thing (5087-1): classes/5087-1__SpatialLocThing.md
-  - Speed (5087-1): classes/5087-1__Speed.md
-  - Speed Unit (5087-1): classes/5087-1__SpeedUnit.md
-  - State (5087-1): classes/5087-1__State.md
-  - State Status (5087-1): classes/5087-1__StateStatus.md
-  - Terminal Resource State (5087-1): classes/5087-1__TerminalResourceState.md
-  - Terminal State (5087-1): classes/5087-1__TerminalState.md
-  - Time Unit (5087-1): classes/5087-1__TimeUnit.md
-  - Use State (5087-1): classes/5087-1__UseState.md
-  - Value Of Money (5087-1): classes/5087-1__ValueOfMoney.md
-  - Volume (5087-1): classes/5087-1__Volume.md
-  - Volume Unit (5087-1): classes/5087-1__VolumeUnit.md
-  - Weekly Recurring Event (5087-1): classes/5087-1__WeeklyRecurringEvent.md
-  - Yearly Recurring Event (5087-1): classes/5087-1__YearlyRecurringEvent.md
+- 5087-1:
+  - 5087-1: 5087-1.md
+- Activity Pattern:
+  - Activity Pattern: ActivityPattern.md
+  - Activity: Activity.md
+  - Activity Status: ActivityStatus.md
+  - Activity Thing: ActivityThing.md
+  - Conjunctive State: ConjunctiveState.md
+  - Disjunctive State: DisjunctiveState.md
+  - Manifestation State: ManifestationState.md
+  - Non Terminal State: NonTerminalState.md
+  - State: State.md
+  - State Status: StateStatus.md
+  - Terminal State: TerminalState.md
+- Agent Pattern:
+  - Agent Pattern: AgentPattern.md
+  - Agent (AgentPattern): Agent.md
+  - Agent Thing: AgentThing.md
+- Agreement Pattern:
+  - Agreement Pattern: AgreementPattern.md
+  - Agent (AgreementPattern): Agent.md
+  - Agreement: Agreement.md
+  - Agreement Thing: AgreementThing.md
+  - Atomic Agreement: AtomicAgreement.md
+  - Complex Agreement: ComplexAgreement.md
+  - Conjunctive Agreement: ConjunctiveAgreement.md
+  - Disjunctive Agreement: DisjunctiveAgreement.md
+- Change Pattern:
+  - Change Pattern: ChangePattern.md
+  - Change Thing: ChangeThing.md
+  - First Manifestation: FirstManifestation.md
+  - Manifestation: Manifestation.md
+- City Units Pattern:
+  - City Units Pattern: CityUnitsPattern.md
+  - Acceleration: Acceleration.md
+  - Acceleration Unit: AccelerationUnit.md
+  - Amount Of Money: AmountOfMoney.md
+  - Area: Area.md
+  - Area Unit: AreaUnit.md
+  - Capacity: Capacity.md
+  - Capacity Size: CapacitySize.md
+  - Cardinality Measure: CardinalityMeasure.md
+  - Cardinality Unit Per Time: CardinalityUnitPerTime.md
+  - City Units Thing: CityUnitsThing.md
+  - Duration: Duration.md
+  - Geo_Position_unit: Geo_Position_unit.md
+  - Length: Length.md
+  - Length Unit: LengthUnit.md
+  - Mass: Mass.md
+  - Mass Unit: MassUnit.md
+  - Monetary Value: MonetaryValue.md
+  - Ratio: Ratio.md
+  - Speed: Speed.md
+  - Speed Unit: SpeedUnit.md
+  - Time Unit: TimeUnit.md
+  - Value Of Money: ValueOfMoney.md
+  - Volume: Volume.md
+  - Volume Unit: VolumeUnit.md
+- Core:
+  - Core: Core.md
+  - Cdm Thing: CdmThing.md
+  - Foundational Cdm Thing: FoundationalCdmThing.md
+- Generic Properties Pattern:
+  - Generic Properties Pattern: GenericPropertiesPattern.md
+- Mereology Pattern:
+  - Mereology Pattern: MereologyPattern.md
+- Organization Structure Pattern:
+  - Organization Structure Pattern: OrganizationStructurePattern.md
+  - Organization: Organization.md
+  - Organization Thing: OrganizationThing.md
+- Recurring Event Pattern:
+  - Recurring Event Pattern: RecurringEventPattern.md
+  - Daily Recurring Event: DailyRecurringEvent.md
+  - Exception Day: ExceptionDay.md
+  - Monthly Recurring Event: MonthlyRecurringEvent.md
+  - Recurring Event: RecurringEvent.md
+  - Recurring Event Thing: RecurringEventThing.md
+  - Weekly Recurring Event: WeeklyRecurringEvent.md
+  - Yearly Recurring Event: YearlyRecurringEvent.md
+- Resource Pattern:
+  - Resource Pattern: ResourcePattern.md
+  - Consume State: ConsumeState.md
+  - Divisible Resource: DivisibleResource.md
+  - Non Divisible Resource: NonDivisibleResource.md
+  - Planned Allocation: PlannedAllocation.md
+  - Produce State: ProduceState.md
+  - Release State: ReleaseState.md
+  - Resource: Resource.md
+  - Resource Thing: ResourceThing.md
+  - Terminal Resource State: TerminalResourceState.md
+  - Use State: UseState.md
+- Spatial Loc Pattern:
+  - Spatial Loc Pattern: SpatialLocPattern.md
+  - Location: Location.md
+  - Spatial Loc Thing: SpatialLocThing.md
 site_url: https://isotc204.org/ontology-cdm-p1-v1
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"

@@ -13,18 +13,21 @@
      xmlns:i72="https://w3id.org/citydata/21972/v1/"
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:org="http://www.w3.org/ns/org#"
-     xmlns:time="http://www.w3.org/2006/time#">
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
     <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/">
         <rdfs:comment>It is expected that the w3id.org domain will be updated to reference a JTC4 designated domain once the new JTC holds its first meeting. The updated ontology IRIs only include a major version number while the minor version number and patch number (jointly called the release number) are added in the version IRI. This provides stability of the concept IRIs as long as there are no changes that break backwards compatibility.</rdfs:comment>
 
 
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts</dcterms:title>
+        <dcterms:alternative>City Data Model - Part 1: Foundation Level Concepts</dcterms:alternative>
         <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80718.html"/>
         <dcterms:bibliographicCitation>ISO/IEC 5087-1:2023</dcterms:bibliographicCitation>
     	<skos:definition>This ontology specifies the foundation-level concepts of the city data model.</skos:definition>
     	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
     	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
+        <cdm1:mainModule>true</cdm1:mainModule>
     		
     	<!-- Provenance -->
         <dcterms:creator>Megan Katsumi</dcterms:creator>

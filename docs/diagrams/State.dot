@@ -1,0 +1,39 @@
+// Diagram for State
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">State</TD></TR></TABLE>> URL="../State.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity.md" margin=0]
+		StateStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StateStatus</TD></TR></TABLE>> URL="../StateStatus.md" margin=0]
+		time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> margin=0]
+		time_TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalEntity</TD></TR></TABLE>> margin=0]
+	}
+	ActivityThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ActivityThing</TD></TR></TABLE>> URL="../ActivityThing.md" margin=0]
+	State -> ActivityThing [arrowhead=onormal style=solid]
+	State -> Invis [style=invis]
+	Invis -> Activity [style=invis]
+	Activity -> StateStatus [style=invis]
+	StateStatus -> time_Interval [style=invis]
+	time_Interval -> time_TemporalEntity [style=invis]
+	State -> Activity [label=" preconditionOf 
+ «only»  " arrowhead=normal style=solid]
+	State -> Activity [label=" enablesActivity 
+ «only»  " arrowhead=normal style=solid]
+	Activity -> State [label=" inverse hasEffect 
+ «only»  " arrowhead=inv style=solid]
+	Activity -> State [label=" inverse causesState 
+ «only»  " arrowhead=inv style=solid]
+	State -> time_Interval [label=" scheduledFor 
+ «max 1»  " arrowhead=normal style=solid]
+	State -> time_TemporalEntity [label=" achievedAt 
+ «only»  " arrowhead=normal style=solid]
+	State -> StateStatus [label=" hasStatus 
+ «exactly 1»  " arrowhead=normal style=solid]
+}

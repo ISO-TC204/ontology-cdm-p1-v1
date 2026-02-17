@@ -13,6 +13,7 @@
     <owl:Ontology rdf:about="https://w3id.org/citydata/part1/v1/Core">
     	<!-- Identity -->
     	<dcterms:title>Information technology - City data model - Part 1: Foundation level concepts - Core</dcterms:title>
+        <dcterms:alternative>CDM Core</dcterms:alternative>
     	<skos:definition>This ontology specifies the foundation-level concepts that are used by all other patterns of the city data model.</skos:definition>
     	<vann:preferredNamespaceUri>https://w3id.org/citydata/part1/v1/</vann:preferredNamespaceUri>
     	<vann:preferredNamespacePrefix>cdm1</vann:preferredNamespacePrefix>
@@ -33,6 +34,11 @@
         <owl:imports rdf:resource="http://www.w3.org/2006/time#"/> <!-- Used everywhere -->
 
     </owl:Ontology>
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/citydata/part1/v1/mainModule">
+        <skos:definition>Identifies whether an ontology file is the main ontology file within a directory.</skos:definition>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:AnnotationProperty>
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////

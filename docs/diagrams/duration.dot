@@ -1,0 +1,20 @@
+// Diagram for Duration
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Duration [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Duration</TD></TR></TABLE>> URL="../Duration.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	CityUnitsThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityUnitsThing</TD></TR></TABLE>> URL="../CityUnitsThing.md" margin=0]
+	Duration -> CityUnitsThing [arrowhead=onormal style=solid]
+	i72_Quantity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Quantity</TD></TR></TABLE>> margin=0]
+	Duration -> i72_Quantity [arrowhead=onormal style=solid]
+	time_TemporalDuration [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalDuration</TD></TR></TABLE>> margin=0]
+	Duration -> time_TemporalDuration [arrowhead=onormal style=solid]
+}

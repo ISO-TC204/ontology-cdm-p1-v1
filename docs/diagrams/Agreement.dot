@@ -1,0 +1,33 @@
+// Diagram for Agreement
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Agreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Agreement</TD></TR></TABLE>> URL="../Agreement.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agent</TD></TR></TABLE>> URL="../Agent.md" margin=0]
+		Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Location</TD></TR></TABLE>> URL="../Location.md" margin=0]
+		time_Instant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Instant</TD></TR></TABLE>> margin=0]
+		time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> margin=0]
+	}
+	AgreementThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AgreementThing</TD></TR></TABLE>> URL="../AgreementThing.md" margin=0]
+	Agreement -> AgreementThing [arrowhead=onormal style=solid]
+	Agreement -> Invis [style=invis]
+	Invis -> Agent [style=invis]
+	Agent -> Location [style=invis]
+	Location -> time_Instant [style=invis]
+	time_Instant -> time_Interval [style=invis]
+	Agreement -> time_Instant [label=" establishedOn 
+ «only»  " arrowhead=normal style=solid]
+	Agreement -> time_Interval [label=" validFor 
+ «only»  " arrowhead=normal style=solid]
+	Agreement -> Location [label=" validIn 
+ «only»  " arrowhead=normal style=solid]
+	Agreement -> Agent [label=" involvesAgent 
+ «min 2»  " arrowhead=normal style=solid]
+}
