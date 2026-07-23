@@ -1,0 +1,41 @@
+// Diagram for Agent
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		AgentThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AgentThing</TD></TR></TABLE>> URL="../AgentThing" margin=0]
+		AgreementThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AgreementThing</TD></TR></TABLE>> URL="../AgreementThing" margin=0]
+		foaf_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">foaf:Agent</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/foaf/latest/Agent" margin=0]
+		prov_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">prov:Agent</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/prov/latest/Agent" margin=0]
+	}
+	Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agent</TD></TR><TR><TD ALIGN="LEFT">hasName : xsd:string [1]</TD></TR></TABLE>> URL="../Agent" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity" margin=0]
+		AtomicAgreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AtomicAgreement</TD></TR></TABLE>> URL="../AtomicAgreement" margin=0]
+		TerminalResourceState [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TerminalResourceState</TD></TR></TABLE>> URL="../TerminalResourceState" margin=0]
+	}
+	Agent -> AgentThing [arrowhead=onormal style=solid]
+	Agent -> AgreementThing [arrowhead=onormal style=solid]
+	Agent -> foaf_Agent [arrowhead=onormal style=solid]
+	Agent -> prov_Agent [arrowhead=onormal style=solid]
+	Agent -> Invis [style=invis]
+	Invis -> Activity [style=invis]
+	Activity -> AtomicAgreement [style=invis]
+	AtomicAgreement -> TerminalResourceState [style=invis]
+	TerminalResourceState [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TerminalResourceState</TD></TR></TABLE>> URL="../TerminalResourceState" margin=0]
+	Agent -> TerminalResourceState [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">resourceOf</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity" margin=0]
+	Agent -> Activity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">performs</TD></TR></TABLE>> arrowhead=normal style=solid]
+	AtomicAgreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AtomicAgreement</TD></TR></TABLE>> URL="../AtomicAgreement" margin=0]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasNoClaim</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasClaim</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasDuty</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasPrivilege</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

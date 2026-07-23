@@ -1,0 +1,21 @@
+// Diagram for ComplexAgreement
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		Agreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agreement</TD></TR></TABLE>> URL="../Agreement" margin=0]
+	}
+	ComplexAgreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ComplexAgreement</TD></TR></TABLE>> URL="../ComplexAgreement" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	ComplexAgreement -> Agreement [arrowhead=onormal style=solid]
+	Agreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agreement</TD></TR></TABLE>> URL="../Agreement" margin=0]
+	ComplexAgreement:e -> Agreement:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasSubAgreement</TD></TR><TR><TD ALIGN="CENTER">2..*</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
+}

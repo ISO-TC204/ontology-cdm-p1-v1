@@ -1,0 +1,142 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://w3id.org/citydata/part1/v1/ActivityPattern/shacl>
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 1 - Activity Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Activity Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+    vann:preferredNamespacePrefix "cdm1" ;
+    owl:imports :ActivityPattern ;
+    owl:imports <https://w3id.org/citydata/part1/v1/Core/shacl> .
+
+:ActivityShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Activity ;
+    sh:property [
+        sh:path :occursBefore ;
+        sh:class :Activity
+    ] ;
+    sh:property [
+        sh:path :enabledByState ;
+        sh:class :State
+    ] ;
+    sh:property [
+        sh:path :causesState ;
+        sh:class :State
+    ] ;
+    sh:property [
+        sh:path :endOf ;
+        sh:node :MinOneShape ;
+        sh:class time:Instant
+    ] ;
+    sh:property [
+        sh:path :beginOf ;
+        sh:node :MinOneShape ;
+        sh:class time:Instant
+    ] ;
+    sh:property [
+        sh:path :hasStatus ;
+        sh:node :ExactlyOneShape ;
+        sh:class :ActivityStatus
+    ] ;
+    sh:property [
+        sh:path :scheduledFor ;
+        sh:node :ExactlyOneShape ;
+        sh:class time:Interval
+    ] ;
+    sh:property [
+        sh:path :associatedLocation ;
+        sh:class :Location
+    ] ;
+    sh:property [
+        sh:path :occursDirectlyBefore ;
+        sh:class :Activity
+    ] ;
+    sh:property [
+        sh:path :hasPrecondition ;
+        sh:class :State
+    ] ;
+    sh:property [
+        sh:path :occursAt ;
+        sh:node :MinOneShape ;
+        sh:class time:Interval
+    ] ;
+    sh:property [
+        sh:path :hasEffect ;
+        sh:class :State
+    ] ;
+    sh:property [
+        sh:path :hasSubactivity ;
+        sh:class :Activity
+    ] .
+
+:ManifestationStateShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :ManifestationState ;
+    sh:property [
+        sh:path :satisfiedBy ;
+        sh:class :Manifestation
+    ] .
+
+:NonTerminalStateShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :NonTerminalState ;
+    sh:property [
+        sh:path :hasDecomp ;
+        sh:minCount 2 ;
+        sh:class :State
+    ] ;
+    sh:property [
+        sh:path :hasSubstate ;
+        sh:class :State
+    ] .
+
+:StateShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :State ;
+    sh:property [
+        sh:path :scheduledFor ;
+        sh:node :MaxOneShape ;
+        sh:class time:Interval
+    ] ;
+    sh:property [
+        sh:path :enablesActivity ;
+        sh:class :Activity
+    ] ;
+    sh:property [
+        sh:path :effectOf ;
+        sh:class :Activity
+    ] ;
+    sh:property [
+        sh:path :hasStatus ;
+        sh:node :ExactlyOneShape ;
+        sh:class :StateStatus
+    ] ;
+    sh:property [
+        sh:path :preconditionOf ;
+        sh:class :Activity
+    ] ;
+    sh:property [
+        sh:path :achievedAt ;
+        sh:class time:TemporalEntity
+    ] ;
+    sh:property [
+        sh:path :causedByActivity ;
+        sh:class :Activity
+    ] .
