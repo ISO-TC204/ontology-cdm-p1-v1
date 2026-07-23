@@ -1,0 +1,106 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://w3id.org/citydata/part1/v1/AgreementPattern/shacl>
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 1 - Agreement Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Agreement Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+    vann:preferredNamespacePrefix "cdm1" ;
+    owl:imports :AgreementPattern ;
+    owl:imports <https://w3id.org/citydata/part1/v1/Core/shacl> .
+
+:AgentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Agent ;
+    sh:property [
+        sh:path :hasClaim ;
+        sh:class :AtomicAgreement
+    ] ;
+    sh:property [
+        sh:path :hasDuty ;
+        sh:class :AtomicAgreement
+    ] ;
+    sh:property [
+        sh:path :hasPrivilege ;
+        sh:class :AtomicAgreement
+    ] ;
+    sh:property [
+        sh:path :hasNoClaim ;
+        sh:class :AtomicAgreement
+    ] .
+
+:AgreementShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Agreement ;
+    sh:property [
+        sh:path :validIn ;
+        sh:class :Location
+    ] ;
+    sh:property [
+        sh:path :validFor ;
+        sh:class time:Interval
+    ] ;
+    sh:property [
+        sh:path :involvesAgent ;
+        sh:minCount 2 ;
+        sh:class :Agent
+    ] ;
+    sh:property [
+        sh:path :establishedOn ;
+        sh:class time:Instant
+    ] .
+
+:AtomicAgreementShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :AtomicAgreement ;
+    sh:property [
+        sh:path [ sh:inversePath :hasNoClaim ] ;
+        sh:class :Agent
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath :hasClaim ] ;
+        sh:class :Agent
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath :hasPrivilege ] ;
+        sh:class :Agent
+    ] ;
+    sh:property [
+        sh:path :commitsToActivity ;
+        sh:node :MinOneShape ;
+        sh:class :Activity
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath :hasDuty ] ;
+        sh:class :Agent
+    ] ;
+    sh:property [
+        sh:path :hasSubAgreement ;
+        sh:maxCount 0 ;
+        sh:class :Agreement
+    ] .
+
+:ComplexAgreementShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :ComplexAgreement ;
+    sh:property [
+        sh:path :hasSubAgreement ;
+        sh:minCount 2 ;
+        sh:class :Agreement
+    ] .

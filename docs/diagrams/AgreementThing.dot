@@ -4,13 +4,16 @@ digraph {
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
 	{
+		rank=source
+		FoundationalCdmThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FoundationalCdmThing</TD></TR></TABLE>> URL="../FoundationalCdmThing" margin=0]
+	}
+	AgreementThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AgreementThing</TD></TR></TABLE>> URL="../AgreementThing" margin=0]
+	{
 		rank=max
-		AgreementThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">AgreementThing</TD></TR></TABLE>> URL="../AgreementThing.md" margin=0]
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
 	}
-	FoundationalCdmThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FoundationalCdmThing</TD></TR></TABLE>> URL="../FoundationalCdmThing.md" margin=0]
 	AgreementThing -> FoundationalCdmThing [arrowhead=onormal style=solid]
 }

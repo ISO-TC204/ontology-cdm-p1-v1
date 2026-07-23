@@ -1,17 +1,20 @@
 # Information technology - City data model - Part 1: Foundation level concepts
 
-The Information technology - City data model - Part 1: Foundation level concepts ontology consists of the following:
+This ontology specifies the foundation-level concepts of the city data model.
 
-- [5087-1](5087-1.md)
-- [Activity Pattern](ActivityPattern.md)
-- [Agent Pattern](AgentPattern.md)
-- [Agreement Pattern](AgreementPattern.md)
-- [Change Pattern](ChangePattern.md)
-- [City Units Pattern](CityUnitsPattern.md)
-- [Core](Core.md)
-- [Generic Properties Pattern](GenericPropertiesPattern.md)
-- [Mereology Pattern](MereologyPattern.md)
-- [Organization Structure Pattern](OrganizationStructurePattern.md)
-- [Recurring Event Pattern](RecurringEventPattern.md)
-- [Resource Pattern](ResourcePattern.md)
-- [Spatial Loc Pattern](SpatialLocPattern.md)
+The Information technology - City data model - Part 1: Foundation level concepts consists of the following patterns:
+
+- [Activity](classes/ActivityPattern.md)
+- [Agent](classes/AgentPattern.md)
+- [Agreement](classes/AgreementPattern.md)
+- [Change](classes/ChangePattern.md)
+- [City Units](classes/CityUnitsPattern.md)
+- [Core](classes/Core.md)
+- [Generic Properties](classes/GenericPropertiesPattern.md)
+- [Mereology](classes/MereologyPattern.md)
+- [Organization Structure](classes/OrganizationStructurePattern.md)
+- [Recurring Event](classes/RecurringEventPattern.md)
+- [Resource](classes/ResourcePattern.md)
+- [Spatial Loc](classes/SpatialLocPattern.md)
+
+The formal definition of this ontology is available in [TURTLE Syntax](5087-1.ttl).

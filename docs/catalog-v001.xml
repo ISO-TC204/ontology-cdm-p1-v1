@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <group id="Folder Repository, directory=file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/, recursive=false, Auto-Update=true, version=2" prefer="public" xml:base="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/">
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="AgentPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="AgreementPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="RecurringEventPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="CityUnitsPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="OrganizationStructurePattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="ChangePattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="MereologyPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="5087-1.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="ActivityPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="SpatialLocPattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="Core.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="ResourcePattern.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1771209511982" name="duplicate:https://w3id.org/citydata/part1/v1/" uri="GenericPropertiesPattern.owl"/>
+    <group prefer="public">
+        <uri name="https://w3id.org/citydata/part1/v1/" uri="5087-1.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/Core" uri="CorePattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/Core/shacl" uri="CoreSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/ActivityPattern" uri="ActivityPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/ActivityPattern/shacl" uri="ActivitySHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/AgentPattern" uri="AgentPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/AgentPattern/shacl" uri="AgentSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/AgreementPattern" uri="AgreementPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/AgreementPattern/shacl" uri="AgreementSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/ChangePattern" uri="ChangePattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/ChangePattern/shacl" uri="ChangeSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/CityUnitsPattern" uri="CityUnitsPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/CityUnitsPattern/shacl" uri="CityUnitsSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/GenericPropertiesPattern" uri="GenericPropertiesPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/GenericPropertiesPattern/shacl" uri="GenericPropertiesSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/MereologyPattern" uri="MereologyPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/MereologyPattern/shacl" uri="MereologySHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/OrganizationStructurePattern" uri="OrganizationStructurePattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/OrganizationStructurePattern/shacl" uri="OrganizationStructureSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/RecurringEventPattern" uri="RecurringEventPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/RecurringEventPattern/shacl" uri="RecurringEventSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/ResourcePattern" uri="ResourcePattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/ResourcePattern/shacl" uri="ResourceSHACL.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/SpatialLocPattern" uri="SpatialLocPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/part1/v1/SpatialLocPattern/shacl" uri="SpatialLocSHACL.ttl"/>
+        <uri name="http://www.opengis.net/ont/geosparql#" uri="../../ontology-import-geo/docs/geo.ttl"/>
+        <uri name="https://w3id.org/citydata/21972/v1/" uri="../../ontology-i72-v1/docs/i72.owl"/>
+        <uri name="https://w3id.org/citydata/21972/v1" uri="../../ontology-i72-v1/docs/i72.owl"/>
     </group>
 </catalog>

@@ -1,0 +1,59 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://w3id.org/citydata/part1/v1/ChangePattern/shacl>
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 1 - Change Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Change Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+    vann:preferredNamespacePrefix "cdm1" ;
+    owl:imports <https://w3id.org/citydata/part1/v1/ChangePattern> ;
+    owl:imports <https://w3id.org/citydata/part1/v1/Core/shacl> .
+
+:FirstManifestationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :FirstManifestation ;
+    sh:property [
+        sh:path :hasLatestManifestation ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Manifestation
+    ] .
+
+:ManifestationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Manifestation ;
+    sh:property [
+        sh:path :hasNextManifestation ;
+        sh:node :MaxOneShape ;
+        sh:class :Manifestation
+    ] ;
+    sh:property [
+        sh:path :hasFirstManifestation ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Manifestation
+    ] ;
+    sh:property [
+        sh:path :existsAt ;
+        sh:node :ExactlyOneShape ;
+        sh:class time:TemporalEntity
+    ] ;
+    sh:property [
+        sh:path :hasPreviousManifestation ;
+        sh:node :MaxOneShape ;
+        sh:class :Manifestation
+    ] .
