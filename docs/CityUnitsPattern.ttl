@@ -32,7 +32,7 @@
     owl:versionIRI           <https://w3id.org/citydata/part1/v1/CityUnitsPattern/r3.0/> ;
     cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
     owl:imports              i72: ;
-    owl:imports              :Core ;
+    owl:imports              :CorePattern ;
     rdf:type                 owl:Ontology .
 
 :CityUnitObjectProperty

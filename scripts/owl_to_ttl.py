@@ -29,7 +29,7 @@ FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 
 # Source OWL filename -> (pattern ttl, shacl ttl, ontology local name)
 MODULES: dict[str, tuple[str, str, str]] = {
-    "Core.owl": ("CorePattern.ttl", "CoreSHACL.ttl", "Core"),
+    "Core.owl": ("CorePattern.ttl", "CoreSHACL.ttl", "CorePattern"),
     "ActivityPattern.owl": ("ActivityPattern.ttl", "ActivitySHACL.ttl", "ActivityPattern"),
     "AgentPattern.owl": ("AgentPattern.ttl", "AgentSHACL.ttl", "AgentPattern"),
     "AgreementPattern.owl": ("AgreementPattern.ttl", "AgreementSHACL.ttl", "AgreementPattern"),
@@ -104,8 +104,16 @@ def ontology_iri(local: str) -> URIRef:
     return URIRef(f"{NS}{local}")
 
 
+def shacl_local_name(pattern_local: str) -> str:
+    """SHACL ontology local name matching *SHACL.ttl (e.g. ActivityPattern → ActivitySHACL)."""
+    if pattern_local.endswith("Pattern"):
+        return pattern_local[: -len("Pattern")] + "SHACL"
+    return f"{pattern_local}SHACL"
+
+
 def shacl_iri(local: str) -> URIRef:
-    return URIRef(f"{NS}{local}/shacl")
+    """SHACL companion ontology IRI, e.g. :ActivitySHACL (not .../ActivityPattern/shacl)."""
+    return URIRef(f"{NS}{shacl_local_name(local)}")
 
 
 def _pn_local_ok(local: str) -> bool:
@@ -725,7 +733,8 @@ def write_shacl(pattern_g: Graph, local: str, label: str) -> str:
 
     ont = shacl_iri(local)
     pattern = ontology_iri(local)
-    lines.append(f"<{ont}>")
+    shacl_name = shacl_local_name(local)
+    lines.append(f":{shacl_name}")
     lines.append("    rdf:type owl:Ontology ;")
     lines.append(f'    dcterms:title "City Data Model Part 1 - {label} - SHACL constraints" ;')
     lines.append(
@@ -733,14 +742,14 @@ def write_shacl(pattern_g: Graph, local: str, label: str) -> str:
     )
     lines.append(f'    vann:preferredNamespaceUri "{NS}" ;')
     lines.append('    vann:preferredNamespacePrefix "cdm1" ;')
-    if local != "Core":
-        lines.append(f"    owl:imports <{pattern}> ;")
-        lines.append(f"    owl:imports <{shacl_iri('Core')}> .")
+    if local != "CorePattern":
+        lines.append(f"    owl:imports :{local} ;")
+        lines.append(f"    owl:imports :{shacl_local_name('CorePattern')} .")
     else:
-        lines.append(f"    owl:imports <{pattern}> .")
+        lines.append(f"    owl:imports :{local} .")
     lines.append("")
 
-    if local == "Core":
+    if local == "CorePattern":
         lines.extend(
             [
                 ":ExactlyOneShape",

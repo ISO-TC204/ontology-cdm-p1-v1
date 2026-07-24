@@ -16,13 +16,13 @@
 @prefix i72: <https://w3id.org/citydata/21972/v1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-<https://w3id.org/citydata/part1/v1/Core/shacl>
+:CoreSHACL
     rdf:type owl:Ontology ;
     dcterms:title "City Data Model Part 1 - Core - SHACL constraints" ;
     skos:definition "SHACL validation shapes for the Core pattern module." ;
     vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
     vann:preferredNamespacePrefix "cdm1" ;
-    owl:imports <https://w3id.org/citydata/part1/v1/Core> .
+    owl:imports :CorePattern .
 
 :ExactlyOneShape
     rdf:type sh:NodeShape ;
