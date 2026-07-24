@@ -16,14 +16,14 @@
 @prefix i72: <https://w3id.org/citydata/21972/v1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-<https://w3id.org/citydata/part1/v1/AgentPattern/shacl>
+:AgentSHACL
     rdf:type owl:Ontology ;
     dcterms:title "City Data Model Part 1 - Agent Pattern - SHACL constraints" ;
     skos:definition "SHACL validation shapes for the Agent Pattern pattern module." ;
     vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
     vann:preferredNamespacePrefix "cdm1" ;
     owl:imports :AgentPattern ;
-    owl:imports <https://w3id.org/citydata/part1/v1/Core/shacl> .
+    owl:imports :CoreSHACL .
 
 :AgentShape
     rdf:type sh:NodeShape ;

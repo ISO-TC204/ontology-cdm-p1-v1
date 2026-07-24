@@ -16,7 +16,7 @@
 @prefix i72: <https://w3id.org/citydata/21972/v1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-:Core
+:CorePattern
     dcterms:title            "Information technology - City data model - Part 1: Foundation level concepts - Core" ;
     dcterms:alternative      "CDM Core" ;
     skos:definition          "This ontology specifies the foundation-level concepts that are used by all other patterns of the city data model." ;
@@ -27,7 +27,7 @@
     dcterms:creator          "Megan Katsumi" ;
     dcterms:modified         "2026-02-12"^^xsd:date ;
     owl:versionInfo          "1.3.0" ;
-    owl:versionIRI           <https://w3id.org/citydata/part1/v1/Core/r3.0> ;
+    owl:versionIRI           <https://w3id.org/citydata/part1/v1/CorePattern/r3.0> ;
     cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
     owl:imports              time: ;
     rdf:type                 owl:Ontology .
