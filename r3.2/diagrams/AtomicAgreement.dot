@@ -1,0 +1,33 @@
+// Diagram for AtomicAgreement
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		Agreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agreement</TD></TR></TABLE>> URL="../Agreement" margin=0]
+	}
+	AtomicAgreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AtomicAgreement</TD></TR><TR><TD ALIGN="LEFT">nd01adcde27744c0aba6f8a28154fce1db10</TD></TR><TR><TD ALIGN="LEFT">nd01adcde27744c0aba6f8a28154fce1db12</TD></TR><TR><TD ALIGN="LEFT">nd01adcde27744c0aba6f8a28154fce1db14</TD></TR><TR><TD ALIGN="LEFT">nd01adcde27744c0aba6f8a28154fce1db17</TD></TR></TABLE>> URL="../AtomicAgreement" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity" margin=0]
+		Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agent</TD></TR></TABLE>> URL="../Agent" margin=0]
+	}
+	AtomicAgreement -> Agreement [arrowhead=onormal style=solid]
+	AtomicAgreement -> Invis [style=invis]
+	Invis -> Activity [style=invis]
+	Activity -> Agent [style=invis]
+	Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity" margin=0]
+	AtomicAgreement -> Activity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">commitsToActivity</TD></TR><TR><TD ALIGN="CENTER">1..*</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agent</TD></TR></TABLE>> URL="../Agent" margin=0]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse hasClaim</TD></TR></TABLE>> arrowhead=inv style=solid]
+	Agreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Agreement</TD></TR></TABLE>> URL="../Agreement" margin=0]
+	AtomicAgreement:e -> Agreement:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasSubAgreement</TD></TR><TR><TD ALIGN="CENTER">0..0</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse hasNoClaim</TD></TR></TABLE>> arrowhead=inv style=solid]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse hasPrivilege</TD></TR></TABLE>> arrowhead=inv style=solid]
+	Agent -> AtomicAgreement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse hasDuty</TD></TR></TABLE>> arrowhead=inv style=solid]
+}

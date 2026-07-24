@@ -1,0 +1,19 @@
+// Diagram for DailyRecurringEvent
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		RecurringEvent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">RecurringEvent</TD></TR></TABLE>> URL="../RecurringEvent" margin=0]
+	}
+	DailyRecurringEvent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DailyRecurringEvent</TD></TR><TR><TD ALIGN="LEFT">redefines startTime : xsd:time [0..1]</TD></TR></TABLE>> URL="../DailyRecurringEvent" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	DailyRecurringEvent -> RecurringEvent [arrowhead=onormal style=solid]
+}

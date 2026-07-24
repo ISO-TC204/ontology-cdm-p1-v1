@@ -1,0 +1,302 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+:RecurringEventPattern
+    dcterms:title            "Information technology - City data model - Part 1: Foundation level concepts - Recurring Event Pattern" ;
+    dcterms:alternative      "CDM Recurring Event Pattern" ;
+    skos:definition          "This ontology specifies the foundation-level concepts related to the recurring event pattern of the city data model." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+    vann:preferredNamespacePrefix "cdm1" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/RecurringEvent/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part1/v1/RecurringEventPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :ActivityPattern ;
+    owl:imports              :GenericPropertiesPattern ;
+    rdf:type                 owl:Ontology .
+
+:RecurringEventDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :FoundationalCdmDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined in the Recurring Event Properties Pattern of the CDM ontology." .
+
+:RecurringEventObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :FoundationalCdmObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify all recurring event object properties defined in the City Data Model." .
+
+:beginsRecurringState
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Defines a State that is required to be true in order to initiate the RecurringEvent." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               :State .
+
+:beginsRecurringTime
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Specifies the start time of the RecurringEvent’s activity with a time:TemporalEntity from the Time pattern." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               time:TemporalEntity .
+
+:endDayOfWeek
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty .
+
+:endMonth
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty .
+
+:endTime
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :RecurringEventDataProperty ;
+    skos:definition          "Specifies the end time of the domain object's activity." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               xsd:time .
+
+:endsRecurringState
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Defines a State that is required to be true in order terminate the RecurringEvent." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               :State .
+
+:endsRecurringTime
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Specifies the end time of the RecurringEvent’s activity with a time:TemporalEntity from the Time pattern" ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               time:TemporalEntity .
+
+:hasDayOfWeek
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Specifies the day of the week on which a Weekly RecurringEvent occurs with the time:DayOfWeek class from the Time pattern." ;
+    rdfs:domain              :WeeklyRecurringEvent ;
+    rdfs:range               time:DayOfWeek .
+
+:hasMonth
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty .
+
+:hasOccurrence
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Identifies the Activities that take place at the time and location." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               :Activity .
+
+:hasSubRecurringEvent
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "identifies the sub-recurring events that comprise the RecurringEvent. As with an Activity, a RecurringEvent may be decomposed/decomposed into simpler/more complex RecurringEvents to support varying levels of granularity." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               :RecurringEvent .
+
+:onDateTimeDescription
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Specifies the date-time description (as defined in the Time pattern) on which a recurring event recurs. For example, the day of the month on which a MonthlyRecurringEvent recurs, or the day and month on which a YearlyRecurringEvent recurs." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               time:DateTimeDescription .
+
+:recursAddition
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Defines a condition when the RecurringEvent should be added to. This can specify a time, day of the week, or specific dates." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            time:DayOfWeek
+            time:TemporalEntity
+        )
+    ] .
+
+:recursExcept
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :RecurringEventObjectProperty ;
+    skos:definition          "Defines the exceptions for the RecurringEvent, i.e. conditions when it does not occur. This can specify a time, day of the week, or specific dates." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            time:DayOfWeek
+            time:TemporalEntity
+        )
+    ] .
+
+:startTime
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :RecurringEventDataProperty ;
+    skos:definition          "Specifies the start time of the RecurringEvent's activity using http://www.w3.org/2001/XMLSchema#time format." ;
+    rdfs:domain              :RecurringEvent ;
+    rdfs:range               xsd:time .
+
+:DailyRecurringEvent
+    rdf:type                 owl:Class ;
+    skos:definition          "A DailyRecurringEvent is a RecurringEvent that occurs every day. It has a maximum of one associated time, the start time. Typically, a daily recurring event will occur at the same time every day, but it is also possible that no commitment is made to a recurring start time for the event, in which case no start time is specified. A DailyEvent does not necessarily have the same endtime or duration, therefore these are not specified." ;
+    rdfs:subClassOf          :RecurringEvent ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :startTime ;
+        owl:onDataRange              xsd:time ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ExceptionDay
+    rdf:type                 owl:Class ;
+    skos:definition          "An ExceptionDay specifies a day or days that recursExcept and recursAddition use to specify unique days that do not recur on the same day each year, for example, holidays. " ;
+    rdfs:subClassOf          :RecurringEventThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :onDateTimeDescription ;
+        owl:onClass                  time:GeneralDateTimeDescription ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:MonthlyRecurringEvent
+    rdf:type                 owl:Class ;
+    skos:definition          "A MonthlyRecurringEvent recurs regularly on the same day of each month, as specified by the dayOfMonth data property. Note that there is often ambiguity regarding the semantics of a monthly recurring event: in this formalization, a MonthlyRecurringEvent is any event that recurs regularly on the same day of each month; other interpretations sometimes consider events that recur on the same day of week, or first or last day, in which case the day of month will vary." ;
+    rdfs:subClassOf          :RecurringEvent ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :onDateTimeDescription ;
+        owl:onClass                  time:GeneralDateTimeDescription ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .
+
+:RecurringEvent
+    rdf:type                 owl:Class ;
+    skos:definition          "Recurring events are defined based on the regular interval at which they occur; this is captures using some combination of the hasTime, dayOfWeek, hasMonth, and dayOfMonth properties.  Using these properties, ontology defines the following specializations of the RecurringEvent class. Other subclasses may be defined similarly, as required." ;
+    rdfs:subClassOf          :RecurringEventThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :recursAddition ;
+        owl:onClass                  [
+                rdf:type owl:Class ;
+                owl:unionOf (
+                    time:DayOfWeek
+                    time:TemporalEntity
+                )
+            ]
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :endsRecurringState ;
+        owl:onClass                  :State
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :associatedLocation ;
+        owl:onClass                  :Location
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :endTime ;
+        owl:onDataRange              xsd:time
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasOccurrence ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :beginsRecurringState ;
+        owl:onClass                  :State
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :recursExcept ;
+        owl:onClass                  [
+                rdf:type owl:Class ;
+                owl:unionOf (
+                    time:DayOfWeek
+                    time:TemporalEntity
+                )
+            ]
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :startTime ;
+        owl:onDataRange              xsd:time
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :beginsRecurringTime ;
+        owl:onClass                  time:TemporalEntity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasDayOfWeek ;
+        owl:onClass                  time:DayOfWeek
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :endsRecurringTime ;
+        owl:onClass                  time:TemporalEntity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasSubRecurringEvent ;
+        owl:onClass                  :RecurringEvent
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :onDateTimeDescription ;
+        owl:onClass                  time:GeneralDateTimeDescription
+    ] .
+
+:RecurringEventThing
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :FoundationalCdmThing ;
+    rdfs:comment             "Class added for organizational purposes only; to group all classes defined in the recurring-event ontology." .
+
+:WeeklyRecurringEvent
+    rdf:type                 owl:Class ;
+    skos:definition          "A WeeklyRecurringEvent recurs on the regularly on the same day of the week, as specified by the schema:dayOfWeek property." ;
+    rdfs:subClassOf          :RecurringEvent ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasDayOfWeek ;
+        owl:onClass                  time:DayOfWeek ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .
+
+:YearlyRecurringEvent
+    rdf:type                 owl:Class ;
+    skos:definition          "A YearlyRecurringEvent recurs regularly on the same day of the same month, as specified by the hasMonth and dayOfMonth properties. As with MonthlyRecurringEvent, there may be ambiguity regarding the semantics of a yearly recurring event, however this formalization captures only the notion of an event that recurs on the same day of the same month (e.g. a birthday)." ;
+    rdfs:subClassOf          :RecurringEvent ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :onDateTimeDescription ;
+        owl:onClass                  time:GeneralDateTimeDescription ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .

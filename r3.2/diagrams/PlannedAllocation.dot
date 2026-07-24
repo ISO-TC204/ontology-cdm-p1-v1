@@ -1,0 +1,39 @@
+// Diagram for PlannedAllocation
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		Manifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Manifestation</TD></TR></TABLE>> URL="../Manifestation" margin=0]
+		ResourceThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ResourceThing</TD></TR></TABLE>> URL="../ResourceThing" margin=0]
+	}
+	PlannedAllocation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PlannedAllocation</TD></TR></TABLE>> URL="../PlannedAllocation" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		i72_Quantity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Quantity</TD></TR></TABLE>> URL="https://w3id.org/citydata/21972/v1/Quantity" margin=0]
+		Resource [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Resource</TD></TR></TABLE>> URL="../Resource" margin=0]
+		State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State" margin=0]
+		time_TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalEntity</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalEntity" margin=0]
+	}
+	PlannedAllocation -> Manifestation [arrowhead=onormal style=solid]
+	PlannedAllocation -> ResourceThing [arrowhead=onormal style=solid]
+	PlannedAllocation -> Invis [style=invis]
+	Invis -> i72_Quantity [style=invis]
+	i72_Quantity -> Resource [style=invis]
+	Resource -> State [style=invis]
+	State -> time_TemporalEntity [style=invis]
+	i72_Quantity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Quantity</TD></TR></TABLE>> URL="https://w3id.org/citydata/21972/v1/Quantity" margin=0]
+	PlannedAllocation -> i72_Quantity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasQuantity</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalEntity</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalEntity" margin=0]
+	PlannedAllocation -> time_TemporalEntity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:hasTime</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Resource [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Resource</TD></TR></TABLE>> URL="../Resource" margin=0]
+	PlannedAllocation -> Resource [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">forResource</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State" margin=0]
+	State -> PlannedAllocation [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse hasAllocation</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=inv style=solid]
+	PlannedAllocation -> State [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">forState</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

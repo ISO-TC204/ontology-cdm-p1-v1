@@ -1,0 +1,407 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+:ActivityPattern
+    dcterms:title            "Information technology - City data model - Part 1: Foundation level concepts - Activity Pattern" ;
+    dcterms:alternative      "CDM Activity Pattern" ;
+    skos:definition          "This ontology specifies the foundation-level concepts related to the activity pattern of the city data model." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+    vann:preferredNamespacePrefix "cdm1" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part1/v1/ActivityPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :ChangePattern ;
+    owl:imports              :SpatialLocPattern ;
+    rdf:type                 owl:Ontology .
+
+:ActivityObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :FoundationalCdmObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify all activity object properties defined in the City Data Model." .
+
+:achievedAt
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies the time Interval or Instant during which the State was satisfied." ;
+    rdfs:domain              :State ;
+    rdfs:range               time:TemporalEntity ;
+    owl:propertyChainAxiom
+        (
+            [ owl:inverseOf :effectOf ]
+            :endOf
+        ) ;
+    owl:propertyChainAxiom
+        (
+            [ owl:inverseOf :hasDecomp ]
+            :conjunctiveAchievedAt
+            time:intervalDuring
+        ) ;
+    owl:propertyChainAxiom
+        (
+            [ owl:inverseOf :preconditionOf ]
+            :beginOf
+        ) .
+
+:beginOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies the time Instant at which the Activity occurs." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               time:Instant ;
+    owl:propertyChainAxiom
+        (
+            :occursAt
+            time:hasBeginning
+        ) .
+
+:causedByActivity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    owl:inverseOf            :causesState ;
+    skos:definition          "Identifies an Activity that in some (indirect) way caused the State to be realized. The causedByActivity property is the inverse of the causes property and is a generalization (super-property) of the effectOf property." ;
+    rdfs:domain              :State ;
+    rdfs:range               :Activity .
+
+:causesState
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "identifies a State that in some (indirect) way was caused by the occurrence of the Activity. An Activity is caused by a State if the State is an effect of the Activity or if the State is an effect of some subactivity of the Activity. The causes property is a generalization (super-property) of the hasEffect property." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               :State .
+
+:conjunctiveAchievedAt
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :achievedAt ;
+    rdfs:domain              :ConjunctiveState .
+
+:disjunctiveAchievedAt
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :achievedAt ;
+    rdfs:domain              :DisjunctiveState .
+
+:effectOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    owl:inverseOf            :hasEffect ;
+    skos:definition          "Identifies an Activity that the State was realized by." ;
+    rdfs:domain              :State ;
+    rdfs:range               :Activity .
+
+:enabledByState
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    owl:inverseOf            :enablesActivity ;
+    skos:definition          "Identifies a State that in some (indirect) way enabled the Activity to occur. An Activity is enabled by a State if the State is a precondition for the Activity or if the State is a precondition of some subactivity of the Activity. The enabledByState property is a generalization (super-property) of the hasPrecondition property." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               :State .
+
+:enablesActivity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies an Activity that in some (indirect) way was enabled by the State. The enables property is the inverse of the enabledByState property and is a generalization (super-property) of the preconditionOf property." ;
+    rdfs:domain              :State ;
+    rdfs:range               :Activity .
+
+:endOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies the time Instant at which the Activity ends." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               time:Instant ;
+    owl:propertyChainAxiom
+        (
+            :occursAt
+            time:hasEnd
+        ) .
+
+:hasDecomp
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :hasSubstate ;
+    skos:definition          "Identifies two or more States into which the State may be immediately decomposed, i.e. its direct children." .
+
+:hasEffect
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :causesState ;
+    skos:definition          "Identifies a State that is realized once the Activity has occurred." .
+
+:hasPrecondition
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :enabledByState ;
+    owl:inverseOf            :preconditionOf ;
+    skos:definition          "Identifies a State that must be realized in order for the Activity to occur." .
+
+:hasStatus
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies the status of the parent Thing at some point or interval in time." .
+
+:hasSubactivity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies a more granular Activity into which the Activity may be decomposed." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               :Activity .
+
+:hasSubstate
+    rdf:type                 owl:ObjectProperty ;
+    rdf:type                 owl:TransitiveProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies a State into which the complex state decomposes, at any level (i.e. its child state, grandchild state, etc.). The hasSubState property is transitive and a super-property of the hasDecomp property." ;
+    rdfs:domain              :NonTerminalState ;
+    rdfs:range               :State .
+
+:occursAfter
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    owl:inverseOf            :occursBefore .
+
+:occursAt
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies a time Interval over which the Activity occurs." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               time:Interval .
+
+:occursBefore
+    rdf:type                 owl:ObjectProperty ;
+    rdf:type                 owl:TransitiveProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies an Activity that the Activity occurred before." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               :Activity ;
+    rdfs:comment             "An activity occursBefore another if its endOf instant is before the beginOf instant of the other activity; the occursBefore relation is transitive. We cannot define this semantics in OWL, though it could be captured in future work by an extension with rules." .
+
+:occursDirectlyAfter
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :occursAfter ;
+    owl:inverseOf            :occursDirectlyBefore .
+
+:occursDirectlyBefore
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :occursBefore ;
+    skos:definition          "Identifies an Activity that occurred immediately prior to the Activity. The occursDirectlyBefore property is a sub-property of the occursBefore property." ;
+    rdfs:domain              :Activity ;
+    rdfs:range               :Activity ;
+    rdfs:comment             "An activity occursDirectlyBefore another if it occursAt an interval that meets the interval of the other activity. We cannot define this semantics in OWL, though it could be captured by an extension with rules." .
+
+:preconditionOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :enablesActivity ;
+    skos:definition          "Identifies an Activity that requires the State to be realized in order to occur." ;
+    rdfs:domain              :State ;
+    rdfs:range               :Activity .
+
+:satisfiedBy
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Specifies the Manifestation that is to be satisfied (i.e., realized)." ;
+    rdfs:domain              :ManifestationState ;
+    rdfs:range               :Manifestation .
+
+:scheduledFor
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ActivityObjectProperty ;
+    skos:definition          "Identifies a time Interval during which a Thing occurs." ;
+    rdfs:range               time:Interval .
+
+:terminalAchievedAt
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :achievedAt ;
+    rdfs:domain              :TerminalState .
+
+:Activity
+    rdf:type                 owl:Class ;
+    skos:definition          "An Activity describes something that occurs in the domain.\nAn Activity may be further defined by (decomposed into) Subactivities.\nAn Activity may have precondition and/or effect State.\nAn Activity may be enabled by or cause some State. An enabling of causing state is a generalization of a precondition/effect; an Activity is enabled by or causes some State if it has a subactivity with a precondition or effect (respectively) of that State. \nIn other words, the state may not be required directly before, or cause directly after the activity, but by some more specialized sub-activity.\nAn Activity occurs at some point in time and space.\nAn Activity takes place during some interval, and so has some duration.\nAn Activity may have some Manifestations that participate in it." ;
+    rdfs:subClassOf          prov:Activity ;
+    rdfs:subClassOf          :ActivityThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :scheduledFor ;
+        owl:onClass                  time:Interval ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :associatedLocation ;
+        owl:onClass                  :Location
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :beginOf ;
+        owl:onClass                  time:Instant ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasStatus ;
+        owl:onClass                  :ActivityStatus ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasEffect ;
+        owl:onClass                  :State
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :causesState ;
+        owl:onClass                  :State
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :occursDirectlyBefore ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :occursBefore ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :occursAt ;
+        owl:onClass                  time:Interval ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasSubactivity ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :endOf ;
+        owl:onClass                  time:Instant ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :enabledByState ;
+        owl:onClass                  :State
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPrecondition ;
+        owl:onClass                  :State
+    ] .
+
+:ActivityStatus
+    rdf:type                 owl:Class ;
+    skos:definition          "The status of the Activity." ;
+    rdfs:subClassOf          :ActivityThing .
+
+:ActivityThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify all classes defined in the Activity pattern." ;
+    rdfs:subClassOf          :FoundationalCdmThing .
+
+:ConjunctiveState
+    rdf:type                 owl:Class ;
+    skos:definition          "A type of NonTerminalState that is defined by the conjunction of its child States." ;
+    rdfs:subClassOf          :NonTerminalState ;
+    owl:disjointWith         :DisjunctiveState .
+
+:DisjunctiveState
+    rdf:type                 owl:Class ;
+    skos:definition          "A type of NonTerminalState that is defined by the disjunction of its child States. A State cannot be both conjunctive and disjunctive. " ;
+    rdfs:subClassOf          :NonTerminalState .
+
+:ManifestationState
+    rdf:type                 owl:Class ;
+    skos:definition          "A specialization of TerminalState, the ManifestationState specifies a Manifestation class that an individual must satisfy in order for the ManifestationState to be true." ;
+    rdfs:subClassOf          :TerminalState ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :satisfiedBy ;
+        owl:onClass                  :Manifestation
+    ] .
+
+:NonTerminalState
+    rdf:type                 owl:Class ;
+    skos:definition          "A NonTerminalState has child States (a.k.a., sub-states) that are either conjuctive or disjunctive. Each child may be a TerminalState or NonTerminalState; eventually a TerminalState is reached. A State cannot be both non-terminal and terminal." ;
+    rdfs:subClassOf          :State ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasDecomp ;
+        owl:onClass                  :State ;
+        owl:minQualifiedCardinality  "2"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasSubstate ;
+        owl:onClass                  :State
+    ] ;
+    owl:disjointWith         :TerminalState ;
+    rdfs:comment             "hasDecomp is not a transitive relation, it only refers to the direct children of a non-terminal state type. A more general relation that is transitive is the substate relation." .
+
+:State
+    rdf:type                 owl:Class ;
+    skos:definition          "A State describes some situation in the world which may or may not be satisfied (true) at a given point in time. A State refers to a class of manifestations. It may be a precondition or effect of some Activity, or more generally it may be enabled or be caused by some Activity. If a state is complex, it may refer to some combination of classes of manifestations.\n        Example: A shopping activity, Activity-Shop, can require both the VehicleW30LGas state, but also some state wherein the mall is open, OpenMall. Each state is defined separately. The combined state is then defined as the conjunction of the two states. Thus, we could say that the preconditions for Activity-Shop are: precondition(VehicleW30LGas,Activity-Shop) AND  precondition(OpenMall,Activity-Shop). Alternatively, if the preconditions were required disjunctively, we could state: precondition(VehicleW30LGas,Activity-Shop) OR precondition(OpenMall,Activity-Shop).\n        In large and complex domains, there can be cases in which the above approach is undesirable. In particular, due to the complexity of the description that results as the state being described becomes more detailed. In many cases it will be more natural and convenient to be able to refer to a single, aggregate state. We therefore extend the representation of States to capture aggregation, as approached in the concept of state trees introduced by TOVE as a construct for the activity cluster.\n        A State may be either non-terminal or terminal. A terminal state has no child states, and therefore refers directly to a class of manifestations, whereas a non-terminal state has child states, which may define some classes of manifestations, or further define some other complex states.\n            NonTerminalState(x) v TerminalState(x) = State(x)\n        A state  cannot be both non-terminal and terminal.\n            TerminalState disjointWith NonTerminalState" ;
+    rdfs:subClassOf          :ActivityThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :achievedAt ;
+        owl:onClass                  time:TemporalEntity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :enablesActivity ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :scheduledFor ;
+        owl:onClass                  time:Interval ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasStatus ;
+        owl:onClass                  :StateStatus ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :effectOf ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :preconditionOf ;
+        owl:onClass                  :Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :causedByActivity ;
+        owl:onClass                  :Activity
+    ] .
+
+:StateStatus
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :ActivityThing .
+
+:TerminalState
+    rdf:type                 owl:Class ;
+    skos:definition          "A terminal state type has no substates (cannot be decomposed). It corresponds to a particular class of manifestations. A terminal state is achieved at some time if and only if there exists a manifestation within its defined classification, that exists at that time." ;
+    rdfs:subClassOf          :State .

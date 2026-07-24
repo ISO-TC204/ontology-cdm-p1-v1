@@ -1,0 +1,19 @@
+// Diagram for VolumeUnit
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		i72_Unit_of_measure [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Unit_of_measure</TD></TR></TABLE>> URL="https://w3id.org/citydata/21972/v1/Unit_of_measure" margin=0]
+	}
+	VolumeUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VolumeUnit</TD></TR></TABLE>> URL="../VolumeUnit" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	VolumeUnit -> i72_Unit_of_measure [arrowhead=onormal style=solid]
+}

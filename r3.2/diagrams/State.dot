@@ -1,0 +1,41 @@
+// Diagram for State
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		ActivityThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ActivityThing</TD></TR></TABLE>> URL="../ActivityThing" margin=0]
+	}
+	State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity" margin=0]
+		StateStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StateStatus</TD></TR></TABLE>> URL="../StateStatus" margin=0]
+		time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/Interval" margin=0]
+		time_TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalEntity</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalEntity" margin=0]
+	}
+	State -> ActivityThing [arrowhead=onormal style=solid]
+	State -> Invis [style=invis]
+	Invis -> Activity [style=invis]
+	Activity -> StateStatus [style=invis]
+	StateStatus -> time_Interval [style=invis]
+	time_Interval -> time_TemporalEntity [style=invis]
+	time_TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalEntity</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalEntity" margin=0]
+	State -> time_TemporalEntity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">achievedAt</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Activity</TD></TR></TABLE>> URL="../Activity" margin=0]
+	State -> Activity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">enablesActivity</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/Interval" margin=0]
+	State -> time_Interval [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">scheduledFor</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	StateStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StateStatus</TD></TR></TABLE>> URL="../StateStatus" margin=0]
+	State -> StateStatus [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasStatus</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Activity -> State [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse hasEffect</TD></TR></TABLE>> arrowhead=inv style=solid]
+	State -> Activity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">preconditionOf</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Activity -> State [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">inverse causesState</TD></TR></TABLE>> arrowhead=inv style=solid]
+	State -> Activity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">effectOf</TD></TR></TABLE>> arrowhead=normal style=solid]
+	State -> Activity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">causedByActivity</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

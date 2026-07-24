@@ -1,0 +1,28 @@
+// Diagram for FirstManifestation
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		Manifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Manifestation</TD></TR></TABLE>> URL="../Manifestation" margin=0]
+	}
+	FirstManifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FirstManifestation</TD></TR></TABLE>> URL="../FirstManifestation" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	FirstManifestation -> Manifestation [arrowhead=onormal style=solid]
+	Manifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Manifestation</TD></TR></TABLE>> URL="../Manifestation" margin=0]
+	FirstManifestation:e -> Manifestation:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasLatestManifestation</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
+	n8386457c30fb4e29a184b49629d79c3bb7 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«intersectionOf»</TD></TR></TABLE>> margin=0]
+	n8386457c30fb4e29a184b49629d79c3bb7 -> Manifestation [label=member arrowhead=normal style=dotted]
+	n8386457c30fb4e29a184b49629d79c3bb8 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«not»</TD></TR></TABLE>> margin=0]
+	FirstManifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FirstManifestation</TD></TR></TABLE>> URL="../FirstManifestation" margin=0]
+	n8386457c30fb4e29a184b49629d79c3bb8 -> FirstManifestation [label=of arrowhead=normal style=dotted]
+	n8386457c30fb4e29a184b49629d79c3bb7 -> n8386457c30fb4e29a184b49629d79c3bb8 [label=member arrowhead=normal style=dotted]
+	FirstManifestation -> n8386457c30fb4e29a184b49629d79c3bb7 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">precedesManifestation</TD></TR></TABLE>> arrowhead=normal style=solid]
+}
