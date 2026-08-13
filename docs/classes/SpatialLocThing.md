@@ -2,6 +2,8 @@
 
 Added for organizational purposes, to identify all classes defined in the Location pattern of the CDM ontology.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/SpatialLocThing`
+
 
 ## Diagram
 

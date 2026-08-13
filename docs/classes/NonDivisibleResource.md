@@ -2,6 +2,8 @@
 
 A Resource that can only be used for a single Activity at once - even if it isn't fully utilized.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/NonDivisibleResource`
+
 
 ## Diagram
 

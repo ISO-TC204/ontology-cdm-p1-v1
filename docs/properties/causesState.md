@@ -1,10 +1,26 @@
 # causesState
 
-identifies a State that in some (indirect) way was caused by the occurrence of the Activity. An Activity is caused by a State if the State is an effect of the Activity or if the State is an effect of some subactivity of the Activity. The causes property is a generalization (super-property) of the hasEffect property.
+Identifies a State that in some (indirect) way was caused by the occurrence of the Activity. An Activity is caused by a State if the State is an effect of the Activity or if the State is an effect of some subactivity of the Activity. The causes property is a generalization (super-property) of the hasEffect property.
 
-**Domain**: [Activity](../classes/Activity.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/causesState`
 
-**Range**: [State](../classes/State.md)
+## Domain
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Range
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ identifies a State that in some (indirect) way was caused by the occurrence of t
 |-------|
 | [Activity](../classes/Activity.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/causesState`

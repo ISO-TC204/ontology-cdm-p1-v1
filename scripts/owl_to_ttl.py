@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-"""Convert CDM Part 1 OWL/XML modules to RITSO-style Turtle.
+"""Convert CDM Part 1 OWL/XML modules to Protege/OWLAPI-style Turtle.
 
-Pattern files keep OWL class definitions with *inline* restriction blank nodes
-(as in ontology-its-regulation). Validation companions are emitted as *SHACL.ttl.
+Pattern files keep OWL class definitions with *inline* restriction blank nodes.
+Validation companions are emitted as *SHACL.ttl.
+
+Layout matches Protege's Turtle export (section banners, ``### IRI`` markers,
+aligned predicates, full IRIs for same-namespace terms) so diffs against
+Protege saves are useful.
+
+Usage:
+  python scripts/owl_to_ttl.py              # convert from *.owl (if present)
+  python scripts/owl_to_ttl.py --reformat   # re-serialize existing docs/*.ttl
 """
 
 from __future__ import annotations
@@ -14,6 +22,8 @@ from typing import Iterable
 from rdflib import Graph, Literal, Namespace, URIRef, BNode
 from rdflib.collection import Collection
 from rdflib.namespace import OWL, RDF, RDFS, SKOS, XSD, DCTERMS
+
+from protege_turtle import serialize_protege
 
 DOCS = Path(__file__).resolve().parents[1] / "docs"
 NS = Namespace("https://w3id.org/citydata/part1/v1/")
@@ -75,28 +85,9 @@ PREFIX_MAP: list[tuple[str, str]] = [
     ("foaf", str(FOAF)),
 ]
 
-# Always declare these so ont2md can shorten IRIs from imports (RITSO policy).
-ALWAYS_DECLARE_PREFIXES = frozenset(
-    {
-        "",
-        "cdm1",
-        "cc",
-        "dcterms",
-        "owl",
-        "rdf",
-        "rdfs",
-        "skos",
-        "vann",
-        "xsd",
-        "time",
-        "prov",
-        "org",
-        "geo",
-        "i72",
-        "foaf",
-        "sh",
-    }
-)
+# Only always declare the default namespace. Other prefixes are added when their
+# IRIs appear in the graph (owl:imports time:, geo: terms, etc.).
+ALWAYS_DECLARE_PREFIXES = frozenset({""})
 
 
 def ontology_iri(local: str) -> URIRef:
@@ -200,15 +191,28 @@ def list_items(g: Graph, head) -> list:
 def transform_restriction(g: Graph, node: BNode) -> None:
     """Rewrite OWL restriction vocabulary toward RITSO style used in samples.
 
-    - owl:allValuesFrom C  -> owl:onClass C  (drop allValuesFrom)
     - owl:someValuesFrom C -> owl:onClass C + owl:minQualifiedCardinality 1
+    - owl:allValuesFrom C stays as allValuesFrom unless a cardinality is present,
+      in which case it becomes owl:onClass C (qualified restriction form)
     - owl:onDataRange stays with qualified cardinality
     """
+    has_card = any(
+        g.value(node, p) is not None
+        for p in (
+            OWL.qualifiedCardinality,
+            OWL.minQualifiedCardinality,
+            OWL.maxQualifiedCardinality,
+            OWL.cardinality,
+            OWL.minCardinality,
+            OWL.maxCardinality,
+        )
+    )
+
     avf = g.value(node, OWL.allValuesFrom)
-    if avf is not None:
+    if avf is not None and has_card:
+        # Qualified cardinality restrictions use onClass / onDataRange
         g.remove((node, OWL.allValuesFrom, avf))
         if (node, OWL.onClass, None) not in g and (node, OWL.onDataRange, None) not in g:
-            # Datatype ranges use onDataRange
             if str(avf).startswith(str(XSD)):
                 g.add((node, OWL.onDataRange, avf))
             else:
@@ -235,11 +239,181 @@ def transform_restriction(g: Graph, node: BNode) -> None:
                 )
             )
 
+    # Unqualified onClass / onDataRange (no cardinality) is invalid OWL; use allValuesFrom
+    has_card_now = any(
+        g.value(node, p) is not None
+        for p in (
+            OWL.qualifiedCardinality,
+            OWL.minQualifiedCardinality,
+            OWL.maxQualifiedCardinality,
+            OWL.cardinality,
+            OWL.minCardinality,
+            OWL.maxCardinality,
+        )
+    )
+    if not has_card_now and g.value(node, OWL.allValuesFrom) is None:
+        on_class = g.value(node, OWL.onClass)
+        if on_class is not None:
+            g.remove((node, OWL.onClass, on_class))
+            g.add((node, OWL.allValuesFrom, on_class))
+        on_data = g.value(node, OWL.onDataRange)
+        if on_data is not None:
+            g.remove((node, OWL.onDataRange, on_data))
+            g.add((node, OWL.allValuesFrom, on_data))
 
-def transform_graph(g: Graph) -> None:
+    # Qualified cardinality without onClass/onDataRange is invalid; demote to unqualified
+    if g.value(node, OWL.onClass) is None and g.value(node, OWL.onDataRange) is None:
+        swaps = (
+            (OWL.qualifiedCardinality, OWL.cardinality),
+            (OWL.minQualifiedCardinality, OWL.minCardinality),
+            (OWL.maxQualifiedCardinality, OWL.maxCardinality),
+        )
+        for qpred, upred in swaps:
+            val = g.value(node, qpred)
+            if val is not None:
+                g.remove((node, qpred, val))
+                if g.value(node, upred) is None:
+                    g.add((node, upred, val))
+
+
+def _simple_universal_restriction(g: Graph, node):
+    """If node is (or unwraps to) ``P only C``, return ``(P, C)``; else None.
+
+    Unwraps single-element ``owl:Class`` / ``owl:intersectionOf ( R )`` introduced
+    for OWLAPI Turtle workarounds.
+    """
+    if not isinstance(node, BNode):
+        return None
+
+    inter = g.value(node, OWL.intersectionOf)
+    if inter is not None:
+        items = list_items(g, inter)
+        if len(items) != 1:
+            return None
+        return _simple_universal_restriction(g, items[0])
+
+    if g.value(node, OWL.onProperty) is None and (node, RDF.type, OWL.Restriction) not in g:
+        return None
+
+    prop = g.value(node, OWL.onProperty)
+    filler = g.value(node, OWL.allValuesFrom)
+    if prop is None or filler is None:
+        return None
+
+    allowed = {RDF.type, OWL.onProperty, OWL.allValuesFrom}
+    if {p for p, _ in g.predicate_objects(node)} - allowed:
+        return None
+    return (prop, filler)
+
+
+def _is_value_unit_chain(g: Graph, prop) -> bool:
+    """True if prop is a blank node propertyChainAxiom (i72:value i72:unit_of_measure)."""
+    if not isinstance(prop, BNode):
+        return False
+    head = g.value(prop, OWL.propertyChainAxiom)
+    if head is None:
+        return False
+    items = list_items(g, head)
+    return items == [I72.value, I72.unit_of_measure]
+
+
+def ensure_value_unit_of_measure_property(g: Graph) -> URIRef:
+    """Named property for i72:value ∘ i72:unit_of_measure (OWLAPI-safe vs inline chains)."""
+    prop = NS.valueUnitOfMeasure
+    if (prop, RDF.type, OWL.ObjectProperty) in g:
+        return prop
+    g.add((prop, RDF.type, OWL.ObjectProperty))
+    if (NS.CityUnitObjectProperty, RDF.type, OWL.ObjectProperty) in g:
+        g.add((prop, RDFS.subPropertyOf, NS.CityUnitObjectProperty))
+    chain = BNode()
+    Collection(g, chain, [I72.value, I72.unit_of_measure])
+    g.add((prop, OWL.propertyChainAxiom, chain))
+    g.add(
+        (
+            prop,
+            SKOS.definition,
+            Literal(
+                "The unit of measure of a quantity's value "
+                "(property chain of i72:value and i72:unit_of_measure)."
+            ),
+        )
+    )
+    return prop
+
+
+def flatten_nested_all_values_from(g: Graph) -> None:
+    """Rewrite nested ``value only (unit_of_measure only C)`` using a named chain property.
+
+    Inline ``owl:onProperty [ owl:propertyChainAxiom … ]`` on restrictions is
+    misread by OWLAPI's Turtle parser (shows up as a bogus inverse). A named
+    ObjectProperty with ``propertyChainAxiom`` matches ActivityPattern style and
+    parses cleanly.
+    """
+    chain_prop: URIRef | None = None
+
+    def named_chain() -> URIRef:
+        nonlocal chain_prop
+        if chain_prop is None:
+            chain_prop = ensure_value_unit_of_measure_property(g)
+        return chain_prop
+
     for restr in list(g.subjects(RDF.type, OWL.Restriction)):
-        if isinstance(restr, BNode):
-            transform_restriction(g, restr)
+        if not isinstance(restr, BNode):
+            continue
+        outer_prop = g.value(restr, OWL.onProperty)
+        outer_avf = g.value(restr, OWL.allValuesFrom)
+        if outer_prop is None:
+            continue
+
+        # Already flattened to an inline blank chain → point at named property
+        if _is_value_unit_chain(g, outer_prop):
+            g.remove((restr, OWL.onProperty, outer_prop))
+            g.add((restr, OWL.onProperty, named_chain()))
+            continue
+
+        if outer_avf is None:
+            continue
+        allowed = {RDF.type, OWL.onProperty, OWL.allValuesFrom}
+        if {p for p, _ in g.predicate_objects(restr)} - allowed:
+            continue
+
+        # Case 1: value only (unit_of_measure only C)
+        inner = _simple_universal_restriction(g, outer_avf)
+        if inner is not None:
+            inner_prop, inner_filler = inner
+            if outer_prop == I72.value and inner_prop == I72.unit_of_measure:
+                g.remove((restr, OWL.allValuesFrom, outer_avf))
+                g.remove((restr, OWL.onProperty, outer_prop))
+                g.add((restr, OWL.onProperty, named_chain()))
+                g.add((restr, OWL.allValuesFrom, inner_filler))
+            continue
+
+        # Case 2: value only (N ∩ (unit_of_measure only C))
+        if not isinstance(outer_avf, BNode) or outer_prop != I72.value:
+            continue
+        inter = g.value(outer_avf, OWL.intersectionOf)
+        if inter is None:
+            continue
+        items = list_items(g, inter)
+        named = [i for i in items if isinstance(i, URIRef)]
+        rest = [i for i in items if i not in named]
+        if len(named) != 1 or len(rest) != 1:
+            continue
+        inner2 = _simple_universal_restriction(g, rest[0])
+        if inner2 is None or inner2[0] != I72.unit_of_measure:
+            continue
+        _, inner_filler = inner2
+
+        g.remove((restr, OWL.allValuesFrom, outer_avf))
+        g.add((restr, OWL.allValuesFrom, named[0]))
+
+        parents = [s for s, _, _ in g.triples((None, RDFS.subClassOf, restr))]
+        sibling = BNode()
+        g.add((sibling, RDF.type, OWL.Restriction))
+        g.add((sibling, OWL.onProperty, named_chain()))
+        g.add((sibling, OWL.allValuesFrom, inner_filler))
+        for parent in parents:
+            g.add((parent, RDFS.subClassOf, sibling))
 
 
 def collect_reachable_bnodes(g: Graph, root, seen: set | None = None) -> set:
@@ -250,7 +424,34 @@ def collect_reachable_bnodes(g: Graph, root, seen: set | None = None) -> set:
     seen.add(root)
     for _, _, o in g.triples((root, None, None)):
         collect_reachable_bnodes(g, o, seen)
+    # Also follow rdf:rest chains when walking lists from first
     return seen
+
+
+def prune_unreachable_bnodes(g: Graph) -> int:
+    """Drop blank-node triples not reachable from any named subject."""
+    reachable: set = set()
+    for s in g.subjects():
+        if isinstance(s, URIRef):
+            for _, _, o in g.triples((s, None, None)):
+                collect_reachable_bnodes(g, o, reachable)
+    removed = 0
+    for s, p, o in list(g):
+        if isinstance(s, BNode) and s not in reachable:
+            g.remove((s, p, o))
+            removed += 1
+        elif isinstance(o, BNode) and o not in reachable and not isinstance(s, URIRef):
+            # object-only orphans already covered when subject is unreachable
+            pass
+    return removed
+
+
+def transform_graph(g: Graph) -> None:
+    for restr in list(g.subjects(RDF.type, OWL.Restriction)):
+        if isinstance(restr, BNode):
+            transform_restriction(g, restr)
+    flatten_nested_all_values_from(g)
+    prune_unreachable_bnodes(g)
 
 
 def write_property_expr(g: Graph, node, prefixes: dict[str, str], indent: str) -> list[str]:
@@ -571,6 +772,7 @@ def used_prefixes(g: Graph) -> dict[str, str]:
 
 
 def serialize_pattern(g: Graph) -> str:
+    """Serialize an OWL module graph as Protege/OWLAPI-style Turtle."""
     transform_graph(g)
     # Normalize mainModule string literals to boolean
     for s, o in list(g.subject_objects(NS.mainModule)):
@@ -578,30 +780,9 @@ def serialize_pattern(g: Graph) -> str:
             g.remove((s, NS.mainModule, o))
             g.add((s, NS.mainModule, Literal(str(o).lower() == "true")))
     prefixes = used_prefixes(g)
-    # Stable prefix order from PREFIX_MAP
-    ordered_pfx = [(p, u) for p, u in PREFIX_MAP if p in prefixes]
-    for p, u in prefixes.items():
-        if (p, u) not in ordered_pfx:
-            ordered_pfx.append((p, u))
-
-    out = []
-    for pfx, uri in ordered_pfx:
-        if pfx == "":
-            out.append(f"@prefix : <{uri}> .")
-        else:
-            out.append(f"@prefix {pfx}: <{uri}> .")
-    out.append("")
-
-    subjects = [s for s in set(g.subjects()) if not isinstance(s, BNode)]
-    subjects.sort(key=lambda s: subject_sort_key(s, g))
-    consumed: set = set()
-
-    blocks = []
-    for s in subjects:
-        blocks.append(write_subject(g, s, dict(ordered_pfx), consumed))
-    out.append("\n\n".join(blocks))
-    out.append("")
-    return "\n".join(out)
+    ordered = {p: u for p, u in PREFIX_MAP if p in prefixes}
+    ordered.update({p: u for p, u in prefixes.items() if p not in ordered})
+    return serialize_protege(g, ordered, str(NS))
 
 
 def restriction_to_shacl_props(g: Graph, class_uri: URIRef) -> list[dict]:
@@ -715,12 +896,25 @@ def write_shacl(pattern_g: Graph, local: str, label: str) -> str:
             if "datatype" in p:
                 used_uris.add(str(p["datatype"]))
 
-    needed_pfx = set(ALWAYS_DECLARE_PREFIXES)
+    # Header + SHACL vocabulary always appear in the written text.
+    needed_pfx = set(ALWAYS_DECLARE_PREFIXES) | {
+        "dcterms",
+        "owl",
+        "rdf",
+        "skos",
+        "vann",
+        "sh",
+    }
     for uri in used_uris:
-        for pfx, base in PREFIX_MAP:
-            if uri.startswith(base):
-                needed_pfx.add(pfx)
-                break
+        matches = [(pfx, base) for pfx, base in PREFIX_MAP if uri.startswith(base)]
+        if not matches:
+            continue
+        matches.sort(key=lambda x: len(x[1]), reverse=True)
+        for pfx, base in matches:
+            if pfx in ("", "cdm1") and any(len(u) > len(base) for _, u in matches):
+                continue
+            needed_pfx.add(pfx)
+            break
 
     lines = []
     for pfx, uri in PREFIX_MAP:
@@ -851,7 +1045,50 @@ def write_catalog() -> None:
     print("Wrote catalog-v001.xml")
 
 
+def reformat_existing_ttl() -> None:
+    """Re-serialize existing pattern/master TTL files in Protege layout (no OWL sources)."""
+    paths = sorted(DOCS.glob("*Pattern.ttl")) + [DOCS / "5087-1.ttl"]
+    for path in paths:
+        if not path.is_file():
+            continue
+        g = Graph()
+        g.parse(path, format="turtle")
+        transform_graph(g)
+        text = serialize_pattern(g)
+        # Round-trip check
+        g2 = Graph()
+        g2.parse(data=text, format="turtle")
+        if len(g2) < len(g) * 0.9:
+            raise SystemExit(
+                f"{path.name}: reformatted graph shrank suspiciously ({len(g)} → {len(g2)})"
+            )
+        path.write_text(text, encoding="utf-8")
+        print(f"Reformatted {path.name} ({len(g)} → {len(g2)} triples)")
+
+
+def reformat_existing_shacl() -> None:
+    """Re-serialize existing *SHACL.ttl files in Protege layout."""
+    for path in sorted(DOCS.glob("*SHACL.ttl")):
+        g = Graph()
+        g.parse(path, format="turtle")
+        prefixes = used_prefixes(g)
+        ordered = {p: u for p, u in PREFIX_MAP if p in prefixes}
+        ordered.update({p: u for p, u in prefixes.items() if p not in ordered})
+        text = serialize_protege(g, ordered, str(NS))
+        g2 = Graph()
+        g2.parse(data=text, format="turtle")
+        path.write_text(text, encoding="utf-8")
+        print(f"Reformatted {path.name} ({len(g)} → {len(g2)} triples)")
+
+
 def main() -> int:
+    import sys
+
+    if "--reformat" in sys.argv or "-r" in sys.argv:
+        reformat_existing_ttl()
+        reformat_existing_shacl()
+        return 0
+
     for owl_name, (pattern, shacl, local) in MODULES.items():
         convert_module(owl_name, pattern, shacl, local)
     write_master()

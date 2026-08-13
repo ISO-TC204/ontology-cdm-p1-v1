@@ -2,7 +2,19 @@
 
 Specifies the time Interval during which the Thing is valid or in force.
 
-**Range**: [time:Interval](../classes/time:Interval.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/validFor`
+
+## Range
+
+| Class |
+|-------|
+| [time:Interval](https://w3id.org/citydata/imported/time/Interval) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [AgreementObjectProperty](AgreementObjectProperty.md) |
 
 ## Used in classes
 
@@ -10,4 +22,3 @@ Specifies the time Interval during which the Thing is valid or in force.
 |-------|
 | [Agreement](../classes/Agreement.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/validFor`

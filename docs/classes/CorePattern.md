@@ -10,6 +10,7 @@ This pattern consists of the following classes:
 
 - [Cdm Thing](CdmThing.md)
 - [Foundational Cdm Thing](FoundationalCdmThing.md)
+
 This module defines the following properties:
 
 - [CdmDataProperty](../properties/CdmDataProperty.md)

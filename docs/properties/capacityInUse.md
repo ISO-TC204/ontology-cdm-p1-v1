@@ -2,9 +2,25 @@
 
 Identifies the portion of capacity in use, by some Activity(s).
 
-**Domain**: [Resource](../classes/Resource.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/capacityInUse`
 
-**Range**: [i72:Quantity](../classes/i72:Quantity.md)
+## Domain
+
+| Class |
+|-------|
+| [Resource](../classes/Resource.md) |
+
+## Range
+
+| Class |
+|-------|
+| [i72:Quantity](https://w3id.org/citydata/21972/v1/Quantity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ResourceObjectProperty](ResourceObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the portion of capacity in use, by some Activity(s).
 |-------|
 | [Resource](../classes/Resource.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/capacityInUse`

@@ -2,9 +2,25 @@
 
 Identifies the immediate successor Manifestation (i.e. the subsequent snapshot of the object).
 
-**Domain**: [Manifestation](../classes/Manifestation.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasNextManifestation`
 
-**Range**: [Manifestation](../classes/Manifestation.md)
+## Domain
+
+| Class |
+|-------|
+| [Manifestation](../classes/Manifestation.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Manifestation](../classes/Manifestation.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ChangeObjectProperty](ChangeObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the immediate successor Manifestation (i.e. the subsequent snapshot o
 |-------|
 | [Manifestation](../classes/Manifestation.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasNextManifestation`

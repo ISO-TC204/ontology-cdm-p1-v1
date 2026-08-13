@@ -2,9 +2,25 @@
 
 Specifies the Resource that is allocated.
 
-**Domain**: [PlannedAllocation](../classes/PlannedAllocation.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/forResource`
 
-**Range**: [Resource](../classes/Resource.md)
+## Domain
+
+| Class |
+|-------|
+| [PlannedAllocation](../classes/PlannedAllocation.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Resource](../classes/Resource.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ResourceObjectProperty](ResourceObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Specifies the Resource that is allocated.
 |-------|
 | [PlannedAllocation](../classes/PlannedAllocation.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/forResource`

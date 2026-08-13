@@ -2,9 +2,25 @@
 
 Specifies the Quantity of the Resource that participates in the State, if applicable.
 
-**Domain**: [PlannedAllocation](../classes/PlannedAllocation.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasQuantity`
 
-**Range**: [i72:Quantity](../classes/i72:Quantity.md)
+## Domain
+
+| Class |
+|-------|
+| [PlannedAllocation](../classes/PlannedAllocation.md) |
+
+## Range
+
+| Class |
+|-------|
+| [i72:Quantity](https://w3id.org/citydata/21972/v1/Quantity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ResourceObjectProperty](ResourceObjectProperty.md) |
 
 ## Used in classes
 
@@ -13,4 +29,3 @@ Specifies the Quantity of the Resource that participates in the State, if applic
 | [PlannedAllocation](../classes/PlannedAllocation.md) |
 | [TerminalResourceState](../classes/TerminalResourceState.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasQuantity`

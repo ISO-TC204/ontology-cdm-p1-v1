@@ -2,6 +2,8 @@
 
 An ExceptionDay specifies a day or days that recursExcept and recursAddition use to specify unique days that do not recur on the same day each year, for example, holidays. 
 
+**IRI**: `https://w3id.org/citydata/part1/v1/ExceptionDay`
+
 
 ## Diagram
 

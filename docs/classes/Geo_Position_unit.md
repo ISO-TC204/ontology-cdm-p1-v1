@@ -1,5 +1,9 @@
 # Geo_Position_unit
 
+Reference systems to indicate geographic position.
+
+**IRI**: `https://w3id.org/citydata/part1/v1/Geo_Position_unit`
+
 
 ## Diagram
 
@@ -56,5 +60,5 @@
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [i72:Unit_of_measure](i72:Unit_of_measure.md) |
+| subClassOf | [i72:Unit_of_measure](https://w3id.org/citydata/21972/v1/Unit_of_measure) |
 

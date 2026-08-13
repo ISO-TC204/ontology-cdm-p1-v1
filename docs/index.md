@@ -9,7 +9,7 @@ The Information technology - City data model - Part 1: Foundation level concepts
 - [Agreement](classes/AgreementPattern.md)
 - [Change](classes/ChangePattern.md)
 - [City Units](classes/CityUnitsPattern.md)
-- [Core](classes/Core.md)
+- [Core](classes/CorePattern.md)
 - [Generic Properties](classes/GenericPropertiesPattern.md)
 - [Mereology](classes/MereologyPattern.md)
 - [Organization Structure](classes/OrganizationStructurePattern.md)

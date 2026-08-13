@@ -2,9 +2,25 @@
 
 Identifies two or more Agreements that comprise the Agreement.
 
-**Domain**: [Agreement](../classes/Agreement.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasSubAgreement`
 
-**Range**: [Agreement](../classes/Agreement.md)
+## Domain
+
+| Class |
+|-------|
+| [Agreement](../classes/Agreement.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Agreement](../classes/Agreement.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [AgreementObjectProperty](AgreementObjectProperty.md) |
 
 ## Used in classes
 
@@ -13,4 +29,3 @@ Identifies two or more Agreements that comprise the Agreement.
 | [AtomicAgreement](../classes/AtomicAgreement.md) |
 | [ComplexAgreement](../classes/ComplexAgreement.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasSubAgreement`

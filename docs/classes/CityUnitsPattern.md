@@ -5,7 +5,7 @@ This ontology specifies the foundation-level concepts related to the city units 
 This pattern imports the following files:
 
 - [https://w3id.org/citydata/21972/v1/](https://w3id.org/citydata/21972/v1/)
-- [https://w3id.org/citydata/part1/v1/Core](https://w3id.org/citydata/part1/v1/Core)
+- [https://w3id.org/citydata/part1/v1/CorePattern](https://w3id.org/citydata/part1/v1/CorePattern)
 
 This pattern consists of the following classes:
 
@@ -33,6 +33,7 @@ This pattern consists of the following classes:
 - [Value Of Money](ValueOfMoney.md)
 - [Volume](Volume.md)
 - [Volume Unit](VolumeUnit.md)
+
 This module defines the following properties:
 
 - [CityUnitObjectProperty](../properties/CityUnitObjectProperty.md)

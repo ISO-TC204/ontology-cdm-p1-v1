@@ -20,6 +20,8 @@ digraph {
 	Duration -> CityUnitsThing [arrowhead=onormal style=solid]
 	Duration -> i72_Quantity [arrowhead=onormal style=solid]
 	Duration -> time_TemporalDuration [arrowhead=onormal style=solid]
-	na010c749982e452794368b522251db07b15 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">ComplexExpr</TD></TR></TABLE>> margin=0]
-	Duration -> na010c749982e452794368b522251db07b15 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">i72:value</TD></TR></TABLE>> arrowhead=normal style=dashed]
+	n644d2ea6622c412bb8909c6637c88453b21 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«intersectionOf»</TD></TR></TABLE>> margin=0]
+	n644d2ea6622c412bb8909c6637c88453b22 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">ComplexExpr</TD></TR></TABLE>> margin=0]
+	n644d2ea6622c412bb8909c6637c88453b21 -> n644d2ea6622c412bb8909c6637c88453b22 [label=member arrowhead=normal style=dotted]
+	Duration -> n644d2ea6622c412bb8909c6637c88453b21 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">i72:value</TD></TR></TABLE>> arrowhead=normal style=dashed]
 }

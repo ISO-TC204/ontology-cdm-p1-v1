@@ -2,9 +2,25 @@
 
 identifies the sub-recurring events that comprise the RecurringEvent. As with an Activity, a RecurringEvent may be decomposed/decomposed into simpler/more complex RecurringEvents to support varying levels of granularity.
 
-**Domain**: [RecurringEvent](../classes/RecurringEvent.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasSubRecurringEvent`
 
-**Range**: [RecurringEvent](../classes/RecurringEvent.md)
+## Domain
+
+| Class |
+|-------|
+| [RecurringEvent](../classes/RecurringEvent.md) |
+
+## Range
+
+| Class |
+|-------|
+| [RecurringEvent](../classes/RecurringEvent.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [RecurringEventObjectProperty](RecurringEventObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ identifies the sub-recurring events that comprise the RecurringEvent. As with an
 |-------|
 | [RecurringEvent](../classes/RecurringEvent.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasSubRecurringEvent`

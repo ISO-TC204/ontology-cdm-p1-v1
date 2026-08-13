@@ -1,5 +1,9 @@
 # ChangeThing
 
+Added for organizational purposes to group the classes defined in the Change portion of the CDM.
+
+**IRI**: `https://w3id.org/citydata/part1/v1/ChangeThing`
+
 
 ## Diagram
 

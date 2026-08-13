@@ -17,6 +17,6 @@ digraph {
 	}
 	NonTerminalState -> State [arrowhead=onormal style=solid]
 	State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State" margin=0]
-	NonTerminalState:e -> State:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasDecomp</TD></TR><TR><TD ALIGN="CENTER">2..*</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
 	NonTerminalState:e -> State:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasSubstate</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
+	NonTerminalState:e -> State:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasDecomp</TD></TR><TR><TD ALIGN="CENTER">2..*</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
 }

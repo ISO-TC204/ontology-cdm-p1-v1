@@ -2,6 +2,8 @@
 
 A complex agreement is an agreement that is composed of two or more atomic agreements. It is a subclass of Agreement and specifies the “essence” of a complex agreement.  In particular it identifies how atomic agreements are composed to form a complex agreement.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/ComplexAgreement`
+
 
 ## Diagram
 

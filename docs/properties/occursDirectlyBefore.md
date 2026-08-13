@@ -2,9 +2,25 @@
 
 Identifies an Activity that occurred immediately prior to the Activity. The occursDirectlyBefore property is a sub-property of the occursBefore property.
 
-**Domain**: [Activity](../classes/Activity.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/occursDirectlyBefore`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [occursBefore](occursBefore.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies an Activity that occurred immediately prior to the Activity. The occu
 |-------|
 | [Activity](../classes/Activity.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/occursDirectlyBefore`

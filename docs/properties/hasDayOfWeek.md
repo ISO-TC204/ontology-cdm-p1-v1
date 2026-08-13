@@ -2,9 +2,25 @@
 
 Specifies the day of the week on which a Weekly RecurringEvent occurs with the time:DayOfWeek class from the Time pattern.
 
-**Domain**: [WeeklyRecurringEvent](../classes/WeeklyRecurringEvent.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasDayOfWeek`
 
-**Range**: [time:DayOfWeek](../classes/time:DayOfWeek.md)
+## Domain
+
+| Class |
+|-------|
+| [WeeklyRecurringEvent](../classes/WeeklyRecurringEvent.md) |
+
+## Range
+
+| Class |
+|-------|
+| [time:DayOfWeek](https://w3id.org/citydata/imported/time/DayOfWeek) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [RecurringEventObjectProperty](RecurringEventObjectProperty.md) |
 
 ## Used in classes
 
@@ -13,4 +29,3 @@ Specifies the day of the week on which a Weekly RecurringEvent occurs with the t
 | [RecurringEvent](../classes/RecurringEvent.md) |
 | [WeeklyRecurringEvent](../classes/WeeklyRecurringEvent.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasDayOfWeek`

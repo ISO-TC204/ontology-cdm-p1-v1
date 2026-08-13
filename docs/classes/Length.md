@@ -2,6 +2,8 @@
 
 Length is the amount of space between two geographical points along a curve. It is a base quantity in the International System of Units and other systems of units. Length is speed times time. The metre, a base unit of length in the International System of Units, is defined in terms of speed of light during a certain time interval.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/Length`
+
 
 ## Diagram
 
@@ -45,16 +47,16 @@ Length is the amount of space between two geographical points along a curve. It 
     </g>
     <!-- Invis -->
     <!-- Length&#45;&gt;Invis -->
-    <!-- na010c749982e452794368b522251db07b17 -->
+    <!-- n644d2ea6622c412bb8909c6637c88453b25 -->
     <g id="node5" class="node">
-    <title>na010c749982e452794368b522251db07b17</title>
+    <title>n644d2ea6622c412bb8909c6637c88453b25</title>
     <polygon fill="lightyellow" stroke="none" points="102.5,-110.38 102.5,-128.62 193.5,-128.62 193.5,-110.38 102.5,-110.38"/>
     <text xml:space="preserve" text-anchor="start" x="104.5" y="-115.38" font-family="Arial" font-size="12.00">«intersectionOf»</text>
     <polygon fill="none" stroke="black" points="102.5,-110.38 102.5,-128.62 193.5,-128.62 193.5,-110.38 102.5,-110.38"/>
     </g>
-    <!-- Length&#45;&gt;na010c749982e452794368b522251db07b17 -->
+    <!-- Length&#45;&gt;n644d2ea6622c412bb8909c6637c88453b25 -->
     <g id="edge6" class="edge">
-    <title>Length&#45;&gt;na010c749982e452794368b522251db07b17</title>
+    <title>Length&#45;&gt;n644d2ea6622c412bb8909c6637c88453b25</title>
     <path fill="none" stroke="black" stroke-dasharray="5,2" d="M109.64,-216.83C116.88,-198.63 128.59,-169.23 137.17,-147.69"/>
     <polygon fill="black" stroke="black" points="140.32,-149.23 140.77,-138.65 133.82,-146.64 140.32,-149.23"/>
     <polygon fill="white" stroke="none" points="133.44,-155.5 133.44,-198.5 185.69,-198.5 185.69,-155.5 133.44,-155.5"/>
@@ -72,23 +74,23 @@ Length is the amount of space between two geographical points along a curve. It 
     </g>
     </g>
     <!-- Invis&#45;&gt;i72_Measure -->
-    <!-- na010c749982e452794368b522251db07b17&#45;&gt;i72_Measure -->
+    <!-- n644d2ea6622c412bb8909c6637c88453b25&#45;&gt;i72_Measure -->
     <g id="edge4" class="edge">
-    <title>na010c749982e452794368b522251db07b17&#45;&gt;i72_Measure</title>
+    <title>n644d2ea6622c412bb8909c6637c88453b25&#45;&gt;i72_Measure</title>
     <path fill="none" stroke="black" stroke-dasharray="1,5" d="M126.41,-101.68C119.28,-96 111.35,-89.56 104.25,-83.5 95.36,-75.91 85.86,-67.39 77.38,-59.64"/>
     <polygon fill="black" stroke="black" points="79.82,-57.13 70.09,-52.93 75.08,-62.28 79.82,-57.13"/>
     <text xml:space="preserve" text-anchor="middle" x="124.12" y="-73.05" font-family="Arial" font-size="11.00">member</text>
     </g>
-    <!-- na010c749982e452794368b522251db07b18 -->
+    <!-- n644d2ea6622c412bb8909c6637c88453b26 -->
     <g id="node6" class="node">
-    <title>na010c749982e452794368b522251db07b18</title>
+    <title>n644d2ea6622c412bb8909c6637c88453b26</title>
     <polygon fill="lightyellow" stroke="none" points="109.62,-24.88 109.62,-43.12 186.38,-43.12 186.38,-24.88 109.62,-24.88"/>
     <text xml:space="preserve" text-anchor="start" x="111.62" y="-29.88" font-family="Arial" font-size="12.00">ComplexExpr</text>
     <polygon fill="none" stroke="black" points="109.62,-24.88 109.62,-43.12 186.38,-43.12 186.38,-24.88 109.62,-24.88"/>
     </g>
-    <!-- na010c749982e452794368b522251db07b17&#45;&gt;na010c749982e452794368b522251db07b18 -->
+    <!-- n644d2ea6622c412bb8909c6637c88453b25&#45;&gt;n644d2ea6622c412bb8909c6637c88453b26 -->
     <g id="edge5" class="edge">
-    <title>na010c749982e452794368b522251db07b17&#45;&gt;na010c749982e452794368b522251db07b18</title>
+    <title>n644d2ea6622c412bb8909c6637c88453b25&#45;&gt;n644d2ea6622c412bb8909c6637c88453b26</title>
     <path fill="none" stroke="black" stroke-dasharray="1,5" d="M148,-101.6C148,-90.62 148,-76.04 148,-63.32"/>
     <polygon fill="black" stroke="black" points="151.5,-63.39 148,-53.39 144.5,-63.39 151.5,-63.39"/>
     <text xml:space="preserve" text-anchor="middle" x="167.88" y="-73.05" font-family="Arial" font-size="11.00">member</text>
@@ -107,5 +109,6 @@ Length is the amount of space between two geographical points along a curve. It 
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [i72:Quantity](i72:Quantity.md) |
+| [i72:value](https://w3id.org/citydata/21972/v1/value) | only ComplexExpr and [i72:Measure](https://w3id.org/citydata/21972/v1/Measure) |
+| subClassOf | [i72:Quantity](https://w3id.org/citydata/21972/v1/Quantity) |
 

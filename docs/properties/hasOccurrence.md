@@ -2,9 +2,25 @@
 
 Identifies the Activities that take place at the time and location.
 
-**Domain**: [RecurringEvent](../classes/RecurringEvent.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasOccurrence`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [RecurringEvent](../classes/RecurringEvent.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [RecurringEventObjectProperty](RecurringEventObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the Activities that take place at the time and location.
 |-------|
 | [RecurringEvent](../classes/RecurringEvent.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasOccurrence`

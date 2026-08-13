@@ -2,9 +2,25 @@
 
 Specifies the end time of the domain object's activity.
 
-**Domain**: [RecurringEvent](../classes/RecurringEvent.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/endTime`
 
-**Range**: [xsd:time](https://w3id.org/citydata/imported/xsd/time)
+## Domain
+
+| Class |
+|-------|
+| [RecurringEvent](../classes/RecurringEvent.md) |
+
+## Range
+
+| Class |
+|-------|
+| [xsd:time](https://w3id.org/citydata/imported/xsd/time) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [RecurringEventDataProperty](RecurringEventDataProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Specifies the end time of the domain object's activity.
 |-------|
 | [RecurringEvent](../classes/RecurringEvent.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/endTime`

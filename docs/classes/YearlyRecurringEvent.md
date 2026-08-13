@@ -2,6 +2,8 @@
 
 A YearlyRecurringEvent recurs regularly on the same day of the same month, as specified by the hasMonth and dayOfMonth properties. As with MonthlyRecurringEvent, there may be ambiguity regarding the semantics of a yearly recurring event, however this formalization captures only the notion of an event that recurs on the same day of the same month (e.g. a birthday).
 
+**IRI**: `https://w3id.org/citydata/part1/v1/YearlyRecurringEvent`
+
 
 ## Diagram
 

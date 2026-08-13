@@ -2,9 +2,25 @@
 
 Identifies the time Instant at which the Activity occurs.
 
-**Domain**: [Activity](../classes/Activity.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/beginOf`
 
-**Range**: [time:Instant](../classes/time:Instant.md)
+## Domain
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Range
+
+| Class |
+|-------|
+| [time:Instant](https://w3id.org/citydata/imported/time/Instant) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the time Instant at which the Activity occurs.
 |-------|
 | [Activity](../classes/Activity.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/beginOf`

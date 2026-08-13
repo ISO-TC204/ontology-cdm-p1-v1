@@ -3,3 +3,10 @@
 Added for organizational purposes, to identify all activity object properties defined in the City Data Model.
 
 **IRI**: `https://w3id.org/citydata/part1/v1/ActivityObjectProperty`
+
+## Superordinate property
+
+| Property |
+|-------|
+| [FoundationalCdmObjectProperty](FoundationalCdmObjectProperty.md) |
+

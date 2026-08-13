@@ -2,9 +2,25 @@
 
 Identifies the time Interval or Instant during which the State was satisfied.
 
-**Domain**: [State](../classes/State.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/achievedAt`
 
-**Range**: [time:TemporalEntity](../classes/time:TemporalEntity.md)
+## Domain
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Range
+
+| Class |
+|-------|
+| [time:TemporalEntity](https://w3id.org/citydata/imported/time/TemporalEntity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the time Interval or Instant during which the State was satisfied.
 |-------|
 | [State](../classes/State.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/achievedAt`

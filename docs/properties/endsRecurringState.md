@@ -2,9 +2,25 @@
 
 Defines a State that is required to be true in order terminate the RecurringEvent.
 
-**Domain**: [RecurringEvent](../classes/RecurringEvent.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/endsRecurringState`
 
-**Range**: [State](../classes/State.md)
+## Domain
+
+| Class |
+|-------|
+| [RecurringEvent](../classes/RecurringEvent.md) |
+
+## Range
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [RecurringEventObjectProperty](RecurringEventObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Defines a State that is required to be true in order terminate the RecurringEven
 |-------|
 | [RecurringEvent](../classes/RecurringEvent.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/endsRecurringState`

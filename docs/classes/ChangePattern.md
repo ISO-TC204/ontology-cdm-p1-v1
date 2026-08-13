@@ -4,13 +4,14 @@ This ontology specifies the foundation-level concepts related to the change patt
 
 This pattern imports the following files:
 
-- [https://w3id.org/citydata/part1/v1/Core](https://w3id.org/citydata/part1/v1/Core)
+- [https://w3id.org/citydata/part1/v1/CorePattern](https://w3id.org/citydata/part1/v1/CorePattern)
 
 This pattern consists of the following classes:
 
 - [Change Thing](ChangeThing.md)
 - [First Manifestation](FirstManifestation.md)
 - [Manifestation](Manifestation.md)
+
 This module defines the following properties:
 
 - [ChangeObjectProperty](../properties/ChangeObjectProperty.md)

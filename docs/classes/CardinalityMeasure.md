@@ -1,5 +1,7 @@
 # CardinalityMeasure
 
+**IRI**: `https://w3id.org/citydata/part1/v1/CardinalityMeasure`
+
 
 ## Diagram
 
@@ -94,6 +96,7 @@
 | Property | Constraint |
 |----------|------------|
 | [i72:unit_of_measure](https://w3id.org/citydata/21972/v1/unit_of_measure) | only [i72:Cardinality_unit](https://w3id.org/citydata/21972/v1/Cardinality_unit) |
-| subClassOf | [i72:Measure](i72:Measure.md) |
+| [i72:unit_of_measure](https://w3id.org/citydata/21972/v1/unit_of_measure) | only [i72:Cardinality_unit](https://w3id.org/citydata/21972/v1/Cardinality_unit) |
+| subClassOf | [i72:Measure](https://w3id.org/citydata/21972/v1/Measure) |
 | subClassOf | [CityUnitsThing](CityUnitsThing.md) |
 

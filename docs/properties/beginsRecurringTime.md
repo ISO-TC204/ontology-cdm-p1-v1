@@ -2,9 +2,25 @@
 
 Specifies the start time of the RecurringEvent’s activity with a time:TemporalEntity from the Time pattern.
 
-**Domain**: [RecurringEvent](../classes/RecurringEvent.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/beginsRecurringTime`
 
-**Range**: [time:TemporalEntity](../classes/time:TemporalEntity.md)
+## Domain
+
+| Class |
+|-------|
+| [RecurringEvent](../classes/RecurringEvent.md) |
+
+## Range
+
+| Class |
+|-------|
+| [time:TemporalEntity](https://w3id.org/citydata/imported/time/TemporalEntity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [RecurringEventObjectProperty](RecurringEventObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Specifies the start time of the RecurringEvent’s activity with a time:Temporal
 |-------|
 | [RecurringEvent](../classes/RecurringEvent.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/beginsRecurringTime`

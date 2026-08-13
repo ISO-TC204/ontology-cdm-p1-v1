@@ -2,6 +2,8 @@
 
 A location.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/Location`
+
 
 ## Diagram
 
@@ -74,6 +76,15 @@ A location.
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [geo:Geometry](geo:Geometry.md) |
+| subClassOf | [geo:Geometry](https://w3id.org/citydata/imported/geo/Geometry) |
 | subClassOf | [SpatialLocThing](SpatialLocThing.md) |
+
+## Used by classes
+
+| Class | Property |
+|-------|----------|
+| [Activity](Activity.md) | [associatedLocation](../properties/associatedLocation.md) |
+| [Agreement](Agreement.md) | [validIn](../properties/validIn.md) |
+| [Recurring Event](RecurringEvent.md) | [associatedLocation](../properties/associatedLocation.md) |
+| [Resource](Resource.md) | [hasLocation](../properties/hasLocation.md) |
 

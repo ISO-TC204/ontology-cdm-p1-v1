@@ -4,9 +4,10 @@ This ontology specifies the foundation-level concepts related to the mereology p
 
 This pattern imports the following files:
 
-- [https://w3id.org/citydata/part1/v1/Core](https://w3id.org/citydata/part1/v1/Core)
+- [https://w3id.org/citydata/part1/v1/CorePattern](https://w3id.org/citydata/part1/v1/CorePattern)
 
 This pattern does not contain any classes.
+
 This module defines the following properties:
 
 - [aggregateOf](../properties/aggregateOf.md)

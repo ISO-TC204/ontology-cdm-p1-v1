@@ -2,6 +2,8 @@
 
 A type of NonTerminalState that is defined by the conjunction of its child States.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/ConjunctiveState`
+
 
 ## Diagram
 

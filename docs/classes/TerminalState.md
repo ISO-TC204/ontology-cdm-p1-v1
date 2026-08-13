@@ -2,6 +2,8 @@
 
 A terminal state type has no substates (cannot be decomposed). It corresponds to a particular class of manifestations. A terminal state is achieved at some time if and only if there exists a manifestation within its defined classification, that exists at that time.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/TerminalState`
+
 
 ## Diagram
 

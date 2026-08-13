@@ -2,6 +2,8 @@
 
 An agreement exists between two or more agents. It is established at some point in time and it may be considered valid only in some Location and/or for some interval in time. An agreement may be defined at varying levels of detail, this is supported with the introduction of the ComplexAgreement and AtomicAgreement class. Finally, agreements involve some specification of rights or commitments of the involved parties. This is represented as a relationship between the involved Agent and a particular activity. 
 
+**IRI**: `https://w3id.org/citydata/part1/v1/Agreement`
+
 
 ## Diagram
 
@@ -56,7 +58,7 @@ An agreement exists between two or more agents. It is established at some point 
     </g>
     </g>
     <!-- Agreement&#45;&gt;Agent -->
-    <g id="edge9" class="edge">
+    <g id="edge10" class="edge">
     <title>Agreement&#45;&gt;Agent</title>
     <path fill="none" stroke="black" d="M178.15,-434.14C159.61,-425.8 136.52,-413.16 120.25,-396.5 93.62,-369.22 75.26,-328.67 65.18,-301.92"/>
     <polygon fill="black" stroke="black" points="68.58,-301.01 61.89,-292.8 62,-303.39 68.58,-301.01"/>
@@ -75,7 +77,7 @@ An agreement exists between two or more agents. It is established at some point 
     </g>
     </g>
     <!-- Agreement&#45;&gt;Location -->
-    <g id="edge8" class="edge">
+    <g id="edge9" class="edge">
     <title>Agreement&#45;&gt;Location</title>
     <path fill="none" stroke="black" d="M209.29,-429.11C209.02,-409.14 206.65,-375.29 195,-349 168.95,-290.23 116.29,-235.5 83.79,-205.32"/>
     <polygon fill="black" stroke="black" points="86.46,-203.01 76.71,-198.85 81.73,-208.18 86.46,-203.01"/>
@@ -93,7 +95,7 @@ An agreement exists between two or more agents. It is established at some point 
     </g>
     </g>
     <!-- Agreement&#45;&gt;time_Instant -->
-    <g id="edge10" class="edge">
+    <g id="edge7" class="edge">
     <title>Agreement&#45;&gt;time_Instant</title>
     <path fill="none" stroke="black" d="M223.37,-429.17C234.13,-414.82 247,-393.13 247,-371.5 247,-371.5 247,-371.5 247,-179 247,-146.98 152.99,-125.19 95.52,-114.87"/>
     <polygon fill="black" stroke="black" points="96.14,-111.43 85.69,-113.16 94.94,-118.32 96.14,-111.43"/>
@@ -111,7 +113,7 @@ An agreement exists between two or more agents. It is established at some point 
     </g>
     </g>
     <!-- Agreement&#45;&gt;time_Interval -->
-    <g id="edge7" class="edge">
+    <g id="edge8" class="edge">
     <title>Agreement&#45;&gt;time_Interval</title>
     <path fill="none" stroke="black" d="M240.16,-443.31C281.96,-437.81 351,-421.19 351,-371.5 351,-371.5 351,-371.5 351,-106 351,-54.14 179.63,-40.12 95.5,-36.36"/>
     <polygon fill="black" stroke="black" points="95.88,-32.87 85.75,-35.96 95.59,-39.87 95.88,-32.87"/>
@@ -145,10 +147,13 @@ An agreement exists between two or more agents. It is established at some point 
 
 | Property | Constraint |
 |----------|------------|
+| [establishedOn](../properties/establishedOn.md) | only [time:Instant](https://w3id.org/citydata/imported/time/Instant) |
 | [establishedOn](../properties/establishedOn.md) | only [time:Instant](http://www.w3.org/2006/time#Instant) |
 | [involvesAgent](../properties/involvesAgent.md) | min 2 |
 | [involvesAgent](../properties/involvesAgent.md) | min 2 [Agent](https://w3id.org/citydata/part1/v1/Agent) |
+| [validFor](../properties/validFor.md) | only [time:Interval](https://w3id.org/citydata/imported/time/Interval) |
 | [validFor](../properties/validFor.md) | only [time:Interval](http://www.w3.org/2006/time#Interval) |
+| [validIn](../properties/validIn.md) | only [Location](Location.md) |
 | [validIn](../properties/validIn.md) | only [Location](https://w3id.org/citydata/part1/v1/Location) |
 | subClassOf | [AgreementThing](AgreementThing.md) |
 

@@ -21,8 +21,10 @@ digraph {
 	CapacitySize -> i72_Quantity [arrowhead=onormal style=solid]
 	CapacitySize -> Invis [style=invis]
 	Invis -> Capacity [style=invis]
+	n644d2ea6622c412bb8909c6637c88453b14 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«intersectionOf»</TD></TR></TABLE>> margin=0]
+	n644d2ea6622c412bb8909c6637c88453b15 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">ComplexExpr</TD></TR></TABLE>> margin=0]
+	n644d2ea6622c412bb8909c6637c88453b14 -> n644d2ea6622c412bb8909c6637c88453b15 [label=member arrowhead=normal style=dotted]
+	CapacitySize -> n644d2ea6622c412bb8909c6637c88453b14 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">i72:value</TD></TR></TABLE>> arrowhead=normal style=dashed]
 	Capacity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Capacity</TD></TR></TABLE>> URL="../Capacity" margin=0]
 	CapacitySize -> Capacity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">i72:cardinality_of</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
-	na010c749982e452794368b522251db07b10 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">ComplexExpr</TD></TR></TABLE>> margin=0]
-	CapacitySize -> na010c749982e452794368b522251db07b10 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">i72:value</TD></TR></TABLE>> arrowhead=normal style=dashed]
 }

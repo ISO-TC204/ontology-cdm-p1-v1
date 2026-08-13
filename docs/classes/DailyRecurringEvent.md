@@ -2,6 +2,8 @@
 
 A DailyRecurringEvent is a RecurringEvent that occurs every day. It has a maximum of one associated time, the start time. Typically, a daily recurring event will occur at the same time every day, but it is also possible that no commitment is made to a recurring start time for the event, in which case no start time is specified. A DailyEvent does not necessarily have the same endtime or duration, therefore these are not specified.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/DailyRecurringEvent`
+
 
 ## Diagram
 

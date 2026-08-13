@@ -2,7 +2,19 @@
 
 Identifies the TemporalEntity that reflects the time Instant or Interval during which a Thing is valid.
 
-**Range**: [time:TemporalEntity](../classes/time:TemporalEntity.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/existsAt`
+
+## Range
+
+| Class |
+|-------|
+| [time:TemporalEntity](https://w3id.org/citydata/imported/time/TemporalEntity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ChangeObjectProperty](ChangeObjectProperty.md) |
 
 ## Used in classes
 
@@ -10,4 +22,3 @@ Identifies the TemporalEntity that reflects the time Instant or Interval during 
 |-------|
 | [Manifestation](../classes/Manifestation.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/existsAt`

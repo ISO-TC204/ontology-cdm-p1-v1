@@ -2,6 +2,8 @@
 
 A conjunctive agreement is a complex agreement where all sub-agreements must be satisfied for the overall agreement to hold.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/ConjunctiveAgreement`
+
 
 ## Diagram
 

@@ -2,6 +2,8 @@
 
 A specified system of units for distance.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/LengthUnit`
+
 
 ## Diagram
 
@@ -58,5 +60,5 @@ A specified system of units for distance.
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [i72:Unit_of_measure](i72:Unit_of_measure.md) |
+| subClassOf | [i72:Unit_of_measure](https://w3id.org/citydata/21972/v1/Unit_of_measure) |
 
