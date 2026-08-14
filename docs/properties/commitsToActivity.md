@@ -2,9 +2,25 @@
 
 A commitment to some activity
 
-**Domain**: [AtomicAgreement](../classes/AtomicAgreement.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/commitsToActivity`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [AtomicAgreement](../classes/AtomicAgreement.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ A commitment to some activity
 |-------|
 | [AtomicAgreement](../classes/AtomicAgreement.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/commitsToActivity`

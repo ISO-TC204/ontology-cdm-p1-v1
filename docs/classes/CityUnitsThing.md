@@ -1,5 +1,9 @@
 # CityUnitsThing
 
+Added for organizational purposes to group the classes defined in the City Units portion of the CDM.
+
+**IRI**: `https://w3id.org/citydata/part1/v1/CityUnitsThing`
+
 
 ## Diagram
 

@@ -2,9 +2,25 @@
 
 Identifies the Agents that are party to the Agreement.
 
-**Domain**: [Agreement](../classes/Agreement.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/involvesAgent`
 
-**Range**: [Agent](../classes/Agent.md)
+## Domain
+
+| Class |
+|-------|
+| [Agreement](../classes/Agreement.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Agent](../classes/Agent.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [AgreementObjectProperty](AgreementObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the Agents that are party to the Agreement.
 |-------|
 | [Agreement](../classes/Agreement.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/involvesAgent`

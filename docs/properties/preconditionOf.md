@@ -2,9 +2,25 @@
 
 Identifies an Activity that requires the State to be realized in order to occur.
 
-**Domain**: [State](../classes/State.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/preconditionOf`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [enablesActivity](enablesActivity.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies an Activity that requires the State to be realized in order to occur.
 |-------|
 | [State](../classes/State.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/preconditionOf`

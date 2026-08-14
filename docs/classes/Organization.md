@@ -3,6 +3,8 @@
 A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it. An organization may itself be able to act as an agent.
         In addition to the standard org:Organization pattern, this ontology defines an cdm1:Organization to be a subclass of an cdm1:Agent.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/Organization`
+
 
 ## Diagram
 
@@ -91,7 +93,7 @@ A collection of people organized together into a community or other social, comm
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [org:Organization](org:Organization.md) |
+| subClassOf | [org:Organization](https://w3id.org/citydata/imported/org/Organization) |
 | subClassOf | [Agent](Agent.md) |
 | subClassOf | [OrganizationThing](OrganizationThing.md) |
 

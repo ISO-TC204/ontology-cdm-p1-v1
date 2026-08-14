@@ -2,6 +2,8 @@
 
 A specified system of units for time.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/TimeUnit`
+
 
 ## Diagram
 
@@ -58,5 +60,11 @@ A specified system of units for time.
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [i72:Unit_of_measure](i72:Unit_of_measure.md) |
+| subClassOf | [i72:Unit_of_measure](https://w3id.org/citydata/21972/v1/Unit_of_measure) |
+
+## Used by classes
+
+| Class | Property |
+|-------|----------|
+| [Cardinality Unit Per Time (i72)](CardinalityUnitPerTime.md) | [i72:denominator](https://w3id.org/citydata/21972/v1/denominator) |
 

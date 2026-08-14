@@ -1,98 +1,84 @@
 @prefix : <https://w3id.org/citydata/part1/v1/> .
-@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
-@prefix cc: <http://creativecommons.org/ns#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix i72: <https://w3id.org/citydata/21972/v1/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/citydata/part1/v1/> .
 
-:ResourceSHACL
-    rdf:type owl:Ontology ;
-    dcterms:title "City Data Model Part 1 - Resource Pattern - SHACL constraints" ;
-    skos:definition "SHACL validation shapes for the Resource Pattern pattern module." ;
-    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
-    vann:preferredNamespacePrefix "cdm1" ;
-    owl:imports :ResourcePattern ;
-    owl:imports :CoreSHACL .
+<https://w3id.org/citydata/part1/v1/ResourceSHACL> rdf:type owl:Ontology ;
+                                                    owl:imports :CoreSHACL ,
+                                                                :ResourcePattern ;
+                                                    dcterms:title "City Data Model Part 1 - Resource Pattern - SHACL constraints" ;
+                                                    vann:preferredNamespacePrefix "cdm1" ;
+                                                    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+                                                    skos:definition "SHACL validation shapes for the Resource Pattern pattern module." .
 
-:PlannedAllocationShape
-    rdf:type sh:NodeShape ;
-    sh:targetClass :PlannedAllocation ;
-    sh:property [
-        sh:path time:hasTime ;
-        sh:node :ExactlyOneShape ;
-        sh:class time:TemporalEntity
-    ] ;
-    sh:property [
-        sh:path :hasQuantity ;
-        sh:node :ExactlyOneShape ;
-        sh:class i72:Quantity
-    ] ;
-    sh:property [
-        sh:path :forResource ;
-        sh:node :ExactlyOneShape ;
-        sh:class :Resource
-    ] ;
-    sh:property [
-        sh:path :forState ;
-        sh:node :ExactlyOneShape ;
-        sh:class :State
-    ] .
+#################################################################
+#    Shapes
+#################################################################
 
-:ResourceShape
-    rdf:type sh:NodeShape ;
-    sh:targetClass :Resource ;
-    sh:property [
-        sh:path :hasAllocation ;
-        sh:class :PlannedAllocation
-    ] ;
-    sh:property [
-        sh:path :hasLocation ;
-        sh:class :Location
-    ] ;
-    sh:property [
-        sh:path :hasAvailableCapacity ;
-        sh:node :ExactlyOneShape ;
-        sh:class i72:Quantity
-    ] ;
-    sh:property [
-        sh:path :participatesIn ;
-        sh:node :MinOneShape ;
-        sh:class :Activity
-    ] ;
-    sh:property [
-        sh:path :hasCapacity ;
-        sh:node :ExactlyOneShape ;
-        sh:class i72:Quantity
-    ] ;
-    sh:property [
-        sh:path :capacityInUse ;
-        sh:node :ExactlyOneShape ;
-        sh:class i72:Quantity
-    ] .
+###  https://w3id.org/citydata/part1/v1/PlannedAllocationShape
+:PlannedAllocationShape rdf:type sh:NodeShape ;
+                        sh:property [ sh:class time:TemporalEntity ;
+                                      sh:node :ExactlyOneShape ;
+                                      sh:path time:hasTime
+                                    ] ,
+                                    [ sh:class i72:Quantity ;
+                                      sh:node :ExactlyOneShape ;
+                                      sh:path :hasQuantity
+                                    ] ,
+                                    [ sh:class :Resource ;
+                                      sh:node :ExactlyOneShape ;
+                                      sh:path :forResource
+                                    ] ,
+                                    [ sh:class :State ;
+                                      sh:node :ExactlyOneShape ;
+                                      sh:path :forState
+                                    ] ;
+                        sh:targetClass :PlannedAllocation .
 
-:TerminalResourceStateShape
-    rdf:type sh:NodeShape ;
-    sh:targetClass :TerminalResourceState ;
-    sh:property [
-        sh:path :hasResource ;
-        sh:class :Resource
-    ] ;
-    sh:property [
-        sh:path :hasAllocation ;
-        sh:class :PlannedAllocation
-    ] ;
-    sh:property [
-        sh:path :hasQuantity ;
-        sh:class i72:Quantity
-    ] .
+
+###  https://w3id.org/citydata/part1/v1/ResourceShape
+:ResourceShape rdf:type sh:NodeShape ;
+               sh:property [ sh:class :Location ;
+                             sh:path :hasLocation
+                           ] ,
+                           [ sh:class i72:Quantity ;
+                             sh:node :ExactlyOneShape ;
+                             sh:path :hasAvailableCapacity
+                           ] ,
+                           [ sh:class :Activity ;
+                             sh:node :MinOneShape ;
+                             sh:path :participatesIn
+                           ] ,
+                           [ sh:class i72:Quantity ;
+                             sh:node :ExactlyOneShape ;
+                             sh:path :hasCapacity
+                           ] ,
+                           [ sh:class i72:Quantity ;
+                             sh:node :ExactlyOneShape ;
+                             sh:path :capacityInUse
+                           ] ,
+                           [ sh:class :PlannedAllocation ;
+                             sh:path :hasAllocation
+                           ] ;
+               sh:targetClass :Resource .
+
+
+###  https://w3id.org/citydata/part1/v1/TerminalResourceStateShape
+:TerminalResourceStateShape rdf:type sh:NodeShape ;
+                            sh:property [ sh:class :Resource ;
+                                          sh:path :hasResource
+                                        ] ,
+                                        [ sh:class :PlannedAllocation ;
+                                          sh:path :hasAllocation
+                                        ] ,
+                                        [ sh:class i72:Quantity ;
+                                          sh:path :hasQuantity
+                                        ] ;
+                            sh:targetClass :TerminalResourceState .

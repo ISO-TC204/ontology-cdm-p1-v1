@@ -2,6 +2,8 @@
 
 A Monetary Value has a numerical value that is relative to a particular date (year). A Monetary Value is measured with some currency.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/MonetaryValue`
+
 
 ## Diagram
 
@@ -83,5 +85,12 @@ A Monetary Value has a numerical value that is relative to a particular date (ye
 | [hasRelativeYear](../properties/hasRelativeYear.md) | exactly 1 |
 | [hasRelativeYear](../properties/hasRelativeYear.md) | exactly 1 xsd:gYear |
 | [i72:unit_of_measure](https://w3id.org/citydata/21972/v1/unit_of_measure) | only [i72:Monetary_unit](https://w3id.org/citydata/21972/v1/Monetary_unit) |
-| subClassOf | [i72:Measure](i72:Measure.md) |
+| [i72:unit_of_measure](https://w3id.org/citydata/21972/v1/unit_of_measure) | only [i72:Monetary_unit](https://w3id.org/citydata/21972/v1/Monetary_unit) |
+| subClassOf | [i72:Measure](https://w3id.org/citydata/21972/v1/Measure) |
+
+## Used by classes
+
+| Class | Property |
+|-------|----------|
+| [Value Of Money (i72)](ValueOfMoney.md) | [i72:value](https://w3id.org/citydata/21972/v1/value) |
 

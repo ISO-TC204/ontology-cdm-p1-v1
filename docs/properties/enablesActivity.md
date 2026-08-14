@@ -2,9 +2,25 @@
 
 Identifies an Activity that in some (indirect) way was enabled by the State. The enables property is the inverse of the enabledByState property and is a generalization (super-property) of the preconditionOf property.
 
-**Domain**: [State](../classes/State.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/enablesActivity`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies an Activity that in some (indirect) way was enabled by the State. The
 |-------|
 | [State](../classes/State.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/enablesActivity`

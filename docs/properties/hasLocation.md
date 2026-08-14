@@ -2,7 +2,19 @@
 
 Specifies the Location of an object.
 
-**Range**: [Location](../classes/Location.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasLocation`
+
+## Range
+
+| Class |
+|-------|
+| [Location](../classes/Location.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [LocationObjectProperty](LocationObjectProperty.md) |
 
 ## Used in classes
 
@@ -10,4 +22,3 @@ Specifies the Location of an object.
 |-------|
 | [Resource](../classes/Resource.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasLocation`

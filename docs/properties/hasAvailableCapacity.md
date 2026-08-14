@@ -2,9 +2,25 @@
 
 identifies the Quantity that specifies how much of the Resource is available for use.
 
-**Domain**: [Resource](../classes/Resource.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasAvailableCapacity`
 
-**Range**: [i72:Quantity](../classes/i72:Quantity.md)
+## Domain
+
+| Class |
+|-------|
+| [Resource](../classes/Resource.md) |
+
+## Range
+
+| Class |
+|-------|
+| [i72:Quantity](https://w3id.org/citydata/21972/v1/Quantity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ResourceObjectProperty](ResourceObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ identifies the Quantity that specifies how much of the Resource is available for
 |-------|
 | [Resource](../classes/Resource.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasAvailableCapacity`

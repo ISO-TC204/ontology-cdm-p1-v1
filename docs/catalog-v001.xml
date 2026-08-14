@@ -27,7 +27,10 @@
         <uri name="https://w3id.org/citydata/part1/v1/SpatialLocPattern" uri="SpatialLocPattern.ttl"/>
         <uri name="https://w3id.org/citydata/part1/v1/SpatialLocSHACL" uri="SpatialLocSHACL.ttl"/>
         <uri name="http://www.opengis.net/ont/geosparql#" uri="../../ontology-import-geo/docs/geo.ttl"/>
-        <uri name="https://w3id.org/citydata/21972/v1/" uri="../../ontology-i72-v1/docs/i72.owl"/>
-        <uri name="https://w3id.org/citydata/21972/v1" uri="../../ontology-i72-v1/docs/i72.owl"/>
+        <uri name="https://w3id.org/citydata/21972/v1/" uri="../../ontology-i72-v1/docs/i72.ttl"/>
+        <uri name="https://w3id.org/citydata/21972/v1" uri="../../ontology-i72-v1/docs/i72.ttl"/>
+        <uri name="https://w3id.org/citydata/21972/v1/CorePattern" uri="CorePattern.ttl"/>
+        <uri name="https://w3id.org/citydata/21972/v1/IndicatorsPattern" uri="IndicatorsPattern.ttl"/>
+        <uri name="https://w3id.org/citydata/21972/v1/IndicatorsSHACL" uri="IndicatorsSHACL.ttl"/>
     </group>
 </catalog>

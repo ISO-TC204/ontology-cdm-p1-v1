@@ -4,6 +4,7 @@ This ontology specifies the foundation-level concepts related to the activity pa
 
 This pattern imports the following files:
 
+- [http://www.w3.org/ns/prov#Activity](http://www.w3.org/ns/prov#Activity)
 - [https://w3id.org/citydata/part1/v1/ChangePattern](https://w3id.org/citydata/part1/v1/ChangePattern)
 - [https://w3id.org/citydata/part1/v1/SpatialLocPattern](https://w3id.org/citydata/part1/v1/SpatialLocPattern)
 
@@ -19,6 +20,7 @@ This pattern consists of the following classes:
 - [State](State.md)
 - [State Status](StateStatus.md)
 - [Terminal State](TerminalState.md)
+
 This module defines the following properties:
 
 - [achievedAt](../properties/achievedAt.md)

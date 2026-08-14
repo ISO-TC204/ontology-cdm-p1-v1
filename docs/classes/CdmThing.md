@@ -2,6 +2,8 @@
 
 Added for organizational purposes, to identify all classes defined in the City Data Model.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/CdmThing`
+
 
 ## Diagram
 
@@ -67,8 +69,8 @@ An Activity may have some Manifestations that participate in it. |
 | [Capacity Size](CapacitySize.md) |  |
 | [Cardinality Measure](CardinalityMeasure.md) |  |
 | [Cardinality Unit Per Time](CardinalityUnitPerTime.md) |  |
-| [Change Thing](ChangeThing.md) |  |
-| [City Units Thing](CityUnitsThing.md) |  |
+| [Change Thing](ChangeThing.md) | Added for organizational purposes to group the classes defined in the Change portion of the CDM. |
+| [City Units Thing](CityUnitsThing.md) | Added for organizational purposes to group the classes defined in the City Units portion of the CDM. |
 | [Complex Agreement](ComplexAgreement.md) | A complex agreement is an agreement that is composed of two or more atomic agreements. It is a subclass of Agreement and specifies the “essence” of a complex agreement.  In particular it identifies how atomic agreements are composed to form a complex agreement. |
 | [Conjunctive Agreement](ConjunctiveAgreement.md) | A conjunctive agreement is a complex agreement where all sub-agreements must be satisfied for the overall agreement to hold. |
 | [Conjunctive State](ConjunctiveState.md) | A type of NonTerminalState that is defined by the conjunction of its child States. |
@@ -98,7 +100,7 @@ An Activity may have some Manifestations that participate in it. |
         Note that Allocation is a Manifestation as the allocation may change over time. |
 | [Produce State](ProduceState.md) | Identifies a Resource and Quantity it produces. |
 | [Recurring Event](RecurringEvent.md) | Recurring events are defined based on the regular interval at which they occur; this is captures using some combination of the hasTime, dayOfWeek, hasMonth, and dayOfMonth properties.  Using these properties, ontology defines the following specializations of the RecurringEvent class. Other subclasses may be defined similarly, as required. |
-| [Recurring Event Thing](RecurringEventThing.md) |  |
+| [Recurring Event Thing](RecurringEventThing.md) | Class added for organizational purposes only; to group all classes defined in the recurring-event ontology. |
 | [Release State](ReleaseState.md) | Identifies a Resource and Quantity it releases (after using). |
 | [Resource](Resource.md) | A Resource is a generic representation of some Thing that can be "used" in an Activity. 
         A Resource may have some Location, amount or availability, according to the definition of the Manifestation or TimeVaryingEntity. 

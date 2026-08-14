@@ -2,6 +2,8 @@
 
 A ratio is a comparison of two quantities, often expressed as a fraction or in the form a:b.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/Ratio`
+
 
 ## Diagram
 
@@ -58,5 +60,5 @@ A ratio is a comparison of two quantities, often expressed as a fraction or in t
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [i72:Quantity](i72:Quantity.md) |
+| subClassOf | [i72:Quantity](https://w3id.org/citydata/21972/v1/Quantity) |
 

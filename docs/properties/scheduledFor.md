@@ -2,7 +2,19 @@
 
 Identifies a time Interval during which a Thing occurs.
 
-**Range**: [time:Interval](../classes/time:Interval.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/scheduledFor`
+
+## Range
+
+| Class |
+|-------|
+| [time:Interval](https://w3id.org/citydata/imported/time/Interval) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -11,4 +23,3 @@ Identifies a time Interval during which a Thing occurs.
 | [Activity](../classes/Activity.md) |
 | [State](../classes/State.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/scheduledFor`

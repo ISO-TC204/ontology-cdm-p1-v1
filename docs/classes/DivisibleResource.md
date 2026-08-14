@@ -2,6 +2,8 @@
 
 A Resource that can be divided for use or consumption between multiple Activities.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/DivisibleResource`
+
 
 ## Diagram
 

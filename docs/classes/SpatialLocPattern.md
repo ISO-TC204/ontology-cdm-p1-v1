@@ -11,6 +11,7 @@ This pattern consists of the following classes:
 
 - [Location](Location.md)
 - [Spatial Loc Thing](SpatialLocThing.md)
+
 This module defines the following properties:
 
 - [associatedLocation](../properties/associatedLocation.md)

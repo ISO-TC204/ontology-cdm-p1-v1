@@ -2,9 +2,25 @@
 
 Identifies a State into which the complex state decomposes, at any level (i.e. its child state, grandchild state, etc.). The hasSubState property is transitive and a super-property of the hasDecomp property.
 
-**Domain**: [NonTerminalState](../classes/NonTerminalState.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasSubstate`
 
-**Range**: [State](../classes/State.md)
+## Domain
+
+| Class |
+|-------|
+| [NonTerminalState](../classes/NonTerminalState.md) |
+
+## Range
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies a State into which the complex state decomposes, at any level (i.e. i
 |-------|
 | [NonTerminalState](../classes/NonTerminalState.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasSubstate`

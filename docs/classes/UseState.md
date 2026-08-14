@@ -2,6 +2,8 @@
 
 Identifies a Resource and Quantity it uses (without consuming).
 
+**IRI**: `https://w3id.org/citydata/part1/v1/UseState`
+
 
 ## Diagram
 

@@ -15,6 +15,7 @@ This pattern consists of the following classes:
 - [Complex Agreement](ComplexAgreement.md)
 - [Conjunctive Agreement](ConjunctiveAgreement.md)
 - [Disjunctive Agreement](DisjunctiveAgreement.md)
+
 This module defines the following properties:
 
 - [agentInvolvedIn](../properties/agentInvolvedIn.md)

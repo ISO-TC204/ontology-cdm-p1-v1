@@ -2,9 +2,25 @@
 
 Specifies the Manifestation that is to be satisfied (i.e., realized).
 
-**Domain**: [ManifestationState](../classes/ManifestationState.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/satisfiedBy`
 
-**Range**: [Manifestation](../classes/Manifestation.md)
+## Domain
+
+| Class |
+|-------|
+| [ManifestationState](../classes/ManifestationState.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Manifestation](../classes/Manifestation.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Specifies the Manifestation that is to be satisfied (i.e., realized).
 |-------|
 | [ManifestationState](../classes/ManifestationState.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/satisfiedBy`

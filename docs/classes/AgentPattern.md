@@ -11,6 +11,7 @@ This pattern consists of the following classes:
 
 - [Agent](Agent.md)
 - [Agent Thing](AgentThing.md)
+
 This module defines the following properties:
 
 - [AgentObjectProperty](../properties/AgentObjectProperty.md)

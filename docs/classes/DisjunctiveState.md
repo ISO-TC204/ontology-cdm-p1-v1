@@ -2,6 +2,8 @@
 
 A type of NonTerminalState that is defined by the disjunction of its child States. A State cannot be both conjunctive and disjunctive. 
 
+**IRI**: `https://w3id.org/citydata/part1/v1/DisjunctiveState`
+
 
 ## Diagram
 

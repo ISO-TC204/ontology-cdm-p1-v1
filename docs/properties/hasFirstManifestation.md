@@ -2,9 +2,25 @@
 
 Identifies the First Manifestation that is related to a particular Manifestation (i.e., for some snapshot of an object, it identifies the first such snapshot of the object).
 
-**Domain**: [Manifestation](../classes/Manifestation.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasFirstManifestation`
 
-**Range**: [Manifestation](../classes/Manifestation.md)
+## Domain
+
+| Class |
+|-------|
+| [Manifestation](../classes/Manifestation.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Manifestation](../classes/Manifestation.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ChangeObjectProperty](ChangeObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the First Manifestation that is related to a particular Manifestation
 |-------|
 | [Manifestation](../classes/Manifestation.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasFirstManifestation`

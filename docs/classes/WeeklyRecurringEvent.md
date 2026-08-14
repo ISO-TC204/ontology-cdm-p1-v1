@@ -2,6 +2,8 @@
 
 A WeeklyRecurringEvent recurs on the regularly on the same day of the week, as specified by the schema:dayOfWeek property.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/WeeklyRecurringEvent`
+
 
 ## Diagram
 

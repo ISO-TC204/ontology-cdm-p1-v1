@@ -1,5 +1,9 @@
 # RecurringEventThing
 
+Class added for organizational purposes only; to group all classes defined in the recurring-event ontology.
+
+**IRI**: `https://w3id.org/citydata/part1/v1/RecurringEventThing`
+
 
 ## Diagram
 

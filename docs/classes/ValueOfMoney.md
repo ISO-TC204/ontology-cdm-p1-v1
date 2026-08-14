@@ -2,6 +2,8 @@
 
 An amount of money that is defined relative to a particular year.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/ValueOfMoney`
+
 
 ## Diagram
 
@@ -79,6 +81,7 @@ An amount of money that is defined relative to a particular year.
 
 | Property | Constraint |
 |----------|------------|
+| [i72:value](https://w3id.org/citydata/21972/v1/value) | only [MonetaryValue](MonetaryValue.md) |
 | [i72:value](https://w3id.org/citydata/21972/v1/value) | only [MonetaryValue](https://w3id.org/citydata/part1/v1/MonetaryValue) |
 | subClassOf | [AmountOfMoney](AmountOfMoney.md) |
 

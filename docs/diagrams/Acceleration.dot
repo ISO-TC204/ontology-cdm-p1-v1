@@ -18,6 +18,8 @@ digraph {
 	}
 	Acceleration -> CityUnitsThing [arrowhead=onormal style=solid]
 	Acceleration -> i72_Quantity [arrowhead=onormal style=solid]
-	na010c749982e452794368b522251db07b2 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">ComplexExpr</TD></TR></TABLE>> margin=0]
-	Acceleration -> na010c749982e452794368b522251db07b2 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">i72:value</TD></TR></TABLE>> arrowhead=normal style=dashed]
+	n644d2ea6622c412bb8909c6637c88453b2 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«intersectionOf»</TD></TR></TABLE>> margin=0]
+	n644d2ea6622c412bb8909c6637c88453b3 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">ComplexExpr</TD></TR></TABLE>> margin=0]
+	n644d2ea6622c412bb8909c6637c88453b2 -> n644d2ea6622c412bb8909c6637c88453b3 [label=member arrowhead=normal style=dotted]
+	Acceleration -> n644d2ea6622c412bb8909c6637c88453b2 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">i72:value</TD></TR></TABLE>> arrowhead=normal style=dashed]
 }

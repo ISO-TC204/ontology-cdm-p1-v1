@@ -2,6 +2,8 @@
 
 A specialization of TerminalState, the ManifestationState specifies a Manifestation class that an individual must satisfy in order for the ManifestationState to be true.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/ManifestationState`
+
 
 ## Diagram
 
@@ -78,6 +80,7 @@ A specialization of TerminalState, the ManifestationState specifies a Manifestat
 
 | Property | Constraint |
 |----------|------------|
+| [satisfiedBy](../properties/satisfiedBy.md) | only [Manifestation](Manifestation.md) |
 | [satisfiedBy](../properties/satisfiedBy.md) | only [Manifestation](https://w3id.org/citydata/part1/v1/Manifestation) |
 | subClassOf | [TerminalState](TerminalState.md) |
 

@@ -2,6 +2,8 @@
 
 A MonthlyRecurringEvent recurs regularly on the same day of each month, as specified by the dayOfMonth data property. Note that there is often ambiguity regarding the semantics of a monthly recurring event: in this formalization, a MonthlyRecurringEvent is any event that recurs regularly on the same day of each month; other interpretations sometimes consider events that recur on the same day of week, or first or last day, in which case the day of month will vary.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/MonthlyRecurringEvent`
+
 
 ## Diagram
 

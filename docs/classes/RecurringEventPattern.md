@@ -16,6 +16,7 @@ This pattern consists of the following classes:
 - [Recurring Event Thing](RecurringEventThing.md)
 - [Weekly Recurring Event](WeeklyRecurringEvent.md)
 - [Yearly Recurring Event](YearlyRecurringEvent.md)
+
 This module defines the following properties:
 
 - [beginsRecurringState](../properties/beginsRecurringState.md)

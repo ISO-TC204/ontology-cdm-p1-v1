@@ -2,9 +2,25 @@
 
 Identifies an Activity that the State was realized by.
 
-**Domain**: [State](../classes/State.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/effectOf`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [State](../classes/State.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies an Activity that the State was realized by.
 |-------|
 | [State](../classes/State.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/effectOf`

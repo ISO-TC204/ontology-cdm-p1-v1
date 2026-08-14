@@ -1,0 +1,11 @@
+name: Sync common files
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  sync-common-files:
+    uses: ISO-TC204/ontology-shared-scripts/.github/workflows/sync-common-files.yml@main
+    with:
+      mode: check

@@ -19,6 +19,7 @@ This pattern consists of the following classes:
 - [Resource Thing](ResourceThing.md)
 - [Terminal Resource State](TerminalResourceState.md)
 - [Use State](UseState.md)
+
 This module defines the following properties:
 
 - [capacityInUse](../properties/capacityInUse.md)

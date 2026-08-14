@@ -2,9 +2,25 @@
 
 Identifies the Quantity that specifies how much of the Resource exists, e.g. its volume, if it is liquid; how much it can hold, if it is an container.
 
-**Domain**: [Resource](../classes/Resource.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/hasCapacity`
 
-**Range**: [i72:Quantity](../classes/i72:Quantity.md)
+## Domain
+
+| Class |
+|-------|
+| [Resource](../classes/Resource.md) |
+
+## Range
+
+| Class |
+|-------|
+| [i72:Quantity](https://w3id.org/citydata/21972/v1/Quantity) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ResourceObjectProperty](ResourceObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies the Quantity that specifies how much of the Resource exists, e.g. its
 |-------|
 | [Resource](../classes/Resource.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/hasCapacity`

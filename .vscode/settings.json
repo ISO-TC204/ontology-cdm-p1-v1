@@ -1,10 +1,18 @@
 {
     "cSpell.words": [
+        "citydata",
+        "DATEX",
+        "Graphviz",
+        "itsdata",
+        "Katsumi",
+        "METR",
         "Micromobility",
-        "prov",
-        "Subactivities",
-        "subactivity",
-        "substates",
+        "PROV",
+        "reqview",
+        "SHACL",
+        "SPARQL",
+        "TMDD",
+        "Transmodel",
         "Travelled"
     ]
 }

@@ -2,6 +2,8 @@
 
 A class representing an organization in the context of the CDM ontology.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/OrganizationThing`
+
 
 ## Diagram
 

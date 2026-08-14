@@ -2,9 +2,25 @@
 
 Identifies an Activity that the Activity occurred before.
 
-**Domain**: [Activity](../classes/Activity.md)
+**IRI**: `https://w3id.org/citydata/part1/v1/occursBefore`
 
-**Range**: [Activity](../classes/Activity.md)
+## Domain
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Range
+
+| Class |
+|-------|
+| [Activity](../classes/Activity.md) |
+
+## Superordinate property
+
+| Property |
+|-------|
+| [ActivityObjectProperty](ActivityObjectProperty.md) |
 
 ## Used in classes
 
@@ -12,4 +28,3 @@ Identifies an Activity that the Activity occurred before.
 |-------|
 | [Activity](../classes/Activity.md) |
 
-**IRI**: `https://w3id.org/citydata/part1/v1/occursBefore`

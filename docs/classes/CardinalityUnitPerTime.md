@@ -1,5 +1,7 @@
 # CardinalityUnitPerTime
 
+**IRI**: `https://w3id.org/citydata/part1/v1/CardinalityUnitPerTime`
+
 
 ## Diagram
 
@@ -70,7 +72,7 @@
     </g>
     </g>
     <!-- CardinalityUnitPerTime&#45;&gt;i72_Cardinality_unit -->
-    <g id="edge6" class="edge">
+    <g id="edge7" class="edge">
     <title>CardinalityUnitPerTime&#45;&gt;i72_Cardinality_unit</title>
     <path fill="none" stroke="black" d="M102.28,-255.52C96.08,-227.17 83.56,-169.97 76.07,-135.72"/>
     <polygon fill="black" stroke="black" points="79.52,-135.15 73.97,-126.13 72.69,-136.64 79.52,-135.15"/>
@@ -88,7 +90,7 @@
     </g>
     </g>
     <!-- CardinalityUnitPerTime&#45;&gt;TimeUnit -->
-    <g id="edge7" class="edge">
+    <g id="edge6" class="edge">
     <title>CardinalityUnitPerTime&#45;&gt;TimeUnit</title>
     <path fill="none" stroke="black" d="M144.25,-255.66C155.95,-248.47 167.45,-238.84 174,-226.5 183.17,-209.23 178.01,-201.64 174,-182.5 164.69,-138.09 157.68,-127.08 133,-89 126.39,-78.8 117.85,-68.66 109.75,-59.96"/>
     <polygon fill="black" stroke="black" points="112.4,-57.67 102.94,-52.89 107.36,-62.52 112.4,-57.67"/>
@@ -111,8 +113,10 @@
 
 | Property | Constraint |
 |----------|------------|
+| [i72:denominator](https://w3id.org/citydata/21972/v1/denominator) | only [TimeUnit](TimeUnit.md) |
 | [i72:denominator](https://w3id.org/citydata/21972/v1/denominator) | only [TimeUnit](https://w3id.org/citydata/part1/v1/TimeUnit) |
 | [i72:numerator](https://w3id.org/citydata/21972/v1/numerator) | only [i72:Cardinality_unit](https://w3id.org/citydata/21972/v1/Cardinality_unit) |
-| subClassOf | [i72:Unit_division](i72:Unit_division.md) |
+| [i72:numerator](https://w3id.org/citydata/21972/v1/numerator) | only [i72:Cardinality_unit](https://w3id.org/citydata/21972/v1/Cardinality_unit) |
+| subClassOf | [i72:Unit_division](https://w3id.org/citydata/21972/v1/Unit_division) |
 | subClassOf | [CityUnitsThing](CityUnitsThing.md) |
 

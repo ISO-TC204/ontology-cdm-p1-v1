@@ -2,6 +2,8 @@
 
 A NonTerminalState has child States (a.k.a., sub-states) that are either conjuctive or disjunctive. Each child may be a TerminalState or NonTerminalState; eventually a TerminalState is reached. A State cannot be both non-terminal and terminal.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/NonTerminalState`
+
 
 ## Diagram
 
@@ -46,19 +48,19 @@ A NonTerminalState has child States (a.k.a., sub-states) that are either conjuct
     <!-- NonTerminalState&#45;&gt;State -->
     <g id="edge2" class="edge">
     <title>NonTerminalState:e&#45;&gt;State:e</title>
-    <path fill="none" stroke="black" d="M100.95,-18C108.96,-18 102.22,-28.32 99.95,-36 98,-42.63 94.58,-43 92.25,-49.5 87.24,-63.48 92.97,-107.39 86.36,-125.29"/>
-    <polygon fill="black" stroke="black" points="84.08,-122.63 79.09,-131.98 88.82,-127.78 84.08,-122.63"/>
-    <polygon fill="white" stroke="none" points="92.25,-54 92.25,-97 158,-97 158,-54 92.25,-54"/>
-    <text xml:space="preserve" text-anchor="start" x="96.25" y="-82.5" font-family="Arial" font-size="11.00">hasDecomp</text>
-    <text xml:space="preserve" text-anchor="start" x="116.88" y="-61" font-family="Arial" font-size="11.00">2..&#42;</text>
+    <path fill="none" stroke="black" d="M100.95,-18C108.96,-18 102.27,-28.33 99.95,-36 97.94,-42.67 94.38,-42.96 92,-49.5 86.92,-63.45 92.84,-107.37 86.32,-125.28"/>
+    <polygon fill="black" stroke="black" points="84.05,-122.61 79.09,-131.97 88.8,-127.75 84.05,-122.61"/>
+    <polygon fill="white" stroke="none" points="92,-64.75 92,-86.25 160,-86.25 160,-64.75 92,-64.75"/>
+    <text xml:space="preserve" text-anchor="start" x="96" y="-71.75" font-family="Arial" font-size="11.00">hasSubstate</text>
     </g>
     <!-- NonTerminalState&#45;&gt;State -->
     <g id="edge3" class="edge">
     <title>NonTerminalState:e&#45;&gt;State:e</title>
-    <path fill="none" stroke="black" d="M100.95,-18C145.9,-18 183.3,-64.35 158,-101.5 148.96,-114.77 112.14,-127.97 89.26,-131.86"/>
-    <polygon fill="black" stroke="black" points="89.08,-128.36 79.48,-132.85 89.78,-135.32 89.08,-128.36"/>
-    <polygon fill="white" stroke="none" points="166.18,-64.75 166.18,-86.25 234.18,-86.25 234.18,-64.75 166.18,-64.75"/>
-    <text xml:space="preserve" text-anchor="start" x="170.18" y="-71.75" font-family="Arial" font-size="11.00">hasSubstate</text>
+    <path fill="none" stroke="black" d="M100.95,-18C130.7,-18 144.7,-23.99 160,-49.5 171.89,-69.32 173.09,-82.45 160,-101.5 150.67,-115.08 112.59,-128.17 89.19,-131.93"/>
+    <polygon fill="black" stroke="black" points="89.1,-128.42 79.48,-132.86 89.77,-135.39 89.1,-128.42"/>
+    <polygon fill="white" stroke="none" points="169.37,-54 169.37,-97 235.12,-97 235.12,-54 169.37,-54"/>
+    <text xml:space="preserve" text-anchor="start" x="173.37" y="-82.5" font-family="Arial" font-size="11.00">hasDecomp</text>
+    <text xml:space="preserve" text-anchor="start" x="193.99" y="-61" font-family="Arial" font-size="11.00">2..&#42;</text>
     </g>
     <!-- Invis -->
     </g>
@@ -84,6 +86,7 @@ A NonTerminalState has child States (a.k.a., sub-states) that are either conjuct
 |----------|------------|
 | [hasDecomp](../properties/hasDecomp.md) | min 2 |
 | [hasDecomp](../properties/hasDecomp.md) | min 2 [State](https://w3id.org/citydata/part1/v1/State) |
+| [hasSubstate](../properties/hasSubstate.md) | only [State](State.md) |
 | [hasSubstate](../properties/hasSubstate.md) | only [State](https://w3id.org/citydata/part1/v1/State) |
 | disjointWith | [TerminalState](TerminalState.md) |
 | subClassOf | [State](State.md) |

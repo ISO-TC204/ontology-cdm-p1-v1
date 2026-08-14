@@ -2,6 +2,8 @@
 
 Added for organizational purposes, to identify all classes defined in the Agreement pattern.
 
+**IRI**: `https://w3id.org/citydata/part1/v1/AgreementThing`
+
 
 ## Diagram
 
