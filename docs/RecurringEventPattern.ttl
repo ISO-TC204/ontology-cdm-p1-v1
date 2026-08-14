@@ -19,14 +19,14 @@
                                                             dcterms:creator "Kenneth Vaughn" ,
                                                                             "Mark Fox" ,
                                                                             "Megan Katsumi" ;
-                                                            dcterms:modified "2026-02-12"^^xsd:date ;
+                                                            dcterms:modified "2026-08-14"^^xsd:date ;
                                                             dcterms:title "Information technology - City data model - Part 1: Foundation level concepts - Recurring Event Pattern" ;
                                                             vann:preferredNamespacePrefix "cdm1" ;
                                                             vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
                                                             rdfs:comment "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023." ;
-                                                            owl:priorVersion <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/RecurringEvent/> ;
-                                                            owl:versionIRI <https://w3id.org/citydata/part1/v1/RecurringEventPattern/r3.0/> ;
-                                                            owl:versionInfo "1.3.0" ;
+                                                            owl:priorVersion <https://w3id.org/citydata/part1/v1/1.3.2> ;
+                                                            owl:versionIRI <https://w3id.org/citydata/part1/v1/1.3.3-alpha.1> ;
+                                                            owl:versionInfo "1.3.3-alpha.1" ;
                                                             skos:definition "This ontology specifies the foundation-level concepts related to the recurring event pattern of the city data model." .
 
 #################################################################

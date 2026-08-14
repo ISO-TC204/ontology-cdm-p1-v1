@@ -11,6 +11,7 @@
 @base <https://w3id.org/citydata/part1/v1/> .
 
 <https://w3id.org/citydata/part1/v1/RecurringEventSHACL> rdf:type owl:Ontology ;
+    dcterms:modified               "2026-08-14"^^xsd:date ;
                                                           owl:imports :CoreSHACL ,
                                                                       :RecurringEventPattern ;
                                                           dcterms:title "City Data Model Part 1 - Recurring Event Pattern - SHACL constraints" ;

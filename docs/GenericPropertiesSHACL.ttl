@@ -8,6 +8,7 @@
 @base <https://w3id.org/citydata/part1/v1/> .
 
 <https://w3id.org/citydata/part1/v1/GenericPropertiesSHACL> rdf:type owl:Ontology ;
+    dcterms:modified               "2026-08-14"^^xsd:date ;
                                                              owl:imports :CoreSHACL ,
                                                                          :GenericPropertiesPattern ;
                                                              dcterms:title "City Data Model Part 1 - Generic Properties Pattern - SHACL constraints" ;
