@@ -1,0 +1,339 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/citydata/part1/v1/> .
+
+<https://w3id.org/citydata/part1/v1/CityUnitsPattern> rdf:type owl:Ontology ;
+                                                       owl:imports i72: ,
+                                                                   :CorePattern ;
+                                                       cc:license "http://creativecommons.org/licenses/by/4.0/" ;
+                                                       dcterms:alternative "CDM City Units Pattern" ;
+                                                       dcterms:creator "Kenneth Vaughn" ,
+                                                                       "Mark Fox" ,
+                                                                       "Megan Katsumi" ;
+                                                       dcterms:modified "2026-02-12"^^xsd:date ;
+                                                       dcterms:title "Information technology - City data model - Part 1: Foundation level concepts - City Units Pattern" ;
+                                                       vann:preferredNamespacePrefix "cdm1" ;
+                                                       vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+                                                       rdfs:comment "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023." ;
+                                                       owl:priorVersion <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/CityUnits/> ;
+                                                       owl:versionIRI <https://w3id.org/citydata/part1/v1/CityUnitsPattern/r3.0/> ;
+                                                       owl:versionInfo "1.3.0" ;
+                                                       skos:definition "This ontology specifies the foundation-level concepts related to the city units pattern of the city data model." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/CityUnitObjectProperty
+:CityUnitObjectProperty rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :FoundationalCdmObjectProperty ;
+                        skos:definition "Added for organizational purposes, to identify all city unit object properties defined in the City Data Model." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/CityUnitsDataProperty
+:CityUnitsDataProperty rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :FoundationalCdmDataProperty ;
+                       skos:definition "Added for organizational purposes, to identify data properties defined in the City Units Pattern of the CDM ontology." .
+
+
+###  https://w3id.org/citydata/part1/v1/hasRelativeYear
+:hasRelativeYear rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :CityUnitsDataProperty ;
+                 rdfs:range xsd:gYear ;
+                 skos:definition "The base year used to define monetary values for a currency." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/Acceleration
+:Acceleration rdf:type owl:Class ;
+              rdfs:subClassOf i72:Quantity ,
+                              :CityUnitsThing ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty i72:value ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                  owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty i72:unit_of_measure ;
+                                      owl:allValuesFrom :AccelerationUnit
+                                    ]
+                                  )
+                                ]
+                              ] ;
+              rdfs:label "acceleration" .
+
+
+###  https://w3id.org/citydata/part1/v1/AccelerationUnit
+:AccelerationUnit rdf:type owl:Class ;
+                  rdfs:subClassOf i72:Unit_of_measure ,
+                                  :CityUnitsThing ;
+                  rdfs:label "acceleration unit" .
+
+
+###  https://w3id.org/citydata/part1/v1/AmountOfMoney
+:AmountOfMoney rdf:type owl:Class ;
+               rdfs:subClassOf i72:Quantity ,
+                               :CityUnitsThing ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty i72:value ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                   owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                       owl:onProperty i72:unit_of_measure ;
+                                       owl:allValuesFrom i72:Monetary_unit
+                                     ]
+                                   )
+                                 ]
+                               ] ;
+               rdfs:label "amount of money" .
+
+
+###  https://w3id.org/citydata/part1/v1/Area
+:Area rdf:type owl:Class ;
+      rdfs:subClassOf i72:Quantity ,
+                      :CityUnitsThing ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty i72:value ;
+                        owl:allValuesFrom [ rdf:type owl:Class ;
+                          owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                              owl:onProperty i72:unit_of_measure ;
+                              owl:allValuesFrom :AreaUnit
+                            ]
+                          )
+                        ]
+                      ] ;
+      rdfs:label "area" ;
+      skos:definition "Area expresses the two-dimensional size of a defined part of a surface, typically a region bounded by a closed curve. It is a derived quantity in the International System of Units. Area is length squared." .
+
+
+###  https://w3id.org/citydata/part1/v1/AreaUnit
+:AreaUnit rdf:type owl:Class ;
+          rdfs:subClassOf i72:Unit_of_measure ,
+                          :CityUnitsThing ;
+          rdfs:label "area unit" ;
+          skos:definition "Unit of area in the specified system of units." .
+
+
+###  https://w3id.org/citydata/part1/v1/Capacity
+:Capacity rdf:type owl:Class ;
+          rdfs:subClassOf :CityUnitsThing .
+
+
+###  https://w3id.org/citydata/part1/v1/CapacitySize
+:CapacitySize rdf:type owl:Class ;
+              rdfs:subClassOf i72:Quantity ,
+                              :CityUnitsThing ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty i72:value ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                  owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty i72:unit_of_measure ;
+                                      owl:allValuesFrom i72:Cardinality_unit
+                                    ]
+                                  )
+                                ]
+                              ] .
+
+
+###  https://w3id.org/citydata/part1/v1/CardinalityMeasure
+:CardinalityMeasure rdf:type owl:Class ;
+                    rdfs:subClassOf i72:Measure ,
+                                    :CityUnitsThing ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty i72:unit_of_measure ;
+                                      owl:allValuesFrom i72:Cardinality_unit
+                                    ] .
+
+
+###  https://w3id.org/citydata/part1/v1/CardinalityUnitPerTime
+:CardinalityUnitPerTime rdf:type owl:Class ;
+                        rdfs:subClassOf i72:Unit_division ,
+                                        :CityUnitsThing ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty i72:denominator ;
+                                          owl:allValuesFrom :TimeUnit
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty i72:numerator ;
+                                          owl:allValuesFrom i72:Cardinality_unit
+                                        ] .
+
+
+###  https://w3id.org/citydata/part1/v1/CityUnitsThing
+:CityUnitsThing rdf:type owl:Class ;
+                rdfs:subClassOf :FoundationalCdmThing ;
+                rdfs:comment "Added for organizational purposes to group the classes defined in the City Units portion of the CDM." .
+
+
+###  https://w3id.org/citydata/part1/v1/Duration
+:Duration rdf:type owl:Class ;
+          rdfs:subClassOf time:TemporalDuration ,
+                          i72:Quantity ,
+                          :CityUnitsThing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty i72:value ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                              owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                  owl:onProperty i72:unit_of_measure ;
+                                  owl:allValuesFrom :TimeUnit
+                                ]
+                              )
+                            ]
+                          ] ;
+          rdfs:label "duration" ;
+          skos:definition "Duration is the amount of time that elapses between two instants or events." .
+
+
+###  https://w3id.org/citydata/part1/v1/Geo_Position_unit
+:Geo_Position_unit rdf:type owl:Class ;
+                   rdfs:subClassOf i72:Unit_of_measure ;
+                   rdfs:comment "Reference systems to indicate geographic position." .
+
+
+###  https://w3id.org/citydata/part1/v1/Length
+:Length rdf:type owl:Class ;
+        rdfs:subClassOf i72:Quantity ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty i72:value ;
+                          owl:allValuesFrom [ rdf:type owl:Class ;
+                            owl:intersectionOf ( i72:Measure
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty i72:unit_of_measure ;
+                                owl:allValuesFrom :LengthUnit
+                              ]
+                            )
+                          ]
+                        ] ;
+        rdfs:label "length" ;
+        skos:definition "Length is the amount of space between two geographical points along a curve. It is a base quantity in the International System of Units and other systems of units. Length is speed times time. The metre, a base unit of length in the International System of Units, is defined in terms of speed of light during a certain time interval." .
+
+
+###  https://w3id.org/citydata/part1/v1/LengthUnit
+:LengthUnit rdf:type owl:Class ;
+            rdfs:subClassOf i72:Unit_of_measure ;
+            rdfs:label "length unit" ;
+            skos:definition "A specified system of units for distance." .
+
+
+###  https://w3id.org/citydata/part1/v1/Mass
+:Mass rdf:type owl:Class ;
+      rdfs:subClassOf i72:Quantity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty i72:value ;
+                        owl:allValuesFrom [ rdf:type owl:Class ;
+                          owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                              owl:onProperty i72:unit_of_measure ;
+                              owl:allValuesFrom :MassUnit
+                            ]
+                          )
+                        ]
+                      ] ;
+      rdfs:comment "Mass is the amount of matter of a phenomenon. It is a base quantity in the International System of Units. Mass is force divided by acceleration." ;
+      rdfs:label "mass" .
+
+
+###  https://w3id.org/citydata/part1/v1/MassUnit
+:MassUnit rdf:type owl:Class ;
+          rdfs:subClassOf i72:Unit_of_measure ;
+          rdfs:label "mass unit" .
+
+
+###  https://w3id.org/citydata/part1/v1/MonetaryValue
+:MonetaryValue rdf:type owl:Class ;
+               rdfs:subClassOf i72:Measure ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty i72:unit_of_measure ;
+                                 owl:allValuesFrom i72:Monetary_unit
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasRelativeYear ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:gYear
+                               ] ;
+               skos:definition "A Monetary Value has a numerical value that is relative to a particular date (year). A Monetary Value is measured with some currency." .
+
+
+###  https://w3id.org/citydata/part1/v1/Ratio
+:Ratio rdf:type owl:Class ;
+       rdfs:subClassOf i72:Quantity ;
+       rdfs:label "ratio" ;
+       skos:definition "A ratio is a comparison of two quantities, often expressed as a fraction or in the form a:b." .
+
+
+###  https://w3id.org/citydata/part1/v1/Speed
+:Speed rdf:type owl:Class ;
+       rdfs:subClassOf i72:Quantity ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty i72:value ;
+                         owl:allValuesFrom [ rdf:type owl:Class ;
+                           owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                               owl:onProperty i72:unit_of_measure ;
+                               owl:allValuesFrom :SpeedUnit
+                             ]
+                           )
+                         ]
+                       ] ;
+       rdfs:label "speed" ;
+       skos:definition "Speed is the time rate of motion measured by the distance moved over in unit time." .
+
+
+###  https://w3id.org/citydata/part1/v1/SpeedUnit
+:SpeedUnit rdf:type owl:Class ;
+           rdfs:subClassOf i72:Unit_of_measure ;
+           rdfs:label "speed unit" ;
+           skos:definition "A specified system of units for speed." .
+
+
+###  https://w3id.org/citydata/part1/v1/TimeUnit
+:TimeUnit rdf:type owl:Class ;
+          rdfs:subClassOf i72:Unit_of_measure ;
+          rdfs:label "time unit" ;
+          skos:definition "A specified system of units for time." .
+
+
+###  https://w3id.org/citydata/part1/v1/ValueOfMoney
+:ValueOfMoney rdf:type owl:Class ;
+              rdfs:subClassOf :AmountOfMoney ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty i72:value ;
+                                owl:allValuesFrom :MonetaryValue
+                              ] ;
+              skos:definition "An amount of money that is defined relative to a particular year." .
+
+
+###  https://w3id.org/citydata/part1/v1/Volume
+:Volume rdf:type owl:Class ;
+        rdfs:subClassOf i72:Quantity ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty i72:value ;
+                          owl:allValuesFrom [ rdf:type owl:Class ;
+                            owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                owl:onProperty i72:unit_of_measure ;
+                                owl:allValuesFrom :VolumeUnit
+                              ]
+                            )
+                          ]
+                        ] ;
+        rdfs:label "volume" ;
+        skos:definition "Volume is a measure of how much three-dimensional space any phenomenon occupies. " .
+
+
+###  https://w3id.org/citydata/part1/v1/VolumeUnit
+:VolumeUnit rdf:type owl:Class ;
+            rdfs:subClassOf i72:Unit_of_measure ;
+            rdfs:label "volume unit" ;
+            skos:definition "A specified system of units for volume." .

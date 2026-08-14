@@ -1,0 +1,119 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/citydata/part1/v1/> .
+
+<https://w3id.org/citydata/part1/v1/ActivitySHACL> rdf:type owl:Ontology ;
+                                                    owl:imports :ActivityPattern ,
+                                                                :CoreSHACL ;
+                                                    dcterms:title "City Data Model Part 1 - Activity Pattern - SHACL constraints" ;
+                                                    vann:preferredNamespacePrefix "cdm1" ;
+                                                    vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+                                                    skos:definition "SHACL validation shapes for the Activity Pattern pattern module." .
+
+#################################################################
+#    Shapes
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/ActivityShape
+:ActivityShape rdf:type sh:NodeShape ;
+               sh:property [ sh:class :Activity ;
+                             sh:path :occursBefore
+                           ] ,
+                           [ sh:class :ActivityStatus ;
+                             sh:node :ExactlyOneShape ;
+                             sh:path :hasStatus
+                           ] ,
+                           [ sh:class time:Interval ;
+                             sh:node :ExactlyOneShape ;
+                             sh:path :scheduledFor
+                           ] ,
+                           [ sh:class :Location ;
+                             sh:path :associatedLocation
+                           ] ,
+                           [ sh:class :Activity ;
+                             sh:path :occursDirectlyBefore
+                           ] ,
+                           [ sh:class :State ;
+                             sh:path :hasPrecondition
+                           ] ,
+                           [ sh:class time:Interval ;
+                             sh:node :MinOneShape ;
+                             sh:path :occursAt
+                           ] ,
+                           [ sh:class :State ;
+                             sh:path :hasEffect
+                           ] ,
+                           [ sh:class :Activity ;
+                             sh:path :hasSubactivity
+                           ] ,
+                           [ sh:class :State ;
+                             sh:path :enabledByState
+                           ] ,
+                           [ sh:class :State ;
+                             sh:path :causesState
+                           ] ,
+                           [ sh:class time:Instant ;
+                             sh:node :MinOneShape ;
+                             sh:path :endOf
+                           ] ,
+                           [ sh:class time:Instant ;
+                             sh:node :MinOneShape ;
+                             sh:path :beginOf
+                           ] ;
+               sh:targetClass :Activity .
+
+
+###  https://w3id.org/citydata/part1/v1/ManifestationStateShape
+:ManifestationStateShape rdf:type sh:NodeShape ;
+                         sh:property [ sh:class :Manifestation ;
+                                       sh:path :satisfiedBy
+                                     ] ;
+                         sh:targetClass :ManifestationState .
+
+
+###  https://w3id.org/citydata/part1/v1/NonTerminalStateShape
+:NonTerminalStateShape rdf:type sh:NodeShape ;
+                       sh:property [ sh:class :State ;
+                                     sh:minCount "2"^^xsd:integer ;
+                                     sh:path :hasDecomp
+                                   ] ,
+                                   [ sh:class :State ;
+                                     sh:path :hasSubstate
+                                   ] ;
+                       sh:targetClass :NonTerminalState .
+
+
+###  https://w3id.org/citydata/part1/v1/StateShape
+:StateShape rdf:type sh:NodeShape ;
+            sh:property [ sh:class time:Interval ;
+                          sh:node :MaxOneShape ;
+                          sh:path :scheduledFor
+                        ] ,
+                        [ sh:class :Activity ;
+                          sh:path :enablesActivity
+                        ] ,
+                        [ sh:class :Activity ;
+                          sh:path :effectOf
+                        ] ,
+                        [ sh:class :StateStatus ;
+                          sh:node :ExactlyOneShape ;
+                          sh:path :hasStatus
+                        ] ,
+                        [ sh:class :Activity ;
+                          sh:path :preconditionOf
+                        ] ,
+                        [ sh:class time:TemporalEntity ;
+                          sh:path :achievedAt
+                        ] ,
+                        [ sh:class :Activity ;
+                          sh:path :causedByActivity
+                        ] ;
+            sh:targetClass :State .

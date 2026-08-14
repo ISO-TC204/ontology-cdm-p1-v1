@@ -1,0 +1,109 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/citydata/part1/v1/> .
+
+<https://w3id.org/citydata/part1/v1/RecurringEventSHACL> rdf:type owl:Ontology ;
+                                                          owl:imports :CoreSHACL ,
+                                                                      :RecurringEventPattern ;
+                                                          dcterms:title "City Data Model Part 1 - Recurring Event Pattern - SHACL constraints" ;
+                                                          vann:preferredNamespacePrefix "cdm1" ;
+                                                          vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+                                                          skos:definition "SHACL validation shapes for the Recurring Event Pattern pattern module." .
+
+#################################################################
+#    Shapes
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/DailyRecurringEventShape
+:DailyRecurringEventShape rdf:type sh:NodeShape ;
+                          sh:property [ sh:datatype xsd:time ;
+                                        sh:node :MaxOneShape ;
+                                        sh:path :startTime
+                                      ] ;
+                          sh:targetClass :DailyRecurringEvent .
+
+
+###  https://w3id.org/citydata/part1/v1/ExceptionDayShape
+:ExceptionDayShape rdf:type sh:NodeShape ;
+                   sh:property [ sh:datatype xsd:string ;
+                                 sh:node :MinOneShape ;
+                                 sh:path :hasName
+                               ] ,
+                               [ sh:class time:GeneralDateTimeDescription ;
+                                 sh:node :MinOneShape ;
+                                 sh:path :onDateTimeDescription
+                               ] ;
+                   sh:targetClass :ExceptionDay .
+
+
+###  https://w3id.org/citydata/part1/v1/MonthlyRecurringEventShape
+:MonthlyRecurringEventShape rdf:type sh:NodeShape ;
+                            sh:property [ sh:class time:GeneralDateTimeDescription ;
+                                          sh:node :ExactlyOneShape ;
+                                          sh:path :onDateTimeDescription
+                                        ] ;
+                            sh:targetClass :MonthlyRecurringEvent .
+
+
+###  https://w3id.org/citydata/part1/v1/RecurringEventShape
+:RecurringEventShape rdf:type sh:NodeShape ;
+                     sh:property [ sh:class :Activity ;
+                                   sh:path :hasOccurrence
+                                 ] ,
+                                 [ sh:class :State ;
+                                   sh:path :endsRecurringState
+                                 ] ,
+                                 [ sh:class :RecurringEvent ;
+                                   sh:path :hasSubRecurringEvent
+                                 ] ,
+                                 [ sh:class time:TemporalEntity ;
+                                   sh:path :beginsRecurringTime
+                                 ] ,
+                                 [ sh:class time:TemporalEntity ;
+                                   sh:path :endsRecurringTime
+                                 ] ,
+                                 [ sh:class time:DayOfWeek ;
+                                   sh:path :hasDayOfWeek
+                                 ] ,
+                                 [ sh:datatype xsd:time ;
+                                   sh:path :startTime
+                                 ] ,
+                                 [ sh:class time:GeneralDateTimeDescription ;
+                                   sh:path :onDateTimeDescription
+                                 ] ,
+                                 [ sh:class :State ;
+                                   sh:path :beginsRecurringState
+                                 ] ,
+                                 [ sh:datatype xsd:time ;
+                                   sh:path :endTime
+                                 ] ,
+                                 [ sh:class :Location ;
+                                   sh:path :associatedLocation
+                                 ] ;
+                     sh:targetClass :RecurringEvent .
+
+
+###  https://w3id.org/citydata/part1/v1/WeeklyRecurringEventShape
+:WeeklyRecurringEventShape rdf:type sh:NodeShape ;
+                           sh:property [ sh:class time:DayOfWeek ;
+                                         sh:node :ExactlyOneShape ;
+                                         sh:path :hasDayOfWeek
+                                       ] ;
+                           sh:targetClass :WeeklyRecurringEvent .
+
+
+###  https://w3id.org/citydata/part1/v1/YearlyRecurringEventShape
+:YearlyRecurringEventShape rdf:type sh:NodeShape ;
+                           sh:property [ sh:class time:GeneralDateTimeDescription ;
+                                         sh:node :ExactlyOneShape ;
+                                         sh:path :onDateTimeDescription
+                                       ] ;
+                           sh:targetClass :YearlyRecurringEvent .

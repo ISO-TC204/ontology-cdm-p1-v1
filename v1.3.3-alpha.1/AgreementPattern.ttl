@@ -1,0 +1,236 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/citydata/part1/v1/> .
+
+<https://w3id.org/citydata/part1/v1/AgreementPattern> rdf:type owl:Ontology ;
+                                                       owl:imports :AgentPattern ;
+                                                       cc:license "http://creativecommons.org/licenses/by/4.0/" ;
+                                                       dcterms:alternative "CDM Agreement Pattern" ;
+                                                       dcterms:creator "Kenneth Vaughn" ,
+                                                                       "Mark Fox" ,
+                                                                       "Megan Katsumi" ;
+                                                       dcterms:modified "2026-02-12"^^xsd:date ;
+                                                       dcterms:title "Information technology - City data model - Part 1: Foundation level concepts - Agreement Pattern" ;
+                                                       vann:preferredNamespacePrefix "cdm1" ;
+                                                       vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+                                                       rdfs:comment "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023." ;
+                                                       owl:priorVersion <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement/> ;
+                                                       owl:versionIRI <https://w3id.org/citydata/part1/v1/AgreementPattern/r3.0/> ;
+                                                       owl:versionInfo "1.3.0" ;
+                                                       skos:definition "This ontology specifies the foundation-level concepts related to the agreement pattern of the city data model." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/AgreementObjectProperty
+:AgreementObjectProperty rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :FoundationalCdmObjectProperty ;
+                         skos:definition "Added for organizational purposes, to identify all agreement object properties defined in the City Data Model." .
+
+
+###  https://w3id.org/citydata/part1/v1/agentInvolvedIn
+:agentInvolvedIn rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :AgreementObjectProperty ;
+                 owl:inverseOf :involvesAgent .
+
+
+###  https://w3id.org/citydata/part1/v1/commitsToActivity
+:commitsToActivity rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :ActivityObjectProperty ;
+                   rdfs:domain :AtomicAgreement ;
+                   rdfs:range :Activity ;
+                   skos:definition "A commitment to some activity" .
+
+
+###  https://w3id.org/citydata/part1/v1/establishedOn
+:establishedOn rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :AgreementObjectProperty ;
+               rdfs:domain :Agreement ;
+               rdfs:range time:Instant ;
+               skos:definition "Specifies the Instant of time at which the Agreement was created." .
+
+
+###  https://w3id.org/citydata/part1/v1/hasClaim
+:hasClaim rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :agentInvolvedIn ;
+          rdfs:range :AtomicAgreement ;
+          skos:definition "Indicates that an Agent is the beneficiary of an Activity fulfilled by another Agent in the Agreement (i.e., the Agent with the duty to fulfil the Activity), e.g. payment of wages, provision of services." .
+
+
+###  https://w3id.org/citydata/part1/v1/hasDuty
+:hasDuty rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :agentInvolvedIn ;
+         rdfs:range :AtomicAgreement ;
+         skos:definition "Indicates that an Agent is required to fulfil the described Activity." .
+
+
+###  https://w3id.org/citydata/part1/v1/hasNoClaim
+:hasNoClaim rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :agentInvolvedIn ;
+            rdfs:range :AtomicAgreement ;
+            skos:definition "Indicates that an Agent has no claim on (i.e. has no right to the described Activity)." .
+
+
+###  https://w3id.org/citydata/part1/v1/hasPrivilege
+:hasPrivilege rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :agentInvolvedIn ;
+              rdfs:range :AtomicAgreement ;
+              skos:definition "Indicates that an Agent may but is not required to fulfil the described Activity." .
+
+
+###  https://w3id.org/citydata/part1/v1/hasSubAgreement
+:hasSubAgreement rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :AgreementObjectProperty ;
+                 rdfs:domain :Agreement ;
+                 rdfs:range :Agreement ;
+                 skos:definition "Identifies two or more Agreements that comprise the Agreement." .
+
+
+###  https://w3id.org/citydata/part1/v1/involvesAgent
+:involvesAgent rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :AgreementObjectProperty ;
+               rdfs:domain :Agreement ;
+               rdfs:range :Agent ;
+               skos:definition "Identifies the Agents that are party to the Agreement." .
+
+
+###  https://w3id.org/citydata/part1/v1/validFor
+:validFor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :AgreementObjectProperty ;
+          rdfs:range time:Interval ;
+          skos:definition "Specifies the time Interval during which the Thing is valid or in force." .
+
+
+###  https://w3id.org/citydata/part1/v1/validIn
+:validIn rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :AgreementObjectProperty ;
+         rdfs:range :Location ;
+         skos:definition "Identifies the location where the Thing is valid." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf :AgreementThing ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasClaim ;
+                         owl:allValuesFrom :AtomicAgreement
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasDuty ;
+                         owl:allValuesFrom :AtomicAgreement
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasNoClaim ;
+                         owl:allValuesFrom :AtomicAgreement
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasPrivilege ;
+                         owl:allValuesFrom :AtomicAgreement
+                       ] ;
+       rdfs:comment "The base concept of Agent is defined in https://w3id.org/citydata/part1/v1/Agent." .
+
+
+###  https://w3id.org/citydata/part1/v1/Agreement
+:Agreement rdf:type owl:Class ;
+           rdfs:subClassOf :AgreementThing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :establishedOn ;
+                             owl:allValuesFrom time:Instant
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :validFor ;
+                             owl:allValuesFrom time:Interval
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :validIn ;
+                             owl:allValuesFrom :Location
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :involvesAgent ;
+                             owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Agent
+                           ] ;
+           skos:definition "An agreement exists between two or more agents. It is established at some point in time and it may be considered valid only in some Location and/or for some interval in time. An agreement may be defined at varying levels of detail, this is supported with the introduction of the ComplexAgreement and AtomicAgreement class. Finally, agreements involve some specification of rights or commitments of the involved parties. This is represented as a relationship between the involved Agent and a particular activity. " .
+
+
+###  https://w3id.org/citydata/part1/v1/AgreementThing
+:AgreementThing rdf:type owl:Class ;
+                rdfs:subClassOf :FoundationalCdmThing ;
+                skos:definition "Added for organizational purposes, to identify all classes defined in the Agreement pattern." .
+
+
+###  https://w3id.org/citydata/part1/v1/AtomicAgreement
+:AtomicAgreement rdf:type owl:Class ;
+                 rdfs:subClassOf :Agreement ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf :hasClaim
+                                   ] ;
+                                   owl:allValuesFrom :Agent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf :hasDuty
+                                   ] ;
+                                   owl:allValuesFrom :Agent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf :hasNoClaim
+                                   ] ;
+                                   owl:allValuesFrom :Agent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf :hasPrivilege
+                                   ] ;
+                                   owl:allValuesFrom :Agent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :commitsToActivity ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Activity
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSubAgreement ;
+                                   owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Agreement
+                                 ] ;
+                 owl:disjointWith :ComplexAgreement ;
+                 rdfs:label "Atomic Agreement"@en ;
+                 skos:definition "An atomic agreement is a simple agreement that cannot be further decomposed into sub-agreements. It is a subclass of Agreement and specifies the “essence” of an agreement.  In particular it identifies how agents participating in the agreement are involved: whether they have a claim, duty, no-claim or privilege with respect to some activity that is committed to in the agreement." .
+
+
+###  https://w3id.org/citydata/part1/v1/ComplexAgreement
+:ComplexAgreement rdf:type owl:Class ;
+                  rdfs:subClassOf :Agreement ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasSubAgreement ;
+                                    owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Agreement
+                                  ] ;
+                  rdfs:label "Complex Agreement"@en ;
+                  skos:definition "A complex agreement is an agreement that is composed of two or more atomic agreements. It is a subclass of Agreement and specifies the “essence” of a complex agreement.  In particular it identifies how atomic agreements are composed to form a complex agreement." .
+
+
+###  https://w3id.org/citydata/part1/v1/ConjunctiveAgreement
+:ConjunctiveAgreement rdf:type owl:Class ;
+                      rdfs:subClassOf :ComplexAgreement ;
+                      owl:disjointWith :DisjunctiveAgreement ;
+                      skos:definition "A conjunctive agreement is a complex agreement where all sub-agreements must be satisfied for the overall agreement to hold." .
+
+
+###  https://w3id.org/citydata/part1/v1/DisjunctiveAgreement
+:DisjunctiveAgreement rdf:type owl:Class ;
+                      rdfs:subClassOf :ComplexAgreement ;
+                      skos:definition "A disjunctive agreement is a complex agreement where at least one sub-agreement must be satisfied for the overall agreement to hold." .

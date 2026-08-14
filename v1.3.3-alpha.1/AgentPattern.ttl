@@ -1,0 +1,85 @@
+@prefix : <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/citydata/part1/v1/> .
+
+<https://w3id.org/citydata/part1/v1/AgentPattern> rdf:type owl:Ontology ;
+                                                   owl:imports :GenericPropertiesPattern ,
+                                                               :ResourcePattern ;
+                                                   cc:license "http://creativecommons.org/licenses/by/4.0/" ;
+                                                   dcterms:alternative "CDM Agent Pattern" ;
+                                                   dcterms:creator "Kenneth Vaughn" ,
+                                                                   "Mark Fox" ,
+                                                                   "Megan Katsumi" ;
+                                                   dcterms:modified "2026-02-12"^^xsd:date ;
+                                                   dcterms:title "Information technology - City data model - Part 1: Foundation level concepts - Agent Pattern" ;
+                                                   vann:preferredNamespacePrefix "cdm1" ;
+                                                   vann:preferredNamespaceUri "https://w3id.org/citydata/part1/v1/" ;
+                                                   rdfs:comment "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023." ;
+                                                   owl:priorVersion <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent/> ;
+                                                   owl:versionIRI <https://w3id.org/citydata/part1/v1/AgentPattern/r3.0/> ;
+                                                   owl:versionInfo "1.3.0" ;
+                                                   skos:definition "This ontology specifies the foundation-level concepts related to the agent pattern of the city data model." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/AgentObjectProperty
+:AgentObjectProperty rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :FoundationalCdmObjectProperty ;
+                     skos:definition "Added for organizational purposes, to identify all agent object properties defined in the City Data Model." .
+
+
+###  https://w3id.org/citydata/part1/v1/performedBy
+:performedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :AgentObjectProperty ;
+             owl:inverseOf :performs .
+
+
+###  https://w3id.org/citydata/part1/v1/performs
+:performs rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :AgentObjectProperty ;
+          rdfs:domain :Agent ;
+          rdfs:range :Activity ;
+          skos:definition "Identifies activities that the Agent performs." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/citydata/part1/v1/Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf prov:Agent ,
+                       foaf:Agent ,
+                       :AgentThing ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :performs ;
+                         owl:allValuesFrom :Activity
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :resourceOf ;
+                         owl:allValuesFrom :TerminalResourceState
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasName ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ;
+       skos:definition "An Agent affects, is affected by, or performs some Activity(s). An Agent may be a Person or Organization, but not Software or a Mechanical Device (at this time). An Agent can be a member of an organization and hold zero or more posts in an organization." .
+
+
+###  https://w3id.org/citydata/part1/v1/AgentThing
+:AgentThing rdf:type owl:Class ;
+            rdfs:subClassOf :FoundationalCdmThing ;
+            skos:definition "Added for organizational purposes, to identify all classes defined in the Agent pattern." .
